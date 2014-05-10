@@ -1,0 +1,22 @@
+
+aux_source_directory(. SRC_LIST)
+
+include_directories(. "${PROJECT_SOURCE_DIR}/src/cxsparse")
+
+foreach(test ${SRC_LIST} )
+    string( REPLACE ".c" "" executable ${test} )
+    if("${test}" MATCHES "cs_di_*")
+      add_executable( ${executable} ${test} )
+      target_link_libraries( ${executable} CXSPARSE_DI)
+    elseif("${test}" MATCHES "cs_dl_*")
+      add_executable( ${executable} ${test} )
+      target_link_libraries( ${executable} CXSPARSE_DL)
+    elseif("${test}" MATCHES "cs_ci_*")
+      add_executable( ${executable} ${test} )
+      set_target_properties(${executable} PROPERTIES COMPILE_FLAGS "-DCS_COMPLEX")
+      target_link_libraries( ${executable} CXSPARSE_CI)
+    elseif("${test}" MATCHES "cs_cl_*")
+      add_executable( ${executable} ${test} )
+      target_link_libraries( ${executable} CXSPARSE_CL)
+    endif("${test}" MATCHES "cs_di_*")
+endforeach (test)
