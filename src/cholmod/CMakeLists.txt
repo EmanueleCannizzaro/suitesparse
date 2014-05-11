@@ -1,4 +1,6 @@
 
+PROJECT(cholmod)
+
 #------------------------------------------------------------------------------
 # CHOLMOD configuration
 #------------------------------------------------------------------------------
@@ -39,7 +41,7 @@
 ##CHOLMOD_CONFIG = $(GPU_CONFIG)
 
 # uncomment this line to compile CHOLMOD without METIS:
-# CHOLMOD_CONFIG = -DNPARTITION
+# cholmod_CONFIG = -DNPARTITION
 
 #------------------------------------------------------------------------------
 # METIS, optionally used by CHOLMOD
@@ -66,7 +68,36 @@
 # GPU_BLAS_PATH=/usr/local/cuda
 # GPU_CONFIG=-DGPU_BLAS -I$(GPU_BLAS_PATH)/include
 
+#(__sun) || defined (MSOL2) || defined (ARCH_SOL2)
+#(__MINGW32__) || defined (__MINGW32__)
+#(CHOLMOD_SOL2) && !defined(NSUNPERF) && defined(BLAS64)
+#SUN64
+#(LONGBLAS) || defined (BLAS64)
+##GPU_BLAS
+#NCAMD
+#NCHECK
+#NCHOLESKY
+#NGPL
+#NMATRIXOPS
+#NMODIFY
+#NPARTITION
+#NSUPERNODAL
+#CHOLMOD_WINDOWS
+#NDEBUG
+#NPRINT
+#DLONG
+#DINT
+#NLARGEFILE
+#PATTERN
+#NCONJUGATE
+
+set(SUITESPARSE_CHOLMOD_VERSION_MAJOR 2)
+set(SUITESPARSE_CHOLMOD_VERSION_MINOR 1)
+set(SUITESPARSE_CHOLMOD_VERSION_PATCH 2)
+
 include_directories(.)
+
+FILE(GLOB HEADER_FILES "*.h")
 
 add_subdirectory (core)
 add_subdirectory (blas)
@@ -76,9 +107,10 @@ add_subdirectory (modify)
 add_subdirectory (partition)
 add_subdirectory (supernodal)
 
-add_library(CHOLMOD SHARED "${PROJECT_SOURCE_DIR}/src/SuiteSparse_config.c")
-target_link_libraries(CHOLMOD CHOLMOD_CORE CHOLMOD_BLAS CHOLMOD_CHOLESKY CHOLMOD_CHECK CHOLMOD_MODIFY CHOLMOD_PARTITION CHOLMOD_SUPERNODAL CCOLAMD CAMD AMD m)
+add_library(cholmod_di SHARED "../SuiteSparse_config.c")
+set_target_properties(cholmod_di PROPERTIES COMPILE_FLAGS "-DDINT=ON -DDLONG=OFF")
+target_link_libraries(cholmod_di cholmod_core_di cholmod_blas_di cholmod_cholesky_di cholmod_check_di cholmod_modify_di cholmod_partition_di cholmod_supernodal_di ccolamd_di camd_di amd_di m)
 
-add_library(CHOLMOD_L SHARED "${PROJECT_SOURCE_DIR}/src/SuiteSparse_config.c")
-set_target_properties(CHOLMOD_L PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
-target_link_libraries(CHOLMOD_L CHOLMOD_CORE_L CHOLMOD_BLAS_L CHOLMOD_CHOLESKY_L CHOLMOD_CHECK_L CHOLMOD_MODIFY_L CHOLMOD_PARTITION_L CHOLMOD_SUPERNODAL_L CCOLAMD_L CAMD_L AMD_L m)
+add_library(cholmod_dl SHARED "../SuiteSparse_config.c")
+set_target_properties(cholmod_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON -DDINT=OFF")
+target_link_libraries(cholmod_dl cholmod_core_dl cholmod_blas_dl cholmod_cholesky_dl cholmod_check_dl cholmod_modify_dl cholmod_partition_dl cholmod_supernodal_dl ccolamd_dl camd_dl amd_dl m)

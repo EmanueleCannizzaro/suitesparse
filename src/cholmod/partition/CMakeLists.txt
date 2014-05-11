@@ -1,15 +1,18 @@
 
-aux_source_directory(. SRC_LIST)
-
-include_directories(.)
 include_directories(..)
-include_directories(. "${PROJECT_SOURCE_DIR}/src/camd")
-include_directories(. "${PROJECT_SOURCE_DIR}/src/ccolamd")
-include_directories(. "../../../../metis-5.1.0/include")
+include_directories("../../camd")
+include_directories("../../ccolamd")
+include_directories("../../../../metis/include")
 
-add_library(CHOLMOD_PARTITION SHARED ${SRC_LIST})
-target_link_libraries(CHOLMOD_PARTITION "${PROJECT_SOURCE_DIR}/lib/libmetis.so" "${PROJECT_SOURCE_DIR}/lib/libGKlib.so" CAMD CCOLAMD m)
+FILE(GLOB HEADER_FILES "*.h")
+FILE(GLOB SRC_LIST "*.c")
 
-add_library(CHOLMOD_PARTITION_L SHARED ${SRC_LIST})
-set_target_properties(CHOLMOD_PARTITION_L PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
-target_link_libraries(CHOLMOD_PARTITION_L "${PROJECT_SOURCE_DIR}/lib/libmetis.so" "${PROJECT_SOURCE_DIR}/lib/libGKlib.so" CAMD_L CCOLAMD_L m)
+add_library(cholmod_partition_di SHARED ${SRC_LIST} ${HEADER_FILES})
+target_link_libraries(cholmod_partition_di "${suitesparse_SOURCE_DIR}/lib/libmetis.so" "${suitesparse_SOURCE_DIR}/lib/libGKlib.so" camd_di ccolamd_di m)
+
+add_library(cholmod_partition_dl SHARED ${SRC_LIST} ${HEADER_FILES})
+set_target_properties(cholmod_partition_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
+target_link_libraries(cholmod_partition_dl "${suitesparse_SOURCE_DIR}/lib/libmetis.so" "${suitesparse_SOURCE_DIR}/lib/libGKlib.so" camd_dl ccolamd_dl m)
+
+add_dependencies(cholmod_partition_di cholmod_core_di)
+add_dependencies(cholmod_partition_dl cholmod_core_dl)

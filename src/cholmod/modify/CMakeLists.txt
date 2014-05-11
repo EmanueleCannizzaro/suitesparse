@@ -1,12 +1,17 @@
 
 aux_source_directory(. SRC_LIST)
-
-include_directories(.)
+include_directories(${SRC_LIST})
 include_directories(..)
 
-add_library(CHOLMOD_MODIFY SHARED ${SRC_LIST})
-target_link_libraries(CHOLMOD_MODIFY m)
+set(HEADER_FILES )
+#set(HEADER_FILES *.h )
 
-add_library(CHOLMOD_MODIFY_L SHARED ${SRC_LIST})
-set_target_properties(CHOLMOD_MODIFY_L PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
-target_link_libraries(CHOLMOD_MODIFY_L m)
+add_library(cholmod_modify_di SHARED ${SRC_LIST} ${HEADER_FILES})
+target_link_libraries(cholmod_modify_di m)
+
+add_library(cholmod_modify_dl SHARED ${SRC_LIST} ${HEADER_FILES})
+set_target_properties(cholmod_modify_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
+target_link_libraries(cholmod_modify_dl m)
+
+add_dependencies(cholmod_modify_di cholmod_core_di)
+add_dependencies(cholmod_modify_dl cholmod_core_dl)

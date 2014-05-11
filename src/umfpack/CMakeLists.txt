@@ -1,4 +1,6 @@
 
+PROJECT(umfpack)
+
 #------------------------------------------------------------------------------
 # UMFPACK configuration:
 #------------------------------------------------------------------------------
@@ -20,15 +22,30 @@
 # uncomment this line to compile UMFPACK without CHOLMOD:
 # UMFPACK_CONFIG = -DNCHOLMOD
 
-aux_source_directory(. SRC_LIST)
+set(SUITESPARSE_UMFPACK_VERSION_MAJOR 5)
+set(SUITESPARSE_UMFPACK_VERSION_MINOR 6)
+set(SUITESPARSE_UMFPACK_VERSION_PATCH 2)
 
-include_directories(.)
-include_directories(. "${PROJECT_SOURCE_DIR}/src/amd")
-include_directories(. "${PROJECT_SOURCE_DIR}/src/cholmod")
+include_directories(./)
+include_directories("../amd")
+include_directories("../cholmod")
 
-add_library(UMFPACK SHARED ${SRC_LIST})
-target_link_libraries(UMFPACK m)
 
-add_library(UMFPACK_L SHARED ${SRC_LIST})
-set_target_properties(UMFPACK_L PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
-target_link_libraries(UMFPACK_L m)
+FILE(GLOB HEADER_FILES "*.h")
+FILE(GLOB SRC_LIST "*.c")
+
+add_library(umfpack_di SHARED ${SRC_LIST} ${HEADER_FILES})
+set_target_properties(umfpack_di PROPERTIES COMPILE_FLAGS "-DDINT=ON")
+target_link_libraries(umfpack_di m)
+
+add_library(umfpack_dl SHARED ${SRC_LIST} ${HEADER_FILES})
+set_target_properties(umfpack_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
+target_link_libraries(umfpack_dl m)
+
+add_library(umfpack_zi SHARED ${SRC_LIST} ${HEADER_FILES})
+set_target_properties(umfpack_zi PROPERTIES COMPILE_FLAGS "-DZINT=ON")
+target_link_libraries(umfpack_zi m)
+
+add_library(umfpack_zl SHARED ${SRC_LIST} ${HEADER_FILES})
+set_target_properties(umfpack_zl PROPERTIES COMPILE_FLAGS "-DZLONG=ON")
+target_link_libraries(umfpack_zl m)

@@ -1,4 +1,8 @@
-SuiteSparse: A Suite of Sparse matrix packages authored or co-authored by Tim Davis (http://www.cise.ufl.edu/research/sparse/SuiteSparse/). It consists of:
+suitesparse
+===========
+
+SuiteSparse: A Suite of Sparse matrix packages authored or co-authored by Tim Davis (http://www.cise.ufl.edu/research/sparse/SuiteSparse/). 
+It consists of:
 
     SuiteSparseQR multithreaded multifrontal sparse QR factorization
     AMD: approximate minimum degree
@@ -14,3 +18,4 @@ SuiteSparse: A Suite of Sparse matrix packages authored or co-authored by Tim Da
     RBio: read/write matrices in Rutherford/Boeing format
     BTF: permutation to block triangular form
     KLU: sparse LU factorization, for circuit simulation 
+

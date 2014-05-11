@@ -1,11 +1,28 @@
 
-aux_source_directory(. SRC_LIST)
+PROJECT(camd)
 
-include_directories(.)
+set(SUITESPARSE_CAMD_VERSION_MAJOR 2)
+set(SUITESPARSE_CAMD_VERSION_MINOR 3)
+set(SUITESPARSE_CAMD_VERSION_PATCH 1)
 
-add_library(CAMD SHARED ${SRC_LIST})
-target_link_libraries(CAMD m)
 
-add_library(CAMD_L SHARED ${SRC_LIST})
-set_target_properties(CAMD_L PROPERTIES COMPILE_FLAGS "-DDLONG=1")
-target_link_libraries(CAMD_L m)
+FILE(GLOB HEADER_FILES "*.h")
+FILE(GLOB SRC_LIST "*.c")
+
+
+
+add_library(camd_di SHARED ${SRC_LIST} ${HEADER_FILES})
+set_target_properties(camd_di PROPERTIES COMPILE_FLAGS "-DDLONG=OFF -DZLONG=OFF")
+target_link_libraries(camd_di m)
+
+add_library(camd_dl SHARED ${SRC_LIST} ${HEADER_FILES})
+set_target_properties(camd_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON -DZLONG=OFF")
+target_link_libraries(camd_dl m)
+
+add_library(camd_zi SHARED ${SRC_LIST} ${HEADER_FILES})
+set_target_properties(camd_zi PROPERTIES COMPILE_FLAGS "-DZLONG=ON -DDLONG=OFF")
+target_link_libraries(camd_zi m)
+
+add_library(camd_zl SHARED ${SRC_LIST} ${HEADER_FILES})
+set_target_properties(camd_zl PROPERTIES COMPILE_FLAGS "-DZLONG=ON -DDLONG=ON")
+target_link_libraries(camd_zl m)
