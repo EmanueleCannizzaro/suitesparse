@@ -3,6 +3,7 @@
 #  http://code.google.com/p/suitesparse-metis-for-windows/
 # Created by Jose Luis Blanco (University of Almeria) 2013-2014
 # Updated by jesnault (jerome.esnault@inria.fr) 2014-01-21
+# Updated by Emanuele Cannizzaro () 2014-05-21
 # -----------------------------------------------------------------
 
 project(suitesparse)
@@ -185,6 +186,9 @@ set(ENV{G_MESSAGES_DEBUG} all)
 
 
 add_subdirectory(src)
+
+include(CTest)
+enable_testing()
 add_subdirectory(test)
 #add_subdirectory(doc)
 

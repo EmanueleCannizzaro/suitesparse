@@ -2,20 +2,6 @@
 # LDL Demo Makefile
 #-------------------------------------------------------------------------------
 
-default: all
-
-include ../../SuiteSparse_config/SuiteSparse_config.mk
-
-I = -I../../SuiteSparse_config -I../Include
-
-C = $(CC) $(CF) $(I)
-
-all: ldlsimple ldllsimple ldlmain ldllmain ldlamd ldllamd
-
-library:
-	( cd ../../AMD ; $(MAKE) library )
-	( cd ../Lib ; $(MAKE) )
-
 #-------------------------------------------------------------------------------
 # stand-alone C programs:
 #-------------------------------------------------------------------------------
@@ -66,18 +52,3 @@ run:
 	- ./ldllamd > my_ldllamd.out
 	- diff ldllamd.out my_ldllamd.out
 
-
-#-------------------------------------------------------------------------------
-# clean-up:
-#-------------------------------------------------------------------------------
-
-distclean: purge
-
-purge: clean
-	- $(RM) ldlmain ldllmain ldlsimple ldllsimple ldlamd ldllamd
-	- $(RM) my_ldlmain.out my_ldlamd.out my_ldlsimple.out my_ldllamd.out
-	- $(RM) my_ldllsimple.out my_ldllmain.out
-	- $(RM) -r *.dSYM
-
-clean:
-	- $(RM) $(CLEAN)

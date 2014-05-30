@@ -5,16 +5,6 @@
 # UMFPACK Copyright (c) Timothy A. Davis.
 # All Rights Reserved.  See ../Doc/License for License.
 
-default: libs run
-
-all: libs run hb
-
-all32: libs run hb fortran
-
-all64: libs run hb fortran64
-
-include ../../SuiteSparse_config/SuiteSparse_config.mk
-
 #-------------------------------------------------------------------------------
 # the optional Partition module requires METIS, CAMD, and CCOLAMD
 I_WITH_PARTITION = 
@@ -58,42 +48,10 @@ INC = ../Include/umfpack.h ../../AMD/Include/amd.h ../../SuiteSparse_config/Suit
 
 LIBS = $(BLAS) $(XERBLA) $(LIB) $(LIB_WITH_CHOLMOD) $(LIB_WITH_PARTITION)
 
-../Lib/libumfpack.a:
-	( cd ../Lib ; $(MAKE) )
-
-../../AMD/Lib/libamd.a:
-	( cd ../../AMD ; $(MAKE) library )
-
-../../SuiteSparse_config/libsuitesparseconfig.a:
-	( cd ../../SuiteSparse_config ; $(MAKE) library )
-
-../../CHOLMOD/Lib/libcholmod.a:
-	- ( cd ../../CHOLMOD && $(MAKE) library )
-
-../../COLAMD/Lib/libcolamd.a:
-	- ( cd ../../COLAMD && $(MAKE) library )
-
-
-../../CCOLAMD/Lib/libccolamd.a:
-	- ( cd ../../CCOLAMD && $(MAKE) library )
-
-../../CAMD/Lib/libcamd.a:
-	- ( cd ../../CAMD && $(MAKE) library )
-
-$(METIS):
-	( cd $(METIS_PATH) && $(MAKE) )
-
-UMFPACK = ../Lib/libumfpack.a ../../AMD/Lib/libamd.a \
-    ../../SuiteSparse_config/libsuitesparseconfig.a \
-    $(LIB_WITH_CHOLMOD) $(LIB_WITH_PARTITION)
-
-libs: $(UMFPACK)
 
 #-------------------------------------------------------------------------------
 # Create the demo programs, run them, and compare the output
 #-------------------------------------------------------------------------------
-
-dist: umfpack_di_demo.c umfpack_dl_demo.c umfpack_zi_demo.c umfpack_zl_demo.c
 
 umfpack_simple: umfpack_simple.c $(INC) $(UMFPACK)
 	$(C) -o umfpack_simple umfpack_simple.c $(UMFPACK) $(LIBS)
@@ -219,21 +177,3 @@ umf4_f77wrapper64.o: umf4_f77wrapper.c $(INC)
 
 umf4_f77zwrapper64.o: umf4_f77zwrapper.c $(INC)
 	$(C) -DZLONG -c umf4_f77zwrapper.c -o umf4_f77zwrapper64.o
-
-#-------------------------------------------------------------------------------
-# Remove all but the files in the original distribution
-#-------------------------------------------------------------------------------
-
-purge: clean
-	- $(RM) umfpack_simple a.out
-	- $(RM) umfpack_di_demo my_umfpack_di_demo.out
-	- $(RM) umfpack_dl_demo my_umfpack_dl_demo.out
-	- $(RM) umfpack_zi_demo my_umfpack_zi_demo.out
-	- $(RM) umfpack_zl_demo my_umfpack_zl_demo.out
-	- $(RM) umf4hb umf4zhb *.umf my_umf4hb.out
-	- $(RM) umf4hb64 my_umf4hb64.out my_umf4zhb.out
-	- $(RM) umf4 readhb readhb_nozeros readhb_size tmp/*
-	- $(RM) -r *.dSYM
-
-clean:
-	- $(RM) $(CLEAN)

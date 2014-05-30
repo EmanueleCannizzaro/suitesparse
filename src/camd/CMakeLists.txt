@@ -12,15 +12,14 @@ FILE(GLOB SRC_LIST "*.c")
 
 
 add_library(camd_di SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(camd_di PROPERTIES COMPILE_FLAGS "-DDLONG=OFF -DZLONG=OFF")
 target_link_libraries(camd_di m)
 
 add_library(camd_dl SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(camd_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON -DZLONG=OFF")
+set_target_properties(camd_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
 target_link_libraries(camd_dl m)
 
 add_library(camd_zi SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(camd_zi PROPERTIES COMPILE_FLAGS "-DZLONG=ON -DDLONG=OFF")
+set_target_properties(camd_zi PROPERTIES COMPILE_FLAGS "-DZLONG=ON")
 target_link_libraries(camd_zi m)
 
 add_library(camd_zl SHARED ${SRC_LIST} ${HEADER_FILES})
