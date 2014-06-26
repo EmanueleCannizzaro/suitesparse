@@ -20,7 +20,8 @@ cmake_minimum_required(VERSION 2.8.10)
 ##include(checkGetSuiteSparse.cmake)
 ##set(CMAKE_BUILD_TYPE Debug)
 
-include_directories ("${PROJECT_SOURCE_DIR}/src/SuiteSparse_config")
+##include_directories ("SuiteSparse_config")
+include_directories (".")
 
 option(BUILD_SHARED ON)
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
@@ -184,13 +185,23 @@ set(ENV{G_MESSAGES_DEBUG} all)
 # stop the application program.  This is optional.
 # XERBLA = ../../SuiteSparse_config/xerbla/libcerbla.a 
 
-
-add_subdirectory(src)
-
 include(CTest)
 enable_testing()
-add_subdirectory(test)
-#add_subdirectory(doc)
+
+add_subdirectory(amd)
+add_subdirectory(colamd)
+add_subdirectory(camd)
+add_subdirectory(ccolamd)
+#add_subdirectory(csparse)
+#add_subdirectory(cxsparse)
+#add_subdirectory(btf)
+#add_subdirectory(cholmod)
+#add_subdirectory(klu)
+#add_subdirectory(ldl)
+#add_subdirectory(rbio)
+#add_subdirectory(spqr)
+#add_subdirectory(xerbla)
+#add_subdirectory(umfpack)
 
 
 #INSTALL_LIB = /usr/local/lib
