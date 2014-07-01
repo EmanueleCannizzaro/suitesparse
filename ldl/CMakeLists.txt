@@ -6,20 +6,20 @@
 # Updated by Emanuele Cannizzaro () 2014-05-21
 # -----------------------------------------------------------------
 
-PROJECT(colamd)
+PROJECT(ldl)
 
-option(COLAMD_HAS_VERSION_FUNCTION OFF)
-option(COLAMD_DATE "Jun 20, 2012")
+option(LDL_HAS_VERSION_FUNCTION OFF)
+option(LDL_DATE "Jun 20, 2012")
 
-set(COLAMD_VERSION_MAJOR 2)
-set(COLAMD_VERSION_MINOR 8)
+set(LDL_VERSION_MAJOR 2)
+set(LDL_VERSION_MINOR 1)
 set(OLAMD_VERSION_PATCH 0)
 
-set(COLAMD_MAIN_VERSION 2)
-set(COLAMD_SUB_VERSION 8)
-set(COLAMD_SUBSUB_VERSION 0)
-set(COLAMD_VERSION ${COLAMD_MAIN_VERSION} * 1000 + ${COLAMD_SUB_VERSION})
+set(LDL_MAIN_VERSION 2)
+set(LDL_SUB_VERSION 8)
+set(LDL_SUBSUB_VERSION 0)
+set(LDL_VERSION ${LDL_MAIN_VERSION} * 1000 + ${LDL_SUB_VERSION})
 
 add_subdirectory(src)
-add_subdirectory(test)
+#add_subdirectory(test)
 add_subdirectory(doc)

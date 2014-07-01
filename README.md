@@ -1,1 +1,1 @@
-doc/README.txt
+README.txt

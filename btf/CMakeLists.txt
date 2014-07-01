@@ -18,4 +18,6 @@ set(BTF_SUBSUB_VERSION 0)
 set(BTF_VERSION ${BTF_MAIN_VERSION} * 1000 + ${BTF_SUB_VERSION})
 
 add_subdirectory(src)
+add_library(btf SHARED $<TARGET_OBJECTS:btf_di> $<TARGET_OBJECTS:btf_dl>)
+target_link_libraries(btf m)
 add_subdirectory(doc)

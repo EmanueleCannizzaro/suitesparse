@@ -20,12 +20,12 @@ foreach(test ${SRC_LIST} )
                      COMMAND "${executable}"
                      ARGS > "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out")
     add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out.diff"
-                     DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out" "${PROJECT_SOURCE_DIR}/data/${executable}.out"
+                     DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out" "${PROJECT_SOURCE_DIR}/validation/${executable}.out"
                      COMMAND diff
-                     ARGS "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out" "${PROJECT_SOURCE_DIR}/data/${executable}.out" > "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out.diff")
+                     ARGS "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out" "${PROJECT_SOURCE_DIR}/validation/${executable}.out" > "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out.diff")
     add_custom_target(my${executable} ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out.diff")
     add_test(NAME ${executable}
             WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-            COMMAND diff "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out" "${PROJECT_SOURCE_DIR}/data/${executable}.out")
+            COMMAND diff "${CMAKE_CURRENT_BINARY_DIR}/${executable}.out" "${PROJECT_SOURCE_DIR}/validation/${executable}.out")
   endif("${test}" MATCHES ".c$")
 endforeach (test)

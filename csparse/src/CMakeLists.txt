@@ -1,15 +1,15 @@
 
-PROJECT(csparse)
+file(GLOB HEADER_FILES "*.h")
+file(GLOB SRC_LIST "*.c")
 
-set(SUITESPARSE_CSPARSE_VERSION_MAJOR 3)
-set(SUITESPARSE_CSPARSE_VERSION_MINOR 1)
-set(SUITESPARSE_CSPARSE_VERSION_PATCH 2)
+add_library(csparse_di SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+#add_library(amd_dl SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+#add_library(amd_zi SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+#add_library(amd_zl SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
 
-aux_source_directory(. SRC_LIST)
-include_directories(${SRC_LIST})
-
-set(HEADER_FILES cs.h)
-#set(HEADER_FILES *.h )
-
-add_library(csparse SHARED ${SRC_LIST})
-target_link_libraries(csparse m)
+IF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
+  set_target_properties(csparse_di PROPERTIES COMPILE_FLAGS "-fPIC")
+  #set_target_properties(amd_dl PROPERTIES COMPILE_FLAGS "-fPIC -DDLONG=ON")
+  #set_target_properties(amd_zi PROPERTIES COMPILE_FLAGS "-fPIC -DZLONG=ON")
+  #set_target_properties(amd_zl PROPERTIES COMPILE_FLAGS "-fPIC -DZLONG=ON -DDLONG=ON")
+ENDIF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )

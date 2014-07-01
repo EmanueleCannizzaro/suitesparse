@@ -1,0 +1,11 @@
+
+--- Matrix: 0-by-0, nnz: 0 (sym: 1: nnz 0), norm: 0.00e+00
+blocks: 0 singletons: 0 structural rank: 0
+QR   natural    time:     0.00 resid: 0.00e+00
+QR   amd(A'*A)  time:     0.00 resid: 0.00e+00
+LU   natural    time:     0.00 resid: 0.00e+00
+LU   amd(A+A')  time:     0.00 resid: 0.00e+00
+LU   amd(S'*S)  time:     0.00 resid: 0.00e+00
+LU   amd(A'*A)  time:     0.00 resid: 0.00e+00
+Chol natural    time:     0.00 resid: 0.00e+00
+Chol amd(A+A')  time:     0.00 resid: 0.00e+00

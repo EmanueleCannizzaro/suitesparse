@@ -1,25 +1,16 @@
-PROJECT(ldl)
-
-
-set(SUITESPARSE_LDL_VERSION_MAJOR 2)
-set(SUITESPARSE_LDL_VERSION_MINOR 1)
-set(SUITESPARSE_LDL_VERSION_PATCH 0)
 
 FILE(GLOB HEADER_FILES "*.h")
 FILE(GLOB SRC_LIST "*.c")
 
 
-add_library(ldl_di SHARED ${SRC_LIST} ${HEADER_FILES})
-target_link_libraries(ldl_di m)
+add_library(ldl_di SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+add_library(ldl_dl SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+#add_library(ldl_ci SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+#add_library(ldl_ci SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
 
-add_library(ldl_dl SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(ldl_dl PROPERTIES COMPILE_FLAGS "-DLDL_LONG=ON")
-target_link_libraries(ldl_dl m)
-
-add_library(ldl_ci SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(ldl_ci PROPERTIES COMPILE_FLAGS "-DZLONG=ON")
-target_link_libraries(ldl_ci m)
-
-add_library(ldl_cl SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(ldl_cl PROPERTIES COMPILE_FLAGS "-DZLONG=ON -DLDL_LONG=ON")
-target_link_libraries(ldl_cl m)
+IF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
+  set_target_properties(ldl_di PROPERTIES COMPILE_FLAGS "-fPIC")
+  set_target_properties(ldl_dl PROPERTIES COMPILE_FLAGS "-fPIC -DDLONG=ON")
+  #set_target_properties(amd_zi PROPERTIES COMPILE_FLAGS "-fPIC -DZLONG=ON")
+  #set_target_properties(amd_zl PROPERTIES COMPILE_FLAGS "-fPIC -DZLONG=ON -DDLONG=ON")
+ENDIF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )

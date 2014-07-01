@@ -1,17 +1,15 @@
 
-aux_source_directory(. SRC_LIST)
-include_directories(${SRC_LIST})
-include_directories(..)
+file(GLOB HEADER_FILES "*.h")
+file(GLOB SRC_LIST "*.c")
 
-set(HEADER_FILES )
-#set(HEADER_FILES *.h )
+add_library(cholmod_supernodal_di SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+add_library(cholmod_supernodal_dl SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
 
-add_library(cholmod_supernodal_di SHARED ${SRC_LIST} ${HEADER_FILES})
-target_link_libraries(cholmod_supernodal_di lapack blas m)
+#add_dependencies(cholmod_supernodal_di cholmod_core_di)
+#add_dependencies(cholmod_supernodal_dl cholmod_core_dl)
 
-add_library(cholmod_supernodal_dl SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(cholmod_supernodal_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
-target_link_libraries(cholmod_supernodal_dl lapack blas m)
+IF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
+  set_target_properties(cholmod_supernodal_di PROPERTIES COMPILE_FLAGS "-fPIC")
+  set_target_properties(cholmod_supernodal_dl PROPERTIES COMPILE_FLAGS "-fPIC -DDLONG=ON")
+ENDIF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
 
-add_dependencies(cholmod_supernodal_di cholmod_core_di)
-add_dependencies(cholmod_supernodal_dl cholmod_core_dl)

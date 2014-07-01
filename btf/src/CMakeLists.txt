@@ -2,18 +2,14 @@
 FILE(GLOB HEADER_FILES "*.h")
 FILE(GLOB SRC_LIST "*.c")
 
+add_library(btf_di SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+add_library(btf_dl SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+#add_library(btf_zi SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+#add_library(btf_zl SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
 
-add_library(btf_di SHARED ${SRC_LIST} ${HEADER_FILES})
-target_link_libraries(btf_di m)
-
-add_library(btf_dl SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(btf_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
-target_link_libraries(btf_dl m)
-
-add_library(btf_zi SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(btf_zi PROPERTIES COMPILE_FLAGS "-DZLONG=ON")
-target_link_libraries(btf_zi m)
-
-add_library(btf_zl SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(btf_zl PROPERTIES COMPILE_FLAGS "-DZLONG=ON -DDLONG=ON")
-target_link_libraries(btf_zl m)
+IF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
+  set_target_properties(btf_di PROPERTIES COMPILE_FLAGS "-fPIC")
+  set_target_properties(btf_dl PROPERTIES COMPILE_FLAGS "-fPIC -DDLONG=ON")
+  #set_target_properties(amd_zi PROPERTIES COMPILE_FLAGS "-fPIC -DZLONG=ON")
+  #set_target_properties(amd_zl PROPERTIES COMPILE_FLAGS "-fPIC -DZLONG=ON -DDLONG=ON")
+ENDIF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )

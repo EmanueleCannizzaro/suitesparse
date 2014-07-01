@@ -1,0 +1,38 @@
+
+--- cs_idemo, size of CS_INT: 4
+
+T:
+CXSparse Version 3.1.2, April 16, 2013.  Copyright (c) Timothy A. Davis, 2006-2013
+triplet: 0-by-0, nzmax: 1 nnz: 0
+
+Treal:
+CXSparse Version 3.1.2, April 16, 2013.  Copyright (c) Timothy A. Davis, 2006-2013
+triplet: 0-by-0, nzmax: 1 nnz: 0
+
+Timag:
+CXSparse Version 3.1.2, April 16, 2013.  Copyright (c) Timothy A. Davis, 2006-2013
+triplet: 0-by-0, nzmax: 1 nnz: 0
+
+A:
+CXSparse Version 3.1.2, April 16, 2013.  Copyright (c) Timothy A. Davis, 2006-2013
+0-by-0, nzmax: 1 nnz: 0, 1-norm: 0
+
+C1 = real(A):
+CXSparse Version 3.1.2, April 16, 2013.  Copyright (c) Timothy A. Davis, 2006-2013
+0-by-0, nzmax: 1 nnz: 0, 1-norm: 0
+
+C2 = imag(A):
+CXSparse Version 3.1.2, April 16, 2013.  Copyright (c) Timothy A. Davis, 2006-2013
+0-by-0, nzmax: 1 nnz: 0, 1-norm: 0
+
+A1:
+CXSparse Version 3.1.2, April 16, 2013.  Copyright (c) Timothy A. Davis, 2006-2013
+0-by-0, nzmax: 1 nnz: 0, 1-norm: 0
+
+A2:
+CXSparse Version 3.1.2, April 16, 2013.  Copyright (c) Timothy A. Davis, 2006-2013
+0-by-0, nzmax: 1 nnz: 0, 1-norm: 0
+
+B = conj(A):
+CXSparse Version 3.1.2, April 16, 2013.  Copyright (c) Timothy A. Davis, 2006-2013
+0-by-0, nzmax: 0 nnz: 0, 1-norm: 0

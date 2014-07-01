@@ -91,25 +91,30 @@ PROJECT(cholmod)
 #PATTERN
 #NCONJUGATE
 
+
+option(CHOLMOD_HAS_VERSION_FUNCTION OFF)
+option(CHOLMOD_DATE "Jun 20, 2012")
+
+set(CHOLMOD_VERSION_MAJOR 2)
+set(CHOLMOD_VERSION_MINOR 3)
+set(CHOLMOD_VERSION_PATCH 1)
+
+set(CHOLMOD_MAIN_VERSION 2)
+set(CHOLMOD_SUB_VERSION 3)
+set(CHOLMOD_SUBSUB_VERSION 1)
+set(CHOLMOD_VERSION ${CHOLMOD_MAIN_VERSION} * 1000 + ${CHOLMOD_SUB_VERSION})
+
 include_directories(.)
 
-FILE(GLOB HEADER_FILES "*.h")
+add_subdirectory(core)
+add_subdirectory(blas)
+add_subdirectory(cholesky)
+add_subdirectory(check)
+add_subdirectory(modify)
+add_subdirectory(partition)
+add_subdirectory(supernodal)
 
-add_subdirectory (core)
-add_subdirectory (blas)
-add_subdirectory (cholesky)
-add_subdirectory (check)
-add_subdirectory (modify)
-add_subdirectory (partition)
-add_subdirectory (supernodal)
-
-add_library(cholmod_di SHARED "../../SuiteSparse_config.c")
-set_target_properties(cholmod_di PROPERTIES COMPILE_FLAGS "-DDINT=ON")
-target_link_libraries(cholmod_di cholmod_core_di cholmod_blas_di cholmod_cholesky_di cholmod_check_di cholmod_modify_di cholmod_partition_di cholmod_supernodal_di ccolamd_di camd_di amd_di m)
-
-add_library(cholmod_dl SHARED "../../SuiteSparse_config.c")
-set_target_properties(cholmod_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
-target_link_libraries(cholmod_dl cholmod_core_dl cholmod_blas_dl cholmod_cholesky_dl cholmod_check_dl cholmod_modify_dl cholmod_partition_dl cholmod_supernodal_dl ccolamd_dl camd_dl amd_dl m)
-
-add_library(cholmod ${other_srcs} $<TARGET_OBJECTS:cholmod> $<TARGET_OBJECTS:cholmod>)
-
+add_library(cholmod SHARED "../../SuiteSparse_config.c" $<TARGET_OBJECTS:cholmod_core_di> $<TARGET_OBJECTS:cholmod_blas_di> $<TARGET_OBJECTS:cholmod_cholesky_di> $<TARGET_OBJECTS:cholmod_check_di> $<TARGET_OBJECTS:cholmod_modify_di> $<TARGET_OBJECTS:cholmod_partition_di> $<TARGET_OBJECTS:cholmod_supernodal_di> $<TARGET_OBJECTS:cholmod_core_dl> $<TARGET_OBJECTS:cholmod_blas_dl> $<TARGET_OBJECTS:cholmod_cholesky_dl> $<TARGET_OBJECTS:cholmod_check_dl> $<TARGET_OBJECTS:cholmod_modify_dl> $<TARGET_OBJECTS:cholmod_partition_dl> $<TARGET_OBJECTS:cholmod_supernodal_dl>)
+#link_directories("${suitesparse_SOURCE_DIR}/lib")
+#target_link_libraries(cholmod metis GKlib ccolamd colamd camd amd lapack blas m)
+target_link_libraries(cholmod "${suitesparse_SOURCE_DIR}/lib/libmetis.so" "${suitesparse_SOURCE_DIR}/lib/libGKlib.a" metis ccolamd colamd camd amd lapack blas m)

@@ -1,17 +1,16 @@
 
-aux_source_directory(. SRC_LIST)
-include_directories(${SRC_LIST})
-include_directories(..)
+file(GLOB HEADER_FILES "*.h")
+file(GLOB SRC_LIST "*.c")
 
-set(HEADER_FILES )
-#set(HEADER_FILES *.h )
+add_library(cholmod_check_di SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+add_library(cholmod_check_dl SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
 
-add_library(cholmod_check_di SHARED ${SRC_LIST} ${HEADER_FILES})
-target_link_libraries(cholmod_check_di cholmod_blas_di m)
+#add_dependencies(cholmod_check_di cholmod_core_di cholmod_blas_di)
+#add_dependencies(cholmod_check_dl cholmod_core_dl cholmod_blas_dl)
 
-add_library(cholmod_check_dl SHARED ${SRC_LIST} ${HEADER_FILES})
-set_target_properties(cholmod_check_dl PROPERTIES COMPILE_FLAGS "-DDLONG=ON")
-target_link_libraries(cholmod_check_dl cholmod_blas_dl m)
+IF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
+  set_target_properties(cholmod_check_di PROPERTIES COMPILE_FLAGS "-fPIC")
+  set_target_properties(cholmod_check_dl PROPERTIES COMPILE_FLAGS "-fPIC -DDLONG=ON")
+ENDIF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
 
-add_dependencies(cholmod_check_di cholmod_core_di cholmod_blas_di)
-add_dependencies(cholmod_check_dl cholmod_core_dl cholmod_blas_dl)
+

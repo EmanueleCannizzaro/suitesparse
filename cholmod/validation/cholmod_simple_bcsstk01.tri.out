@@ -1,0 +1,2 @@
+CHOLMOD sparse:  A:  48-by-48, nz 224, upper.  OK
+norm(b-Ax)  2.7e-13

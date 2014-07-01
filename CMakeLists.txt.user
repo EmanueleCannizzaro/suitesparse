@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 3.1.1, 2014-06-22T22:27:35. -->
+<!-- Written by QtCreator 3.1.1, 2014-06-28T03:31:47. -->
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -3983,7 +3983,7 @@
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory"></value>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">cholmod_demo</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">cholmod_demo (disabled)</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.cholmod_demo</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
@@ -4034,7 +4034,7 @@
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory"></value>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">cholmod_l_demo</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">cholmod_l_demo (disabled)</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.cholmod_l_demo</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
@@ -4085,7 +4085,7 @@
     <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory"></value>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">cholmod_simple</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">cholmod_simple (disabled)</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.cholmod_simple</value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>

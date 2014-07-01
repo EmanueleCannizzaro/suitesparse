@@ -6,20 +6,24 @@
 # Updated by Emanuele Cannizzaro () 2014-05-21
 # -----------------------------------------------------------------
 
-PROJECT(colamd)
+PROJECT(cxsparse)
 
-option(COLAMD_HAS_VERSION_FUNCTION OFF)
-option(COLAMD_DATE "Jun 20, 2012")
+option(CXSPARSE_HAS_VERSION_FUNCTION OFF)
+option(CXSPARSE_DATE "Jun 20, 2012")
 
-set(COLAMD_VERSION_MAJOR 2)
-set(COLAMD_VERSION_MINOR 8)
-set(OLAMD_VERSION_PATCH 0)
+set(CXSPARSE_VERSION_MAJOR 2)
+set(CXSPARSE_VERSION_MINOR 8)
+set(CXSPARSE_VERSION_PATCH 0)
 
-set(COLAMD_MAIN_VERSION 2)
-set(COLAMD_SUB_VERSION 8)
-set(COLAMD_SUBSUB_VERSION 0)
-set(COLAMD_VERSION ${COLAMD_MAIN_VERSION} * 1000 + ${COLAMD_SUB_VERSION})
+set(CXSPARSE_MAIN_VERSION 2)
+set(CXSPARSE_SUB_VERSION 8)
+set(CXSPARSE_SUBSUB_VERSION 0)
+set(CXSPARSE_VERSION ${CXSPARSE_MAIN_VERSION} * 1000 + ${CXSPARSE_SUB_VERSION})
 
 add_subdirectory(src)
+include_directories(. "${PROJECT_SOURCE_DIR}/src")
+#add_library(cxsparse SHARED cs_di_demo.c cs_dl_demo.c cs_ci_demo.c cs_cl_demo.c $<TARGET_OBJECTS:cxsparse_di> $<TARGET_OBJECTS:cxsparse_dl> $<TARGET_OBJECTS:cxsparse_ci> $<TARGET_OBJECTS:cxsparse_cl>)
+add_library(cxsparse SHARED cs_demo.c cs_convert.c $<TARGET_OBJECTS:cxsparse_di> $<TARGET_OBJECTS:cxsparse_dl> $<TARGET_OBJECTS:cxsparse_ci> $<TARGET_OBJECTS:cxsparse_cl>)
+target_link_libraries(cxsparse m)
 add_subdirectory(test)
 add_subdirectory(doc)
