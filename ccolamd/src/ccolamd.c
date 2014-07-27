@@ -637,378 +637,6 @@
 /* === int or SuiteSparse_long ============================================== */
 /* ========================================================================== */
 
-#ifdef DLONG
-
-#define Int SuiteSparse_long
-#define ID  SuiteSparse_long_id
-#define Int_MAX SuiteSparse_long_max
-
-#define CCOLAMD_recommended ccolamd_l_recommended
-#define CCOLAMD_set_defaults ccolamd_l_set_defaults
-#define CCOLAMD_2 ccolamd2_l
-#define CCOLAMD_MAIN ccolamd_l
-#define CCOLAMD_apply_order ccolamd_l_apply_order
-#define CCOLAMD_postorder ccolamd_l_postorder
-#define CCOLAMD_post_tree ccolamd_l_post_tree
-#define CCOLAMD_fsize ccolamd_l_fsize
-#define CSYMAMD_MAIN csymamd_l
-#define CCOLAMD_report ccolamd_l_report
-#define CSYMAMD_report csymamd_l_report
-
-#else
-
-#define Int int
-#define ID "%d"
-#define Int_MAX INT_MAX
-
-#define CCOLAMD_recommended ccolamd_recommended
-#define CCOLAMD_set_defaults ccolamd_set_defaults
-#define CCOLAMD_2 ccolamd2
-#define CCOLAMD_MAIN ccolamd
-#define CCOLAMD_apply_order ccolamd_apply_order
-#define CCOLAMD_postorder ccolamd_postorder
-#define CCOLAMD_post_tree ccolamd_post_tree
-#define CCOLAMD_fsize ccolamd_fsize
-#define CSYMAMD_MAIN csymamd
-#define CCOLAMD_report ccolamd_report
-#define CSYMAMD_report csymamd_report
-
-#endif
-
-/* ========================================================================== */
-/* === Row and Column structures ============================================ */
-/* ========================================================================== */
-
-typedef struct CColamd_Col_struct
-{
-    /* size of this struct is 8 integers if no padding occurs */
-
-    Int start ;		/* index for A of first row in this column, or DEAD */
-			/* if column is dead */
-    Int length ;	/* number of rows in this column */
-    union
-    {
-	Int thickness ;	/* number of original columns represented by this */
-			/* col, if the column is alive */
-	Int parent ;	/* parent in parent tree super-column structure, if */
-			/* the column is dead */
-    } shared1 ;
-    union
-    {
-	Int score ;	
-	Int order ;
-    } shared2 ; 
-    union
-    {
-	Int headhash ;	/* head of a hash bucket, if col is at the head of */
-			/* a degree list */
-	Int hash ;	/* hash value, if col is not in a degree list */
-	Int prev ;	/* previous column in degree list, if col is in a */
-			/* degree list (but not at the head of a degree list) */
-    } shared3 ;
-    union
-    {
-	Int degree_next ;	/* next column, if col is in a degree list */
-	Int hash_next ;		/* next column, if col is in a hash list */
-    } shared4 ;
-
-    Int nextcol ;       /* next column in this supercolumn */
-    Int lastcol ;       /* last column in this supercolumn */
-
-} CColamd_Col ;
-
-
-typedef struct CColamd_Row_struct
-{
-    /* size of this struct is 6 integers if no padding occurs */
-
-    Int start ;		/* index for A of first col in this row */
-    Int length ;	/* number of principal columns in this row */
-    union
-    {
-	Int degree ;	/* number of principal & non-principal columns in row */
-	Int p ;		/* used as a row pointer in init_rows_cols () */
-    } shared1 ;
-    union
-    {
-	Int mark ;	/* for computing set differences and marking dead rows*/
-	Int first_column ;/* first column in row (used in garbage collection) */
-    } shared2 ;
-
-    Int thickness ;     /* number of original rows represented by this row */
-                        /* that are not yet pivotal */
-    Int front ;         /* -1 if an original row */
-    			/* k if this row represents the kth frontal matrix */
-                        /* where k goes from 0 to at most n_col-1 */
-
-} CColamd_Row ;
-
-/* ========================================================================== */
-/* === basic definitions ==================================================== */
-/* ========================================================================== */
-
-#define EMPTY (-1)
-#define MAX(a,b) (((a) > (b)) ? (a) : (b))
-#define MIN(a,b) (((a) < (b)) ? (a) : (b))
-
-/* Routines are either PUBLIC (user-callable) or PRIVATE (not user-callable) */
-#define GLOBAL 
-#define PUBLIC
-#define PRIVATE static 
-
-#define DENSE_DEGREE(alpha,n) \
-    ((Int) MAX (16.0, (alpha) * sqrt ((double) (n))))
-
-#define CMEMBER(c) ((cmember == (Int *) NULL) ? (0) : (cmember [c]))
-
-/* True if x is NaN */
-#define SCALAR_IS_NAN(x)        ((x) != (x))
-
-/* true if an integer (stored in double x) would overflow (or if x is NaN) */
-#define INT_OVERFLOW(x) ((!((x) * (1.0+1e-8) <= (double) Int_MAX)) \
-                        || SCALAR_IS_NAN (x))
-
-#define ONES_COMPLEMENT(r) (-(r)-1)
-#undef TRUE
-#undef FALSE
-#define TRUE (1)
-#define FALSE (0)
-
-/* Row and column status */
-#define ALIVE	(0)
-#define DEAD	(-1)
-
-/* Column status */
-#define DEAD_PRINCIPAL		(-1)
-#define DEAD_NON_PRINCIPAL	(-2)
-
-/* Macros for row and column status update and checking. */
-#define ROW_IS_DEAD(r)			ROW_IS_MARKED_DEAD (Row[r].shared2.mark)
-#define ROW_IS_MARKED_DEAD(row_mark)	(row_mark < ALIVE)
-#define ROW_IS_ALIVE(r)			(Row [r].shared2.mark >= ALIVE)
-#define COL_IS_DEAD(c)			(Col [c].start < ALIVE)
-#define COL_IS_ALIVE(c)			(Col [c].start >= ALIVE)
-#define COL_IS_DEAD_PRINCIPAL(c)	(Col [c].start == DEAD_PRINCIPAL)
-#define KILL_ROW(r)			{ Row [r].shared2.mark = DEAD ; }
-#define KILL_PRINCIPAL_COL(c)		{ Col [c].start = DEAD_PRINCIPAL ; }
-#define KILL_NON_PRINCIPAL_COL(c)	{ Col [c].start = DEAD_NON_PRINCIPAL ; }
-
-
-/* ========================================================================== */
-/* === ccolamd reporting mechanism ========================================== */
-/* ========================================================================== */
-
-#if defined (MATLAB_MEX_FILE) || defined (MATHWORKS)
-/* In MATLAB, matrices are 1-based to the user, but 0-based internally */
-#define INDEX(i) ((i)+1)
-#else
-/* In C, matrices are 0-based and indices are reported as such in *_report */
-#define INDEX(i) (i)
-#endif
-
-/* All output goes through the PRINTF macro.  */
-#define PRINTF(params) { if (ccolamd_printf != NULL) (void) ccolamd_printf params ; }
-
-
-/* ========================================================================== */
-/* === Debugging prototypes and definitions ================================= */
-/* ========================================================================== */
-
-#ifndef NDEBUG
-
-#include <assert.h>
-
-/* debug print level, present only when debugging */
-PRIVATE Int ccolamd_debug ;
-
-/* debug print statements */
-#define DEBUG0(params) { PRINTF (params) ; }
-#define DEBUG1(params) { if (ccolamd_debug >= 1) PRINTF (params) ; }
-#define DEBUG2(params) { if (ccolamd_debug >= 2) PRINTF (params) ; }
-#define DEBUG3(params) { if (ccolamd_debug >= 3) PRINTF (params) ; }
-#define DEBUG4(params) { if (ccolamd_debug >= 4) PRINTF (params) ; }
-
-#ifdef MATLAB_MEX_FILE
-#define ASSERT(expression) (mxAssert ((expression), ""))
-#else
-#define ASSERT(expression) (assert (expression))
-#endif
-
-PRIVATE void ccolamd_get_debug
-(   
-    char *method
-) ; 
-
-PRIVATE void debug_mark
-(
-    Int n_row,
-    CColamd_Row Row [],
-    Int tag_mark,
-    Int max_mark
-) ;
-
-PRIVATE void debug_matrix
-(
-    Int n_row,
-    Int n_col,
-    CColamd_Row Row [],
-    CColamd_Col Col [],
-    Int A []
-) ;
-
-PRIVATE void debug_structures
-(
-    Int n_row,
-    Int n_col,
-    CColamd_Row Row [],
-    CColamd_Col Col [],
-    Int A [],
-    Int in_cset [],
-    Int cset_start []
-) ;
-
-PRIVATE void dump_super
-(
-    Int super_c,
-    CColamd_Col Col [],
-    Int n_col
-) ;
-
-PRIVATE void debug_deg_lists
-(
-    Int n_row,
-    Int n_col,
-    CColamd_Row Row [ ],
-    CColamd_Col Col [ ],
-    Int head [ ],
-    Int min_score,
-    Int should,
-    Int max_deg
-) ;
-
-#else
-
-/* === No debugging ========================================================= */
-
-#define DEBUG0(params) ;
-#define DEBUG1(params) ;
-#define DEBUG2(params) ;
-#define DEBUG3(params) ;
-#define DEBUG4(params) ;
-
-#define ASSERT(expression)
-
-#endif
-
-/* ========================================================================== */
-/* === Prototypes of PRIVATE routines ======================================= */
-/* ========================================================================== */
-
-PRIVATE Int init_rows_cols
-(
-    Int n_row,
-    Int n_col,
-    CColamd_Row Row [ ],
-    CColamd_Col Col [ ],
-    Int A [ ],
-    Int p [ ],
-    Int stats [CCOLAMD_STATS]
-) ;
-
-PRIVATE void init_scoring
-(
-    Int n_row,
-    Int n_col,
-    CColamd_Row Row [ ],
-    CColamd_Col Col [ ],
-    Int A [ ],
-    Int head [ ],
-    double knobs [CCOLAMD_KNOBS],
-    Int *p_n_row2,
-    Int *p_n_col2,
-    Int *p_max_deg,
-    Int cmember [ ],
-    Int n_cset,
-    Int cset_start [ ],
-    Int dead_cols [ ],
-    Int *p_ndense_row,		/* number of dense rows */
-    Int *p_nempty_row,		/* number of original empty rows */
-    Int *p_nnewlyempty_row,	/* number of newly empty rows */
-    Int *p_ndense_col,		/* number of dense cols (excl "empty" cols) */
-    Int *p_nempty_col,		/* number of original empty cols */
-    Int *p_nnewlyempty_col	/* number of newly empty cols */
-) ;
-
-PRIVATE Int find_ordering
-(
-    Int n_row,
-    Int n_col,
-    Int Alen,
-    CColamd_Row Row [ ],
-    CColamd_Col Col [ ],
-    Int A [ ],
-    Int head [ ],
-#ifndef NDEBUG
-    Int n_col2,
-#endif
-    Int max_deg,
-    Int pfree,
-    Int cset [ ],
-    Int cset_start [ ],
-#ifndef NDEBUG
-    Int n_cset,
-#endif
-    Int cmember [ ],
-    Int Front_npivcol [ ],
-    Int Front_nrows [ ],
-    Int Front_ncols [ ],
-    Int Front_parent [ ],
-    Int Front_cols [ ],
-    Int *p_nfr,
-    Int aggressive,
-    Int InFront [ ],
-    Int order_for_lu
-) ;
-
-PRIVATE void detect_super_cols
-(
-#ifndef NDEBUG
-    Int n_col,
-    CColamd_Row Row [ ],
-#endif
-    CColamd_Col Col [ ],
-    Int A [ ],
-    Int head [ ],
-    Int row_start,
-    Int row_length,
-    Int in_set [ ]
-) ;
-
-PRIVATE Int garbage_collection
-(
-    Int n_row,
-    Int n_col,
-    CColamd_Row Row [ ],
-    CColamd_Col Col [ ],
-    Int A [ ],
-    Int *pfree
-) ;
-
-PRIVATE Int clear_mark
-(
-    Int tag_mark,
-    Int max_mark,
-    Int n_row,
-    CColamd_Row Row [ ]
-) ;
-
-PRIVATE void print_report
-(
-    char *method,
-    Int stats [CCOLAMD_STATS]
-) ;
-
-
 /* ========================================================================== */
 /* === USER-CALLABLE ROUTINES: ============================================== */
 /* ========================================================================== */
@@ -1056,21 +684,6 @@ static size_t t_mult (size_t a, size_t k, int *ok)
     }
     return (s) ;
 }
-
-/* size of the Col and Row structures */
-#define CCOLAMD_C(n_col,ok) \
-    ((t_mult (t_add (n_col, 1, ok), sizeof (CColamd_Col), ok) / sizeof (Int)))
-
-#define CCOLAMD_R(n_row,ok) \
-    ((t_mult (t_add (n_row, 1, ok), sizeof (CColamd_Row), ok) / sizeof (Int)))
-
-/*
-#define CCOLAMD_RECOMMENDED(nnz, n_row, n_col) \
-	    MAX (2 * nnz, 4 * n_col) + \
-	    CCOLAMD_C (n_col) + CCOLAMD_R (n_row) + n_col + (nnz / 5) \
-	    + ((3 * n_col) + 1) + 5 * (n_col + 1) + n_row
- */
-
 static size_t ccolamd_need (Int nnz, Int n_row, Int n_col, int *ok)
 {
 
@@ -1107,7 +720,7 @@ static size_t ccolamd_need (Int nnz, Int n_row, Int n_col, int *ok)
     return (ok ? s : 0) ;
 }
 
-PUBLIC size_t CCOLAMD_recommended	/* returns recommended value of Alen. */
+PUBLIC size_t CCOLAMD(recommended)	/* returns recommended value of Alen. */
 (
     /* === Parameters ======================================================= */
 
@@ -1130,45 +743,10 @@ PUBLIC size_t CCOLAMD_recommended	/* returns recommended value of Alen. */
 
 
 /* ========================================================================== */
-/* === ccolamd_set_defaults ================================================= */
-/* ========================================================================== */
-
-/*
- *  The ccolamd_set_defaults routine sets the default values of the user-
- *  controllable parameters for ccolamd.
- */
-
-PUBLIC void CCOLAMD_set_defaults
-(
-    /* === Parameters ======================================================= */
-
-    double knobs [CCOLAMD_KNOBS]		/* knob array */
-)
-{
-    /* === Local variables ================================================== */
-
-    Int i ;
-
-    if (!knobs)
-    {
-	return ;			/* no knobs to initialize */
-    }
-    for (i = 0 ; i < CCOLAMD_KNOBS ; i++)
-    {
-	knobs [i] = 0 ;
-    }
-    knobs [CCOLAMD_DENSE_ROW] = 10 ;
-    knobs [CCOLAMD_DENSE_COL] = 10 ;
-    knobs [CCOLAMD_AGGRESSIVE] = TRUE ;	/* default: do aggressive absorption*/
-    knobs [CCOLAMD_LU] = FALSE ;	/* default: order for Cholesky */
-}
-
-
-/* ========================================================================== */
 /* === symamd =============================================================== */
 /* ========================================================================== */
 
-PUBLIC Int CSYMAMD_MAIN		/* return TRUE if OK, FALSE otherwise */
+PUBLIC Int CSYMAMD()		/* return TRUE if OK, FALSE otherwise */
 (
     /* === Parameters ======================================================= */
 
@@ -1274,7 +852,7 @@ PUBLIC Int CSYMAMD_MAIN		/* return TRUE if OK, FALSE otherwise */
 
     if (!knobs)
     {
-	CCOLAMD_set_defaults (default_knobs) ;
+    ccolamd_set_defaults (default_knobs) ;
 	knobs = default_knobs ;
     }
 
@@ -1384,7 +962,7 @@ PUBLIC Int CSYMAMD_MAIN		/* return TRUE if OK, FALSE otherwise */
 
     mnz = perm [n] ;
     n_row = mnz / 2 ;
-    Mlen = CCOLAMD_recommended (mnz, n_row, n) ;
+    Mlen = CCOLAMD(recommended) (mnz, n_row, n) ;
     M = (Int *) ((*allocate) (Mlen, sizeof (Int))) ;
     DEBUG1 (("csymamd: M is "ID"-by-"ID" with "ID" entries, Mlen = %g\n",
     	n_row, n, mnz, (double) Mlen)) ;
@@ -1471,7 +1049,7 @@ PUBLIC Int CSYMAMD_MAIN		/* return TRUE if OK, FALSE otherwise */
 
     /* === Order the columns of M =========================================== */
 
-    (void) CCOLAMD_2 (n_row, n, (Int) Mlen, M, perm, cknobs, stats,
+    (void) CCOLAMD(2) (n_row, n, (Int) Mlen, M, perm, cknobs, stats,
              (Int *) NULL, (Int *) NULL, (Int *) NULL, (Int *) NULL,
              (Int *) NULL, (Int *) NULL, (Int *) NULL, cmember) ;
 
@@ -1500,7 +1078,7 @@ PUBLIC Int CSYMAMD_MAIN		/* return TRUE if OK, FALSE otherwise */
  *  (AQ)'(AQ) = LL' remains sparse.
  */
 
-PUBLIC Int CCOLAMD_MAIN
+PUBLIC Int CCOLAMD()
 (
     /* === Parameters ======================================================= */
 
@@ -1514,7 +1092,7 @@ PUBLIC Int CCOLAMD_MAIN
     Int cmember [ ]		/* constraint set of A */
 )
 {
-     return (CCOLAMD_2 (n_row, n_col, Alen, A, p, knobs, stats,
+     return (CCOLAMD(2) (n_row, n_col, Alen, A, p, knobs, stats,
              (Int *) NULL, (Int *) NULL, (Int *) NULL, (Int *) NULL,
              (Int *) NULL, (Int *) NULL, (Int *) NULL, cmember)) ;
 }
@@ -1529,7 +1107,7 @@ PUBLIC Int CCOLAMD_MAIN
  * the user.
  */
 
-PUBLIC Int CCOLAMD_2	    /* returns TRUE if successful, FALSE otherwise */
+PUBLIC Int CCOLAMD(2)	    /* returns TRUE if successful, FALSE otherwise */
 (
     /* === Parameters ======================================================= */
 
@@ -1661,7 +1239,7 @@ PUBLIC Int CCOLAMD_2	    /* returns TRUE if successful, FALSE otherwise */
 
     if (!knobs)
     {
-	CCOLAMD_set_defaults (default_knobs) ;
+    ccolamd_set_defaults (default_knobs) ;
 	knobs = default_knobs ;
     }
 
@@ -1867,21 +1445,21 @@ PUBLIC Int CCOLAMD_2	    /* returns TRUE if successful, FALSE otherwise */
     Front_order   = Front_stack + nfr ;
     Front_size    = Front_order + nfr ;
 
-    CCOLAMD_fsize (nfr, Front_size, Front_nrows, Front_ncols,
+    CCOLAMD(fsize) (nfr, Front_size, Front_nrows, Front_ncols,
             Front_parent, Front_npivcol) ;
 
-    CCOLAMD_postorder (nfr, Front_parent, Front_npivcol, Front_size,
+    CCOLAMD(postorder) (nfr, Front_parent, Front_npivcol, Front_size,
         Front_order, Front_child, Front_sibling, Front_stack, Front_cols,
 	cmember) ;
 
     /* Front_size, Front_stack, Front_child, Front_sibling no longer needed ] */
 
     /* use A [0..nfr-1] as workspace */
-    CCOLAMD_apply_order (Front_npivcol, Front_order, A, nfr, nfr) ;
-    CCOLAMD_apply_order (Front_nrows,   Front_order, A, nfr, nfr) ;
-    CCOLAMD_apply_order (Front_ncols,   Front_order, A, nfr, nfr) ;
-    CCOLAMD_apply_order (Front_parent,  Front_order, A, nfr, nfr) ;
-    CCOLAMD_apply_order (Front_cols,    Front_order, A, nfr, nfr) ;
+    CCOLAMD(apply_order) (Front_npivcol, Front_order, A, nfr, nfr) ;
+    CCOLAMD(apply_order) (Front_nrows,   Front_order, A, nfr, nfr) ;
+    CCOLAMD(apply_order) (Front_ncols,   Front_order, A, nfr, nfr) ;
+    CCOLAMD(apply_order) (Front_parent,  Front_order, A, nfr, nfr) ;
+    CCOLAMD(apply_order) (Front_cols,    Front_order, A, nfr, nfr) ;
 
     /* fix the parent to refer to the new numbering */
     for (i = 0 ; i < nfr ; i++)
@@ -1996,7 +1574,7 @@ PUBLIC Int CCOLAMD_2	    /* returns TRUE if successful, FALSE otherwise */
 /* === colamd_report ======================================================== */
 /* ========================================================================== */
 
-PUBLIC void CCOLAMD_report
+PUBLIC void CCOLAMD(report)
 (
     Int stats [CCOLAMD_STATS]
 )
@@ -2009,7 +1587,7 @@ PUBLIC void CCOLAMD_report
 /* === symamd_report ======================================================== */
 /* ========================================================================== */
 
-PUBLIC void CSYMAMD_report
+PUBLIC void CSYMAMD(report)
 (
     Int stats [CCOLAMD_STATS]
 )
@@ -2622,7 +2200,7 @@ PRIVATE Int find_ordering	/* return the number of garbage collections */
     Int col ;			/* a column index */
     Int max_score ;		/* maximum possible score */
     Int cur_score ;		/* score of current column */
-    unsigned Int hash ;		/* hash value for supernode detection */
+    UInt hash ;		/* hash value for supernode detection */
     Int head_column ;		/* head of hash bucket */
     Int first_col ;		/* first column in hash bucket */
     Int tag_mark ;		/* marker value for mark array */
@@ -3882,7 +3460,7 @@ PRIVATE void print_report
  * Apply post-ordering of supernodal elimination tree.
  */
 
-GLOBAL void CCOLAMD_apply_order
+GLOBAL void CCOLAMD(apply_order)
 (
     Int Front [ ],	    /* of size nn on input, size nfr on output */
     const Int Order [ ],    /* Order [i] = k, i in the range 0..nn-1,
@@ -3919,7 +3497,7 @@ GLOBAL void CCOLAMD_apply_order
  * Only required to sort the children of each
  * node prior to postordering the column elimination tree. */
 
-GLOBAL void CCOLAMD_fsize
+GLOBAL void CCOLAMD(fsize)
 (
     Int nn,
     Int Fsize [ ],
@@ -3979,7 +3557,7 @@ GLOBAL void CCOLAMD_fsize
 
 /* Perform a postordering (via depth-first search) of an assembly tree. */
 
-GLOBAL void CCOLAMD_postorder
+GLOBAL void CCOLAMD(postorder)
 (
     /* inputs, not modified on output: */
     Int nn,		/* nodes are in the range 0..nn-1 */
@@ -4154,7 +3732,7 @@ GLOBAL void CCOLAMD_postorder
 	    && Nv [i] > 0)
 	{
 	    DEBUG1 (("Root of assembly tree "ID"\n", i)) ;
-	    k = CCOLAMD_post_tree (i, k, Child, Sibling, Order, Stack) ;
+        k = CCOLAMD(post_tree) (i, k, Child, Sibling, Order, Stack) ;
 	}
     }
 }
@@ -4166,7 +3744,7 @@ GLOBAL void CCOLAMD_postorder
 
 /* Post-ordering of a supernodal column elimination tree.  */
 
-GLOBAL Int CCOLAMD_post_tree
+GLOBAL Int CCOLAMD(post_tree)
 (
     Int root,			/* root of the tree */
     Int k,			/* start numbering at k */

@@ -40,10 +40,8 @@ set(AMD_VERSION_PATCH 1)
 set(AMD_MAIN_VERSION 2)
 set(AMD_SUB_VERSION 3)
 set(AMD_SUBSUB_VERSION 1)
-set(AMD_VERSION ${AMD_MAIN_VERSION} * 1000 + ${AMD_SUB_VERSION})
 
 add_subdirectory(src)
-add_library(amd SHARED src/amd_global.c $<TARGET_OBJECTS:amd_di> $<TARGET_OBJECTS:amd_dl>)
-target_link_libraries(amd m)
 add_subdirectory(test)
 add_subdirectory(doc)
+

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/mhda416; 1994; A. Booten et al.; ed: Z. Bai et al.]
+status 0
+key [314] nrow 416 ncol 416
+mkind 0 skind 0 asize 17124 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 416 ncol 416 nnz 8562 nelnz 0 xsize 8562
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

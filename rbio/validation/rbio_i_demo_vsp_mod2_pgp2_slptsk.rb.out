@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DIMACS10/vsp_mod2_pgp2_slptsk; 2011; C. Schultz; ed: H. Meyerhenke]
+status 0
+key [2640] nrow 101364 ncol 101364
+mkind 1 skind 1 asize 778736 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 101364 ncol 101364 nnz 389368 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

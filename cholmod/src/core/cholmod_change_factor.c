@@ -309,7 +309,7 @@ static int simplicial_symbolic_to_super_symbolic
     L->is_super = TRUE ;
     L->is_ll = TRUE ;	    /* supernodal LDL' not supported */
     L->xtype = CHOLMOD_PATTERN ;
-    L->dtype = DTYPE ;
+    L->dtype = CHOLMOD_DOUBLE ;
     L->minor = L->n ;
     return (TRUE) ;
 }
@@ -361,7 +361,7 @@ static void any_to_simplicial_symbolic
     L->nzmax = 0 ;
     L->is_super = FALSE ;
     L->xtype = CHOLMOD_PATTERN ;
-    L->dtype = DTYPE ;
+    L->dtype = CHOLMOD_DOUBLE ;
     L->minor = n ;
     L->is_ll = to_ll ;
 }
@@ -389,7 +389,7 @@ static void ll_super_to_super_symbolic
 	    (L->xtype == CHOLMOD_COMPLEX ? 2 : 1) * sizeof (double), L->x,
 	    Common) ;
     L->xtype = CHOLMOD_PATTERN ;
-    L->dtype = DTYPE ;
+    L->dtype = CHOLMOD_DOUBLE ;
     L->minor = L->n ;
     L->is_ll = TRUE ;	    /* supernodal LDL' not supported */
     DEBUG (CHOLMOD(dump_factor) (L, "done  to super symbolic", Common)) ;
@@ -561,7 +561,7 @@ static void simplicial_symbolic_to_simplicial_numeric
 
     /* initialize L to be the identity matrix */
     L->xtype = to_xtype ;
-    L->dtype = DTYPE ;
+    L->dtype = CHOLMOD_DOUBLE ;
     L->minor = n ;
 
     Li = L->i ;
@@ -985,7 +985,7 @@ static int super_symbolic_to_ll_super
 
     L->x = Lx ;
     L->xtype = to_xtype ;
-    L->dtype = DTYPE ;
+    L->dtype = CHOLMOD_DOUBLE ;
     L->minor = L->n ;
     return (TRUE) ;
 }

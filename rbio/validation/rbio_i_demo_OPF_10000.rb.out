@@ -1,0 +1,18 @@
+
+===========================================================
+title: [IPSO/OPF_10000; 2011; L. Peijie; ed: J. Hogg]
+status 0
+key [2536] nrow 43887 ncol 43887
+mkind 0 skind 1 asize 511598 znz 40813
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 43887 ncol 43887 nnz 255799 nelnz 0 xsize 255799
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 31105
+RBdemo OK

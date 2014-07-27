@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Andrews/Andrews; 2003; S. Andrews; ed: T. Davis]
+status 0
+key [924] nrow 60000 ncol 60000
+mkind 3 skind 1 asize 820154 znz 0
+mtype from file:               [isa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [isa]
+mtype after reading from file: [isa]
+raw nrow 60000 ncol 60000 nnz 410077 nelnz 0 xsize 410077
+mtype from raw read from file: [iua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [iua]
+(L) RBok status 0 0 0
+RBdemo OK

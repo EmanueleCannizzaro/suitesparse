@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Castrillon/denormal; 2008; J. Castrillon; ed: T. Davis]
+status 0
+key [1892] nrow 89400 ncol 89400
+mkind 0 skind 1 asize 1245624 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 89400 ncol 89400 nnz 622812 nelnz 0 xsize 622812
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

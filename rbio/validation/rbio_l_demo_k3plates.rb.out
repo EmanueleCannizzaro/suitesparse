@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Cunningham/k3plates; 2002; A. Cunningham; ed: T. Davis]
+status 0
+key [842] nrow 11107 ncol 11107
+mkind 0 skind 0 asize 757854 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 11107 ncol 11107 nnz 378927 nelnz 0 xsize 378927
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

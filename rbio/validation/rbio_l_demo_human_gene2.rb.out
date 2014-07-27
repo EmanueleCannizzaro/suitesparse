@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Belcastro/human_gene2; 2010; V. Belcastro; ed: T. Davis]
+status 0
+key [2281] nrow 14340 ncol 14340
+mkind 0 skind 1 asize 18082728 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 14340 ncol 14340 nnz 9041364 nelnz 0 xsize 9041364
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

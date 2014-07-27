@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Dziekonski/gsm_106857; 2010; A. Dziekonski et al.; ed: T. Davis]
+status 0
+key [2329] nrow 589446 ncol 589446
+mkind 0 skind 1 asize 22348370 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 589446 ncol 589446 nnz 11174185 nelnz 0 xsize 11174185
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

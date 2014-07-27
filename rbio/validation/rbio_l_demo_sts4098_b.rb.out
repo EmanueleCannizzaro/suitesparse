@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Cannizzo/sts4098_b]
+status 0
+key [1214b] nrow 4098 ncol 1
+mkind 0 skind -1 asize 3224 znz 0
+mtype from file:               [rra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rra]
+mtype after reading from file: [rra]
+raw nrow 4098 ncol 1 nnz 1612 nelnz 0 xsize 1612
+mtype from raw read from file: [rra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [rra]
+(L) RBok status 0 0 0
+RBdemo OK

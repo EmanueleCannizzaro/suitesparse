@@ -1,0 +1,18 @@
+
+===========================================================
+title: [HB/west0381; 1983; A. Westerberg; ed: I. Duff et al.]
+status 0
+key [266] nrow 381 ncol 381
+mkind 0 skind 0 asize 4314 znz 23
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 381 ncol 381 nnz 2157 nelnz 0 xsize 2157
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 23
+RBdemo OK

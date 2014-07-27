@@ -1,0 +1,18 @@
+
+===========================================================
+title: [HB/well1850; 1979; M. Saunders; ed: I. Duff et al.]
+status 0
+key [261] nrow 1850 ncol 712
+mkind 0 skind -1 asize 17516 znz 3
+mtype from file:               [rra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rra]
+mtype after reading from file: [rra]
+raw nrow 1850 ncol 712 nnz 8758 nelnz 0 xsize 8758
+mtype from raw read from file: [rra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [rra]
+(L) RBok status 0 0 3
+RBdemo OK

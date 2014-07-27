@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/qh768; 1994; D. Ndereyimana; ed: Z. Bai et al.]
+status 0
+key [1627] nrow 768 ncol 768
+mkind 0 skind 0 asize 5868 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 768 ncol 768 nnz 2934 nelnz 0 xsize 2934
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

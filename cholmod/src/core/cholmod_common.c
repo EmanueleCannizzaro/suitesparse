@@ -73,8 +73,8 @@ int CHOLMOD(start)
     /* integer and numerical types */
     /* ---------------------------------------------------------------------- */
 
-    Common->itype = ITYPE ;
-    Common->dtype = DTYPE ;
+    Common->itype = CHOLMOD_LONG ;
+    Common->dtype = CHOLMOD_DOUBLE ;
 
     /* ---------------------------------------------------------------------- */
     /* default control parameters */
@@ -576,7 +576,7 @@ int CHOLMOD(free_work)
  * workspace: Flag (nrow).  Does not modify Flag if nrow is zero.
  */
 
-SuiteSparse_long CHOLMOD(clear_flag)
+Int CHOLMOD(clear_flag)
 (
     cholmod_common *Common
 )

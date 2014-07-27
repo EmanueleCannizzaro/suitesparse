@@ -6,7 +6,7 @@ foreach(test ${SRC_LIST} )
   if("${test}" MATCHES ".c$")
     string(REPLACE ".c" "" executable ${test})
     add_executable( ${executable} ${test} )
-    target_link_libraries( ${executable} cholmod "${suitesparse_SOURCE_DIR}/lib/libmetis.so" "${suitesparse_SOURCE_DIR}/lib/libGKlib.so")
+    target_link_libraries( ${executable} cholmod "${suitesparse_SOURCE_DIR}/lib/x64/linux/libmetis.so" "${suitesparse_SOURCE_DIR}/lib/x64/linux/libGKlib.so")
     set(MATRIX_LIST bcsstk01.tri lp_afiro.tri can___24.mtx)
     foreach(matrix ${MATRIX_LIST} )
       add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/${executable}_${matrix}.out"

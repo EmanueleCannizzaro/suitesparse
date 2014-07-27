@@ -18,7 +18,7 @@
 /* === CAMD_order ========================================================== */
 /* ========================================================================= */
 
-GLOBAL Int CAMD_order
+GLOBAL Int CAMD(order)
 (
     Int n,
     const Int Ap [ ],
@@ -34,7 +34,7 @@ GLOBAL Int CAMD_order
     double mem = 0 ;
 
 #ifndef NDEBUG
-    CAMD_debug_init ("camd") ;
+    CAMD(debug_init) ("camd") ;
 #endif
 
     /* clear the Info array, if it exists */
@@ -81,7 +81,7 @@ GLOBAL Int CAMD_order
     }
 
     /* check the input matrix:	CAMD_OK, CAMD_INVALID, or CAMD_OK_BUT_JUMBLED */
-    status = CAMD_valid (n, n, Ap, Ai) ;
+    status = CAMD(valid) (n, n, Ap, Ai) ;
 
     if (status == CAMD_INVALID)
     {
@@ -122,7 +122,7 @@ GLOBAL Int CAMD_order
 	    return (CAMD_OUT_OF_MEMORY) ;
 	}
 	/* use Len and Pinv as workspace to create R = A' */
-	CAMD_preprocess (n, Ap, Ai, Rp, Ri, Len, Pinv) ;
+    CAMD(preprocess) (n, Ap, Ai, Rp, Ri, Len, Pinv) ;
 	Cp = Rp ;
 	Ci = Ri ;
     }
@@ -139,7 +139,7 @@ GLOBAL Int CAMD_order
     /* determine the symmetry and count off-diagonal nonzeros in A+A' */
     /* --------------------------------------------------------------------- */
 
-    nzaat = CAMD_aat (n, Cp, Ci, Len, P, Info) ;
+    nzaat = CAMD(aat) (n, Cp, Ci, Len, P, Info) ;
     CAMD_DEBUG1 (("nzaat: %g\n", (double) nzaat)) ;
     ASSERT ((MAX (nz-n, 0) <= nzaat) && (nzaat <= 2 * (size_t) nz)) ;
 
@@ -184,7 +184,7 @@ GLOBAL Int CAMD_order
     /* order the matrix */
     /* --------------------------------------------------------------------- */
 
-    CAMD_1 (n, Cp, Ci, P, Pinv, Len, slen, S, Control, Info, C) ;
+    CAMD(1) (n, Cp, Ci, P, Pinv, Len, slen, S, Control, Info, C) ;
 
     /* --------------------------------------------------------------------- */
     /* free the workspace */

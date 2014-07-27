@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Meszaros/farm; 2004; ; ed: C. Meszaros]
+status 0
+key [1710] nrow 7 ncol 17
+mkind 3 skind -1 asize 82 znz 0
+mtype from file:               [ira]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [ira]
+mtype after reading from file: [ira]
+raw nrow 7 ncol 17 nnz 41 nelnz 0 xsize 41
+mtype from raw read from file: [ira]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [ira]
+(L) RBok status 0 0 0
+RBdemo OK

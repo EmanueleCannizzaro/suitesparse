@@ -17,7 +17,7 @@
 
 #include "amd_internal.h"
 
-GLOBAL size_t AMD_aat	/* returns nz in A+A' */
+GLOBAL size_t AMD(aat)	/* returns nz in A+A' */
 (
     Int n,
     const Int Ap [ ],
@@ -34,7 +34,7 @@ GLOBAL size_t AMD_aat	/* returns nz in A+A' */
 #ifndef NDEBUG
     AMD_debug_init ("AMD AAT") ;
     for (k = 0 ; k < n ; k++) Tp [k] = EMPTY ;
-    ASSERT (AMD_valid (n, n, Ap, Ai) == AMD_OK) ;
+    ASSERT (AMD(valid) (n, n, Ap, Ai) == AMD_OK) ;
 #endif
 
     if (Info != (double *) NULL)

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [FEMLAB/sme3Da; 2003; COMSOL; ed: T. Davis]
+status 0
+key [930] nrow 12504 ncol 12504
+mkind 0 skind 0 asize 1749774 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 12504 ncol 12504 nnz 874887 nelnz 0 xsize 874887
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

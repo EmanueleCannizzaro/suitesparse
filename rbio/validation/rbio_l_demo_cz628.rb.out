@@ -1,0 +1,18 @@
+
+===========================================================
+title: [CPM/cz628; 2012; Y. Chen et al.; ed: T. Davis]
+status 0
+key [2561] nrow 628 ncol 628
+mkind 0 skind 0 asize 12692 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 628 ncol 628 nnz 6346 nelnz 0 xsize 6346
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

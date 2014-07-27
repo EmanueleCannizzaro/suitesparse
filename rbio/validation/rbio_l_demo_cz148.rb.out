@@ -1,0 +1,18 @@
+
+===========================================================
+title: [CPM/cz148; 2012; Y. Chen et al.; ed: T. Davis]
+status 0
+key [2559] nrow 148 ncol 148
+mkind 0 skind 0 asize 3054 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 148 ncol 148 nnz 1527 nelnz 0 xsize 1527
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Barabasi/NotreDame_actors; 1999; A Barabasi, R. Albert; ed: H. Jeong]
+status 0
+key [1509] nrow 392400 ncol 127823
+mkind 1 skind -1 asize 2940808 znz 0
+mtype from file:               [pra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [pra]
+mtype after reading from file: [pra]
+raw nrow 392400 ncol 127823 nnz 1470404 nelnz 0 xsize 0
+mtype from raw read from file: [pra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [pra]
+(L) RBok status 0 0 0
+RBdemo OK

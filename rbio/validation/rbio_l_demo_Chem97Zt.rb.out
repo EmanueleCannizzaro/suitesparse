@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bates/Chem97Zt; 2006; D. Bates; ed: T. Davis]
+status 0
+key [1400] nrow 2541 ncol 31022
+mkind 1 skind -1 asize 124088 znz 0
+mtype from file:               [pra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [pra]
+mtype after reading from file: [pra]
+raw nrow 2541 ncol 31022 nnz 62044 nelnz 0 xsize 0
+mtype from raw read from file: [pra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [pra]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [BenElechi/BenElechi1_b]
+status 0
+key [1850b] nrow 245874 ncol 40543
+mkind 0 skind -1 asize 1943364 znz 0
+mtype from file:               [rra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rra]
+mtype after reading from file: [rra]
+raw nrow 245874 ncol 40543 nnz 971682 nelnz 0 xsize 971682
+mtype from raw read from file: [rra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [rra]
+(L) RBok status 0 0 0
+RBdemo OK

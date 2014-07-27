@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/dwg961b; 1996; S. Gedney and U. Navasariwala; ed: Z. Bai et al.]
+status 0
+key [1619] nrow 961 ncol 961
+mkind 2 skind 1 asize 11552 znz 0
+mtype from file:               [csa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [csa]
+mtype after reading from file: [csa]
+raw nrow 961 ncol 961 nnz 5776 nelnz 0 xsize 11552
+mtype from raw read from file: [cua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [cua]
+(L) RBok status 0 0 0
+RBdemo OK

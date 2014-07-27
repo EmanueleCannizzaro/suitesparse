@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Arenas/jazz; 2003; P. Gleiser, L. Danon; ed: A. Arenas]
+status 0
+key [2406] nrow 198 ncol 198
+mkind 3 skind 1 asize 5484 znz 0
+mtype from file:               [isa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [isa]
+mtype after reading from file: [isa]
+raw nrow 198 ncol 198 nnz 2742 nelnz 0 xsize 2742
+mtype from raw read from file: [iua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [iua]
+(L) RBok status 0 0 0
+RBdemo OK

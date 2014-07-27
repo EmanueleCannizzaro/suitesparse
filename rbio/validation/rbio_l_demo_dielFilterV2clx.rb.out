@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Dziekonski/dielFilterV2clx; 2011; A. Dziekonski et al.; ed: T. Davis]
+status 0
+key [2385] nrow 607232 ncol 607232
+mkind 2 skind 1 asize 25916504 znz 0
+mtype from file:               [csa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [csa]
+mtype after reading from file: [csa]
+raw nrow 607232 ncol 607232 nnz 12958252 nelnz 0 xsize 25916504
+mtype from raw read from file: [cua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [cua]
+(L) RBok status 0 0 0
+RBdemo OK

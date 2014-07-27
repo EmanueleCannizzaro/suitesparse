@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DIMACS10/tn2010; 2010; W. Zhao; ed: H. Meyerhenke]
+status 0
+key [2623] nrow 240116 ncol 240116
+mkind 3 skind 1 asize 1193966 znz 0
+mtype from file:               [isa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [isa]
+mtype after reading from file: [isa]
+raw nrow 240116 ncol 240116 nnz 596983 nelnz 0 xsize 596983
+mtype from raw read from file: [iua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [iua]
+(L) RBok status 0 0 0
+RBdemo OK

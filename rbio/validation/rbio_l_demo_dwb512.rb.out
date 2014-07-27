@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/dwb512; 1993; H. Dong; ed: Z. Bai et al.]
+status 0
+key [1617] nrow 512 ncol 512
+mkind 0 skind 0 asize 5000 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 512 ncol 512 nnz 2500 nelnz 0 xsize 2500
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

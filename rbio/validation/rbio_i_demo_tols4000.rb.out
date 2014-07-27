@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/tols4000; 1991; S. Godet-Thobie; ed: Z. Bai et al.]
+status 0
+key [1640] nrow 4000 ncol 4000
+mkind 0 skind 0 asize 17568 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 4000 ncol 4000 nnz 8784 nelnz 0 xsize 8784
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

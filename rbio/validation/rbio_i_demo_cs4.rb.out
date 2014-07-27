@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DIMACS10/cs4; 2000; C. Walshaw; ed: C. Walshaw]
+status 0
+key [2520] nrow 22499 ncol 22499
+mkind 1 skind 1 asize 87716 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 22499 ncol 22499 nnz 43858 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

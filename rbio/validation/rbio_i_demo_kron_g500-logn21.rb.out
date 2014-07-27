@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DIMACS10/kron_g500-logn21; 2010; D. Bader et al.; ed: D. Bader et al.]
+status 0
+key [2494] nrow 2097152 ncol 2097152
+mkind 3 skind 1 asize 182084020 znz 0
+mtype from file:               [isa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [isa]
+mtype after reading from file: [isa]
+raw nrow 2097152 ncol 2097152 nnz 91042010 nelnz 0 xsize 91042010
+mtype from raw read from file: [iua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [iua]
+(L) RBok status 0 0 0
+RBdemo OK

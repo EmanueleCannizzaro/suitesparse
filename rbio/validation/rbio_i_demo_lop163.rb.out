@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/lop163; 1978; W. Stewart; ed: Z. Bai et al.]
+status 0
+key [313] nrow 163 ncol 163
+mkind 0 skind 0 asize 1870 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 163 ncol 163 nnz 935 nelnz 0 xsize 935
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -12,7 +12,7 @@
 
 #include "amd_internal.h"
 
-GLOBAL void AMD_postorder
+GLOBAL void AMD(postorder)
 (
     /* inputs, not modified on output: */
     Int nn,		/* nodes are in the range 0..nn-1 */
@@ -196,7 +196,7 @@ GLOBAL void AMD_postorder
 	if (Parent [i] == EMPTY && Nv [i] > 0)
 	{
 	    AMD_DEBUG1 (("Root of assembly tree "ID"\n", i)) ;
-	    k = AMD_post_tree (i, k, Child, Sibling, Order, Stack
+        k = AMD(post_tree) (i, k, Child, Sibling, Order, Stack
 #ifndef NDEBUG
 		, nn
 #endif

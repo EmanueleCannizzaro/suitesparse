@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Schulthess/N_biocarta; 2012; P. Schulthess; ed: T. Davis]
+status 0
+key [2552] nrow 1922 ncol 1996
+mkind 3 skind -1 asize 8670 znz 0
+mtype from file:               [ira]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [ira]
+mtype after reading from file: [ira]
+raw nrow 1922 ncol 1996 nnz 4335 nelnz 0 xsize 4335
+mtype from raw read from file: [ira]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [ira]
+(L) RBok status 0 0 0
+RBdemo OK

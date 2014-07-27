@@ -39,7 +39,7 @@ static Int clear_flag (Int wflg, Int wbig, Int W [ ], Int n)
 /* === AMD_2 =============================================================== */
 /* ========================================================================= */
 
-GLOBAL void AMD_2
+GLOBAL void AMD(2)
 (
     Int n,		/* A is n-by-n, where n > 0 */
     Int Pe [ ],		/* Pe [0..n-1]: index in Iw of row i on input */
@@ -462,7 +462,7 @@ GLOBAL void AMD_2
 	nvi, nvj, nvpiv, slenme, wbig, we, wflg, wnvi, ok, ndense, ncmpa,
 	dense, aggressive ;
 
-    unsigned Int hash ;	    /* unsigned, so that hash % n is well defined.*/
+    UInt hash ;	    /* unsigned, so that hash % n is well defined.*/
 
 /*
  * deg:		the degree of a variable or element
@@ -1763,7 +1763,7 @@ GLOBAL void AMD_2
 /* postorder the assembly tree */
 /* ========================================================================= */
 
-    AMD_postorder (n, Pe, Nv, Elen,
+    AMD(postorder) (n, Pe, Nv, Elen,
 	W,			/* output order */
 	Head, Next, Last) ;	/* workspace */
 

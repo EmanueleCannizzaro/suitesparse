@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Janna/Serena; 2011; C. Janna, M. Ferronato; ed: T. Davis]
+status 0
+key [2541] nrow 1391349 ncol 1391349
+mkind 0 skind 1 asize 65923050 znz 399730
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 1391349 ncol 1391349 nnz 32961525 nelnz 0 xsize 32961525
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 199865
+RBdemo OK

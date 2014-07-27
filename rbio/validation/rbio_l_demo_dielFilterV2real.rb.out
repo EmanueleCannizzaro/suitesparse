@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Dziekonski/dielFilterV2real; 2011; A. Dziekonski et al.; ed: T. Davis]
+status 0
+key [2386] nrow 1157456 ncol 1157456
+mkind 0 skind 1 asize 49696408 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 1157456 ncol 1157456 nnz 24848204 nelnz 0 xsize 24848204
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

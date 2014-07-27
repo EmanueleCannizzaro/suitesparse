@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Newman/polblogs; 2005; L. Adamic, N. Glance; ed: M. Newman]
+status 0
+key [2402] nrow 1490 ncol 1490
+mkind 3 skind 0 asize 38050 znz 0
+mtype from file:               [iua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [iua]
+mtype after reading from file: [iua]
+raw nrow 1490 ncol 1490 nnz 19025 nelnz 0 xsize 19025
+mtype from raw read from file: [iua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [iua]
+(L) RBok status 0 0 0
+RBdemo OK

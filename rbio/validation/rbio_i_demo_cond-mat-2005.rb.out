@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Newman/cond-mat-2005; 2005; M. Newman; ed: M. Newman]
+status 0
+key [2395] nrow 40421 ncol 40421
+mkind 0 skind 1 asize 351386 znz 4
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 40421 ncol 40421 nnz 175693 nelnz 0 xsize 175693
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 2
+RBdemo OK

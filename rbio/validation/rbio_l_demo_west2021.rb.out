@@ -1,0 +1,18 @@
+
+===========================================================
+title: [HB/west2021; 1983; A. Westerberg; ed: I. Duff et al.]
+status 0
+key [272] nrow 2021 ncol 2021
+mkind 0 skind 0 asize 14706 znz 43
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 2021 ncol 2021 nnz 7353 nelnz 0 xsize 7353
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 43
+RBdemo OK

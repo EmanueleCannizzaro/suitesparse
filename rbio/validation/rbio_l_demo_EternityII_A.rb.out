@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Dattorro/EternityII_A; 2011; J. Dattorro; ed: T. Davis]
+status 0
+key [2383] nrow 7362 ncol 150638
+mkind 3 skind -1 asize 1564174 znz 0
+mtype from file:               [ira]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [ira]
+mtype after reading from file: [ira]
+raw nrow 7362 ncol 150638 nnz 782087 nelnz 0 xsize 782087
+mtype from raw read from file: [ira]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [ira]
+(L) RBok status 0 0 0
+RBdemo OK

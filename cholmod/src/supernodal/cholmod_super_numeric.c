@@ -217,7 +217,7 @@ int CHOLMOD(super_numeric)
 	    return (FALSE) ;
 	}
     }
-    ASSERT (L->dtype == DTYPE) ;
+    ASSERT (L->dtype == CHOLMOD_DOUBLE) ;
     ASSERT (L->xtype == CHOLMOD_REAL || L->xtype == CHOLMOD_COMPLEX) ;
 
     /* supernodal LDL' is not supported */

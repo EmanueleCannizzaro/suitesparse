@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/tub100; 1994; K. Meerbergen, D. Roose; ed: Z. Bai et al.]
+status 0
+key [337] nrow 100 ncol 100
+mkind 0 skind 0 asize 792 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 100 ncol 100 nnz 396 nelnz 0 xsize 396
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

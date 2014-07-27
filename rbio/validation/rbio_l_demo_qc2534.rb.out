@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/qc2534; 1991; S. Chu; ed: Z. Bai et al.]
+status 0
+key [326] nrow 2534 ncol 2534
+mkind 2 skind 1 asize 465894 znz 0
+mtype from file:               [csa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [csa]
+mtype after reading from file: [csa]
+raw nrow 2534 ncol 2534 nnz 232947 nelnz 0 xsize 465894
+mtype from raw read from file: [cua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [cua]
+(L) RBok status 0 0 0
+RBdemo OK

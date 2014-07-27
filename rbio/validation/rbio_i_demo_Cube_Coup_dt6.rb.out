@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Janna/Cube_Coup_dt6; 2012; C. Janna, M. Ferronato; ed: T. Davis]
+status 0
+key [2549] nrow 2164760 ncol 2164760
+mkind 0 skind 1 asize 129370904 znz 2800074
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 2164760 ncol 2164760 nnz 64685452 nelnz 0 xsize 64685452
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 1400037
+RBdemo OK

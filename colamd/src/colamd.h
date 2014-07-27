@@ -56,6 +56,396 @@ extern "C" {
 #include <stdlib.h>
 
 /* ========================================================================== */
+/* === Prototypes of user-callable routines ================================= */
+/* ========================================================================== */
+
+#include "SuiteSparse_config.h"
+
+#if defined (DLONG)
+#define COLAMD(name) colamd ## _l_ ## name
+#define SYMAMD(name) symamd ## _l_ ## name
+#else
+#define COLAMD(name) colamd ## _i_ ## name
+#define SYMAMD(name) symamd ## _i_ ## name
+#endif
+
+/* Ensure that debugging is turned off: */
+#ifndef NDEBUG
+#define NDEBUG
+#endif
+
+/* size of the Col and Row structures */
+#define COLAMD_C(n_col,ok) \
+    ((t_mult (t_add (n_col, 1, ok), sizeof (Colamd_Col), ok) / sizeof (Int)))
+
+#define COLAMD_R(n_row,ok) \
+    ((t_mult (t_add (n_row, 1, ok), sizeof (Colamd_Row), ok) / sizeof (Int)))
+
+
+/* turn on debugging by uncommenting the following line
+ #undef NDEBUG
+*/
+
+size_t COLAMD(recommended)	/* returns recommended value of Alen, */
+                /* or 0 if input arguments are erroneous */
+(
+    Int nnz,			/* nonzeros in A */
+    Int n_row,			/* number of rows in A */
+    Int n_col			/* number of columns in A */
+) ;
+
+void colamd_set_defaults	/* sets default parameters */
+(				/* knobs argument is modified on output */
+    double knobs []	/* parameter settings for colamd */
+) ;
+
+Int COLAMD()			/* returns (1) if successful, (0) otherwise*/
+(				/* A and p arguments are modified on output */
+    Int n_row,			/* number of rows in A */
+    Int n_col,			/* number of columns in A */
+    Int Alen,			/* size of the array A */
+    Int A [],			/* row indices of A, of size Alen */
+    Int p [],			/* column pointers of A, of size n_col+1 */
+    double knobs [],/* parameter settings for colamd */
+    Int stats []	/* colamd output statistics and error codes */
+) ;
+
+Int SYMAMD()				/* return (1) if OK, (0) otherwise */
+(
+    Int n,				/* number of rows and columns of A */
+    Int A [],				/* row indices of A */
+    Int p [],				/* column pointers of A */
+    Int perm [],			/* output permutation, size n_col+1 */
+    double knobs [],	/* parameters (uses defaults if NULL) */
+    Int stats [],		/* output statistics and error codes */
+    void * (*allocate) (size_t, size_t),
+                        /* pointer to calloc (ANSI C) or */
+                    /* mxCalloc (for MATLAB mexFunction) */
+    void (*release) (void *)
+                        /* pointer to free (ANSI C) or */
+                        /* mxFree (for MATLAB mexFunction) */
+) ;
+
+void COLAMD(report)
+(
+    Int stats []
+) ;
+
+void SYMAMD(report)
+(
+    Int stats []
+) ;
+
+
+#include <limits.h>
+#include <math.h>
+
+#ifdef MATLAB_MEX_FILE
+#include "mex.h"
+#include "matrix.h"
+#endif /* MATLAB_MEX_FILE */
+
+#if !defined (NPRINT) || !defined (NDEBUG)
+#include <stdio.h>
+#endif
+
+/* ========================================================================== */
+/* === Row and Column structures ============================================ */
+/* ========================================================================== */
+
+/* User code that makes use of the colamd/symamd routines need not directly */
+/* reference these structures.  They are used only for colamd_recommended. */
+
+typedef struct Colamd_Col_struct
+{
+    Int start ;		/* index for A of first row in this column, or DEAD */
+            /* if column is dead */
+    Int length ;	/* number of rows in this column */
+    union
+    {
+    Int thickness ;	/* number of original columns represented by this */
+            /* col, if the column is alive */
+    Int parent ;	/* parent in parent tree super-column structure, if */
+            /* the column is dead */
+    } shared1 ;
+    union
+    {
+    Int score ;	/* the score used to maintain heap, if col is alive */
+    Int order ;	/* pivot ordering of this column, if col is dead */
+    } shared2 ;
+    union
+    {
+    Int headhash ;	/* head of a hash bucket, if col is at the head of */
+            /* a degree list */
+    Int hash ;	/* hash value, if col is not in a degree list */
+    Int prev ;	/* previous column in degree list, if col is in a */
+            /* degree list (but not at the head of a degree list) */
+    } shared3 ;
+    union
+    {
+    Int degree_next ;	/* next column, if col is in a degree list */
+    Int hash_next ;		/* next column, if col is in a hash list */
+    } shared4 ;
+
+} Colamd_Col ;
+
+typedef struct Colamd_Row_struct
+{
+    Int start ;		/* index for A of first col in this row */
+    Int length ;	/* number of principal columns in this row */
+    union
+    {
+    Int degree ;	/* number of principal & non-principal columns in row */
+    Int p ;		/* used as a row pointer in init_rows_cols () */
+    } shared1 ;
+    union
+    {
+    Int mark ;	/* for computing set differences and marking dead rows*/
+    Int first_column ;/* first column in row (used in garbage collection) */
+    } shared2 ;
+
+} Colamd_Row ;
+
+/* ========================================================================== */
+/* === Definitions ========================================================== */
+/* ========================================================================== */
+
+/* Routines are either PUBLIC (user-callable) or PRIVATE (not user-callable) */
+#define PUBLIC
+#define PRIVATE static
+
+#define DENSE_DEGREE(alpha,n) \
+    ((Int) MAX (16.0, (alpha) * sqrt ((double) (n))))
+
+#define MAX(a,b) (((a) > (b)) ? (a) : (b))
+#define MIN(a,b) (((a) < (b)) ? (a) : (b))
+
+#define ONES_COMPLEMENT(r) (-(r)-1)
+
+/* -------------------------------------------------------------------------- */
+/* Change for version 2.1:  define TRUE and FALSE only if not yet defined */
+/* -------------------------------------------------------------------------- */
+
+#ifndef TRUE
+#define TRUE (1)
+#endif
+
+#ifndef FALSE
+#define FALSE (0)
+#endif
+
+/* -------------------------------------------------------------------------- */
+
+#define EMPTY	(-1)
+
+/* Row and column status */
+#define ALIVE	(0)
+#define DEAD	(-1)
+
+/* Column status */
+#define DEAD_PRINCIPAL		(-1)
+#define DEAD_NON_PRINCIPAL	(-2)
+
+/* Macros for row and column status update and checking. */
+#define ROW_IS_DEAD(r)			ROW_IS_MARKED_DEAD (Row[r].shared2.mark)
+#define ROW_IS_MARKED_DEAD(row_mark)	(row_mark < ALIVE)
+#define ROW_IS_ALIVE(r)			(Row [r].shared2.mark >= ALIVE)
+#define COL_IS_DEAD(c)			(Col [c].start < ALIVE)
+#define COL_IS_ALIVE(c)			(Col [c].start >= ALIVE)
+#define COL_IS_DEAD_PRINCIPAL(c)	(Col [c].start == DEAD_PRINCIPAL)
+#define KILL_ROW(r)			{ Row [r].shared2.mark = DEAD ; }
+#define KILL_PRINCIPAL_COL(c)		{ Col [c].start = DEAD_PRINCIPAL ; }
+#define KILL_NON_PRINCIPAL_COL(c)	{ Col [c].start = DEAD_NON_PRINCIPAL ; }
+
+/* ========================================================================== */
+/* === Colamd reporting mechanism =========================================== */
+/* ========================================================================== */
+
+#if defined (MATLAB_MEX_FILE) || defined (MATHWORKS)
+/* In MATLAB, matrices are 1-based to the user, but 0-based internally */
+#define INDEX(i) ((i)+1)
+#else
+/* In C, matrices are 0-based and indices are reported as such in *_report */
+#define INDEX(i) (i)
+#endif
+
+/* All output goes through the PRINTF macro.  */
+#define PRINTF(params) { if (colamd_printf != NULL) (void) colamd_printf params ; }
+
+/* ========================================================================== */
+/* === Prototypes of PRIVATE routines ======================================= */
+/* ========================================================================== */
+
+PRIVATE Int init_rows_cols
+(
+    Int n_row,
+    Int n_col,
+    Colamd_Row Row [],
+    Colamd_Col Col [],
+    Int A [],
+    Int p [],
+    Int stats []
+) ;
+
+PRIVATE void init_scoring
+(
+    Int n_row,
+    Int n_col,
+    Colamd_Row Row [],
+    Colamd_Col Col [],
+    Int A [],
+    Int head [],
+    double knobs [],
+    Int *p_n_row2,
+    Int *p_n_col2,
+    Int *p_max_deg
+) ;
+
+PRIVATE Int find_ordering
+(
+    Int n_row,
+    Int n_col,
+    Int Alen,
+    Colamd_Row Row [],
+    Colamd_Col Col [],
+    Int A [],
+    Int head [],
+    Int n_col2,
+    Int max_deg,
+    Int pfree,
+    Int aggressive
+) ;
+
+PRIVATE void order_children
+(
+    Int n_col,
+    Colamd_Col Col [],
+    Int p []
+) ;
+
+PRIVATE void detect_super_cols
+(
+
+#ifndef NDEBUG
+    Int n_col,
+    Colamd_Row Row [],
+#endif /* NDEBUG */
+
+    Colamd_Col Col [],
+    Int A [],
+    Int head [],
+    Int row_start,
+    Int row_length
+) ;
+
+PRIVATE Int garbage_collection
+(
+    Int n_row,
+    Int n_col,
+    Colamd_Row Row [],
+    Colamd_Col Col [],
+    Int A [],
+    Int *pfree
+) ;
+
+PRIVATE Int clear_mark
+(
+    Int tag_mark,
+    Int max_mark,
+    Int n_row,
+    Colamd_Row Row []
+) ;
+
+PRIVATE void print_report
+(
+    char *method,
+    Int stats []
+) ;
+
+/* ========================================================================== */
+/* === Debugging prototypes and definitions ================================= */
+/* ========================================================================== */
+
+#ifndef NDEBUG
+
+#include <assert.h>
+
+/* colamd_debug is the *ONLY* global variable, and is only */
+/* present when debugging */
+
+PRIVATE Int colamd_debug = 0 ;	/* debug print level */
+
+#define DEBUG0(params) { PRINTF (params) ; }
+#define DEBUG1(params) { if (colamd_debug >= 1) PRINTF (params) ; }
+#define DEBUG2(params) { if (colamd_debug >= 2) PRINTF (params) ; }
+#define DEBUG3(params) { if (colamd_debug >= 3) PRINTF (params) ; }
+#define DEBUG4(params) { if (colamd_debug >= 4) PRINTF (params) ; }
+
+#ifdef MATLAB_MEX_FILE
+#define ASSERT(expression) (mxAssert ((expression), ""))
+#else
+#define ASSERT(expression) (assert (expression))
+#endif /* MATLAB_MEX_FILE */
+
+PRIVATE void colamd_get_debug	/* gets the debug print level from getenv */
+(
+    char *method
+) ;
+
+PRIVATE void debug_deg_lists
+(
+    Int n_row,
+    Int n_col,
+    Colamd_Row Row [],
+    Colamd_Col Col [],
+    Int head [],
+    Int min_score,
+    Int should,
+    Int max_deg
+) ;
+
+PRIVATE void debug_mark
+(
+    Int n_row,
+    Colamd_Row Row [],
+    Int tag_mark,
+    Int max_mark
+) ;
+
+PRIVATE void debug_matrix
+(
+    Int n_row,
+    Int n_col,
+    Colamd_Row Row [],
+    Colamd_Col Col [],
+    Int A []
+) ;
+
+PRIVATE void debug_structures
+(
+    Int n_row,
+    Int n_col,
+    Colamd_Row Row [],
+    Colamd_Col Col [],
+    Int A [],
+    Int n_col2
+) ;
+
+#else /* NDEBUG */
+
+/* === No debugging ========================================================= */
+
+#define DEBUG0(params) ;
+#define DEBUG1(params) ;
+#define DEBUG2(params) ;
+#define DEBUG3(params) ;
+#define DEBUG4(params) ;
+
+#define ASSERT(expression)
+
+#endif /* NDEBUG */
+
+/* ========================================================================== */
 /* === COLAMD version ======================================================= */
 /* ========================================================================== */
 
@@ -130,113 +520,6 @@ extern "C" {
 #define COLAMD_ERROR_out_of_memory		(-10)
 #define COLAMD_ERROR_internal_error		(-999)
 
-
-/* ========================================================================== */
-/* === Prototypes of user-callable routines ================================= */
-/* ========================================================================== */
-
-#include "SuiteSparse_config.h"
-
-size_t colamd_recommended	/* returns recommended value of Alen, */
-				/* or 0 if input arguments are erroneous */
-(
-    int nnz,			/* nonzeros in A */
-    int n_row,			/* number of rows in A */
-    int n_col			/* number of columns in A */
-) ;
-
-size_t colamd_l_recommended	/* returns recommended value of Alen, */
-				/* or 0 if input arguments are erroneous */
-(
-    SuiteSparse_long nnz,       /* nonzeros in A */
-    SuiteSparse_long n_row,     /* number of rows in A */
-    SuiteSparse_long n_col      /* number of columns in A */
-) ;
-
-void colamd_set_defaults	/* sets default parameters */
-(				/* knobs argument is modified on output */
-    double knobs [COLAMD_KNOBS]	/* parameter settings for colamd */
-) ;
-
-void colamd_l_set_defaults	/* sets default parameters */
-(				/* knobs argument is modified on output */
-    double knobs [COLAMD_KNOBS]	/* parameter settings for colamd */
-) ;
-
-int colamd			/* returns (1) if successful, (0) otherwise*/
-(				/* A and p arguments are modified on output */
-    int n_row,			/* number of rows in A */
-    int n_col,			/* number of columns in A */
-    int Alen,			/* size of the array A */
-    int A [],			/* row indices of A, of size Alen */
-    int p [],			/* column pointers of A, of size n_col+1 */
-    double knobs [COLAMD_KNOBS],/* parameter settings for colamd */
-    int stats [COLAMD_STATS]	/* colamd output statistics and error codes */
-) ;
-
-SuiteSparse_long colamd_l       /* returns (1) if successful, (0) otherwise*/
-(				/* A and p arguments are modified on output */
-    SuiteSparse_long n_row,     /* number of rows in A */
-    SuiteSparse_long n_col,     /* number of columns in A */
-    SuiteSparse_long Alen,      /* size of the array A */
-    SuiteSparse_long A [],      /* row indices of A, of size Alen */
-    SuiteSparse_long p [],      /* column pointers of A, of size n_col+1 */
-    double knobs [COLAMD_KNOBS],/* parameter settings for colamd */
-    SuiteSparse_long stats [COLAMD_STATS]   /* colamd output statistics
-                                             * and error codes */
-) ;
-
-int symamd				/* return (1) if OK, (0) otherwise */
-(
-    int n,				/* number of rows and columns of A */
-    int A [],				/* row indices of A */
-    int p [],				/* column pointers of A */
-    int perm [],			/* output permutation, size n_col+1 */
-    double knobs [COLAMD_KNOBS],	/* parameters (uses defaults if NULL) */
-    int stats [COLAMD_STATS],		/* output statistics and error codes */
-    void * (*allocate) (size_t, size_t),
-    					/* pointer to calloc (ANSI C) or */
-					/* mxCalloc (for MATLAB mexFunction) */
-    void (*release) (void *)
-    					/* pointer to free (ANSI C) or */
-    					/* mxFree (for MATLAB mexFunction) */
-) ;
-
-SuiteSparse_long symamd_l               /* return (1) if OK, (0) otherwise */
-(
-    SuiteSparse_long n,                 /* number of rows and columns of A */
-    SuiteSparse_long A [],              /* row indices of A */
-    SuiteSparse_long p [],              /* column pointers of A */
-    SuiteSparse_long perm [],           /* output permutation, size n_col+1 */
-    double knobs [COLAMD_KNOBS],	/* parameters (uses defaults if NULL) */
-    SuiteSparse_long stats [COLAMD_STATS],  /* output stats and error codes */
-    void * (*allocate) (size_t, size_t),
-    					/* pointer to calloc (ANSI C) or */
-					/* mxCalloc (for MATLAB mexFunction) */
-    void (*release) (void *)
-    					/* pointer to free (ANSI C) or */
-    					/* mxFree (for MATLAB mexFunction) */
-) ;
-
-void colamd_report
-(
-    int stats [COLAMD_STATS]
-) ;
-
-void colamd_l_report
-(
-    SuiteSparse_long stats [COLAMD_STATS]
-) ;
-
-void symamd_report
-(
-    int stats [COLAMD_STATS]
-) ;
-
-void symamd_l_report
-(
-    SuiteSparse_long stats [COLAMD_STATS]
-) ;
 
 #ifndef EXTERN
 #define EXTERN extern

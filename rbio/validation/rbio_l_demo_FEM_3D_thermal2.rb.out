@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Botonakis/FEM_3D_thermal2; 2007; I. Botonakis; ed: T. Davis]
+status 0
+key [1852] nrow 147900 ncol 147900
+mkind 0 skind 0 asize 6978600 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 147900 ncol 147900 nnz 3489300 nelnz 0 xsize 3489300
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

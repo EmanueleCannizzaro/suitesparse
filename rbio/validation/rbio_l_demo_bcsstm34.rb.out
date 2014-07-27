@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Boeing/bcsstm34; 1995; R. Grimes; ed: T. Davis]
+status 0
+key [344] nrow 588 ncol 588
+mkind 0 skind 1 asize 24858 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 588 ncol 588 nnz 12429 nelnz 0 xsize 12429
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

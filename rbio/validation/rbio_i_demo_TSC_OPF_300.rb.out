@@ -1,0 +1,18 @@
+
+===========================================================
+title: [IPSO/TSC_OPF_300; 2011; L. Peijie; ed: J. Hogg]
+status 0
+key [2540] nrow 9774 ncol 9774
+mkind 0 skind 1 asize 830578 znz 21
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 9774 ncol 9774 nnz 415289 nelnz 0 xsize 415289
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 21
+RBdemo OK

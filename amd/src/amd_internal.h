@@ -178,7 +178,7 @@
 /* AMD routine definitions (not user-callable) */
 /* ------------------------------------------------------------------------- */
 
-GLOBAL size_t AMD_aat
+GLOBAL size_t AMD(aat)
 (
     Int n,
     const Int Ap [ ],
@@ -188,7 +188,7 @@ GLOBAL size_t AMD_aat
     double Info [ ]
 ) ;
 
-GLOBAL void AMD_1
+GLOBAL void AMD(1)
 (
     Int n,
     const Int Ap [ ],
@@ -202,7 +202,7 @@ GLOBAL void AMD_1
     double Info [ ]
 ) ;
 
-GLOBAL void AMD_postorder
+GLOBAL void AMD(postorder)
 (
     Int nn,
     Int Parent [ ],
@@ -214,7 +214,7 @@ GLOBAL void AMD_postorder
     Int Stack [ ]
 ) ;
 
-GLOBAL Int AMD_post_tree
+GLOBAL Int AMD(post_tree)
 (
     Int root,
     Int k,
@@ -227,7 +227,7 @@ GLOBAL Int AMD_post_tree
 #endif
 ) ;
 
-GLOBAL void AMD_preprocess
+GLOBAL void AMD(preprocess)
 (
     Int n,
     const Int Ap [ ],
@@ -251,11 +251,11 @@ GLOBAL void AMD_preprocess
 #define EXTERN extern
 #endif
 
-EXTERN Int AMD_debug ;
+EXTERN Int amd_debug ;
 
-GLOBAL void AMD_debug_init ( char *s ) ;
+GLOBAL void amd_debug_init ( char *s ) ;
 
-GLOBAL void AMD_dump
+GLOBAL void AMD(dump)
 (
     Int n,
     Int Pe [ ],
@@ -285,10 +285,10 @@ GLOBAL void AMD_dump
 #endif
 
 #define AMD_DEBUG0(params) { PRINTF (params) ; }
-#define AMD_DEBUG1(params) { if (AMD_debug >= 1) PRINTF (params) ; }
-#define AMD_DEBUG2(params) { if (AMD_debug >= 2) PRINTF (params) ; }
-#define AMD_DEBUG3(params) { if (AMD_debug >= 3) PRINTF (params) ; }
-#define AMD_DEBUG4(params) { if (AMD_debug >= 4) PRINTF (params) ; }
+#define AMD_DEBUG1(params) { if (AMD(debug) >= 1) PRINTF (params) ; }
+#define AMD_DEBUG2(params) { if (AMD(debug) >= 2) PRINTF (params) ; }
+#define AMD_DEBUG3(params) { if (AMD(debug) >= 3) PRINTF (params) ; }
+#define AMD_DEBUG4(params) { if (AMD(debug) >= 4) PRINTF (params) ; }
 
 #else
 

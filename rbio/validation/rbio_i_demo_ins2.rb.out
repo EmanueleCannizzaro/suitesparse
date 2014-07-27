@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Andrianov/ins2; 2006; A. Andrianov; ed: T. Davis]
+status 0
+key [1382] nrow 309412 ncol 309412
+mkind 1 skind 1 asize 3060896 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 309412 ncol 309412 nnz 1530448 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

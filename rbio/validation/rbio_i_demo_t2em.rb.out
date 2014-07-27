@@ -1,0 +1,18 @@
+
+===========================================================
+title: [CEMW/t2em; 2008; D. Isaak; ed: T. Davis]
+status 0
+key [1897] nrow 921632 ncol 921632
+mkind 3 skind 0 asize 9181664 znz 0
+mtype from file:               [iua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [iua]
+mtype after reading from file: [iua]
+raw nrow 921632 ncol 921632 nnz 4590832 nelnz 0 xsize 4590832
+mtype from raw read from file: [iua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [iua]
+(L) RBok status 0 0 0
+RBdemo OK

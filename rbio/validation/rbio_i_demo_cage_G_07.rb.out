@@ -1,0 +1,18 @@
+
+===========================================================
+title: [AG-Monien/cage_G_07]
+status 0
+key [2436G7] nrow 58 ncol 58
+mkind 1 skind 1 asize 174 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 58 ncol 58 nnz 87 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

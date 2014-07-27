@@ -1,0 +1,18 @@
+
+===========================================================
+title: [HB/west1505; 1983; A. Westerberg; ed: I. Duff et al.]
+status 0
+key [271] nrow 1505 ncol 1505
+mkind 0 skind 0 asize 10890 znz 31
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 1505 ncol 1505 nnz 5445 nelnz 0 xsize 5445
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 31
+RBdemo OK

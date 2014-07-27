@@ -1,0 +1,18 @@
+
+===========================================================
+title: [LAW/indochina-2004; 2004; P. Boldi et al.; ed: P. Boldi et al.]
+status 0
+key [2451] nrow 7414866 ncol 7414866
+mkind 1 skind 0 asize 388218622 znz 0
+mtype from file:               [pua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [pua]
+mtype after reading from file: [pua]
+raw nrow 7414866 ncol 7414866 nnz 194109311 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DNVS/shipsec1; 1999; C. Damhaug; ed: J. Koster]
+status 0
+key [1279] nrow 140874 ncol 140874
+mkind 0 skind 1 asize 7954278 znz 4245228
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 140874 ncol 140874 nnz 3977139 nelnz 0 xsize 3977139
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 2122614
+RBdemo OK

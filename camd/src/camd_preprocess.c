@@ -26,7 +26,7 @@
  * On input, the condition (CAMD_valid (n,n,Ap,Ai) != CAMD_INVALID) must hold.
  */
 
-GLOBAL void CAMD_preprocess
+GLOBAL void CAMD(preprocess)
 (
     Int n,		/* input matrix: A is n-by-n */
     const Int Ap [ ],	/* size n+1 */
@@ -47,7 +47,7 @@ GLOBAL void CAMD_preprocess
 
     Int i, j, p, p2 ;
 
-    ASSERT (CAMD_valid (n, n, Ap, Ai) != CAMD_INVALID) ;
+    ASSERT (CAMD(valid) (n, n, Ap, Ai) != CAMD_INVALID) ;
 
     /* --------------------------------------------------------------------- */
     /* count the entries in each row of A (excluding duplicates) */
@@ -109,7 +109,7 @@ GLOBAL void CAMD_preprocess
     }
 
 #ifndef NDEBUG
-    ASSERT (CAMD_valid (n, n, Rp, Ri) == CAMD_OK) ;
+    ASSERT (CAMD(valid) (n, n, Rp, Ri) == CAMD_OK) ;
     for (j = 0 ; j < n ; j++)
     {
 	ASSERT (W [j] == Rp [j+1]) ;

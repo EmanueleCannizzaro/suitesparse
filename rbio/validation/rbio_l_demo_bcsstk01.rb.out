@@ -1,0 +1,18 @@
+
+===========================================================
+title: [HB/bcsstk01; 1982; J. Lewis; ed: I. Duff et al.]
+status 0
+key [23] nrow 48 ncol 48
+mkind 0 skind 1 asize 448 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 48 ncol 48 nnz 224 nelnz 0 xsize 224
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

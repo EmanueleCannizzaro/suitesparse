@@ -12,7 +12,7 @@
  * factorization of P*A*P' has fewer nonzeros and takes less work than the
  * Cholesky factorization of A.  If A is not symmetric, then it performs its
  * ordering on the matrix A+A'.  Two sets of user-callable routines are
- * provided, one for int integers and the other for SuiteSparse_long integers.
+ * provided, one for Int integers and the other for SuiteSparse_long integers.
  *
  * The method is based on the approximate minimum degree algorithm, discussed
  * in Amestoy, Davis, and Duff, "An approximate degree ordering algorithm",
@@ -33,27 +33,22 @@ extern "C" {
 
 #include "SuiteSparse_config.h"
 
-int camd_order              /* returns CAMD_OK, CAMD_OK_BUT_JUMBLED,
+#if defined (DLONG)
+#define CAMD(name) camd ## _l_ ## name
+#else
+#define CAMD(name) camd ## _i_ ## name
+#endif
+
+Int CAMD(order)              /* returns CAMD_OK, CAMD_OK_BUT_JUMBLED,
                              * CAMD_INVALID, or CAMD_OUT_OF_MEMORY */
 (
-    int n,                  /* A is n-by-n.  n must be >= 0. */
-    const int Ap [ ],       /* column pointers for A, of size n+1 */
-    const int Ai [ ],       /* row indices of A, of size nz = Ap [n] */
-    int P [ ],              /* output permutation, of size n */
+    Int n,                  /* A is n-by-n.  n must be >= 0. */
+    const Int Ap [ ],       /* column pointers for A, of size n+1 */
+    const Int Ai [ ],       /* row indices of A, of size nz = Ap [n] */
+    Int P [ ],              /* output permutation, of size n */
     double Control [ ],     /* input Control settings, of size CAMD_CONTROL */
     double Info [ ],        /* output Info statistics, of size CAMD_INFO */
-    const int C [ ]         /* Constraint set of A, of size n; can be NULL */
-) ;
-
-SuiteSparse_long camd_l_order   /* see above for description of arguments */
-(
-    SuiteSparse_long n,
-    const SuiteSparse_long Ap [ ],
-    const SuiteSparse_long Ai [ ],
-    SuiteSparse_long P [ ],
-    double Control [ ],
-    double Info [ ],
-    const SuiteSparse_long C [ ]
+    const Int C [ ]         /* Constraint set of A, of size n; can be NULL */
 ) ;
 
 /* Input arguments (not modified):
@@ -224,48 +219,26 @@ SuiteSparse_long camd_l_order   /* see above for description of arguments */
  * of the matrix for CAMD to destroy).  Refer to CAMD/Source/camd_2.c for a
  * description of each parameter. */
 
-void camd_2
+void CAMD(2)
 (
-    int n,
-    int Pe [ ],
-    int Iw [ ],
-    int Len [ ],
-    int iwlen,
-    int pfree,
-    int Nv [ ],
-    int Next [ ], 
-    int Last [ ],
-    int Head [ ],
-    int Elen [ ],
-    int Degree [ ],
-    int W [ ],
+    Int n,
+    Int Pe [ ],
+    Int Iw [ ],
+    Int Len [ ],
+    Int iwlen,
+    Int pfree,
+    Int Nv [ ],
+    Int Next [ ],
+    Int Last [ ],
+    Int Head [ ],
+    Int Elen [ ],
+    Int Degree [ ],
+    Int W [ ],
     double Control [ ],
     double Info [ ],
-    const int C [ ],
-    int BucketSet [ ] 
-) ;
-
-void camd_l2
-(
-    SuiteSparse_long n,
-    SuiteSparse_long Pe [ ],
-    SuiteSparse_long Iw [ ],
-    SuiteSparse_long Len [ ],
-    SuiteSparse_long iwlen,
-    SuiteSparse_long pfree,
-    SuiteSparse_long Nv [ ],
-    SuiteSparse_long Next [ ], 
-    SuiteSparse_long Last [ ],
-    SuiteSparse_long Head [ ],
-    SuiteSparse_long Elen [ ],
-    SuiteSparse_long Degree [ ],
-    SuiteSparse_long W [ ],
-    double Control [ ],
-    double Info [ ],
-    const SuiteSparse_long C [ ],
-    SuiteSparse_long BucketSet [ ]
-    
-) ;
+    const Int C [ ],
+    Int BucketSet [ ]
+);
 
 /* ------------------------------------------------------------------------- */
 /* camd_valid */
@@ -279,20 +252,12 @@ void camd_l2
  * of columns of the matrix.  For its use in CAMD, these must both equal n.
  */
 
-int camd_valid
+Int CAMD(valid)
 (
-    int n_row,              /* # of rows */
-    int n_col,              /* # of columns */
-    const int Ap [ ],       /* column pointers, of size n_col+1 */
-    const int Ai [ ]        /* row indices, of size Ap [n_col] */
-) ;
-
-SuiteSparse_long camd_l_valid
-(
-    SuiteSparse_long n_row,
-    SuiteSparse_long n_col,
-    const SuiteSparse_long Ap [ ],
-    const SuiteSparse_long Ai [ ]
+    Int n_row,              /* # of rows */
+    Int n_col,              /* # of columns */
+    const Int Ap [ ],       /* column pointers, of size n_col+1 */
+    const Int Ai [ ]        /* row indices, of size Ap [n_col] */
 ) ;
 
 /* ------------------------------------------------------------------------- */
@@ -302,16 +267,10 @@ SuiteSparse_long camd_l_valid
 /* Returns TRUE if the constraint set is valid as input to camd_order,
  * FALSE otherwise. */
 
-int camd_cvalid
+Int CAMD(cvalid)
 (
-   int n,
-   const int C [ ]
-) ;
-
-SuiteSparse_long camd_l_cvalid
-(
-   SuiteSparse_long n,
-   const SuiteSparse_long C [ ]
+   Int n,
+   const Int C [ ]
 ) ;
 
 /* ------------------------------------------------------------------------- */
@@ -329,7 +288,7 @@ EXTERN void *(*camd_malloc) (size_t) ;              /* pointer to malloc */
 EXTERN void (*camd_free) (void *) ;                 /* pointer to free */
 EXTERN void *(*camd_realloc) (void *, size_t) ;     /* pointer to realloc */
 EXTERN void *(*camd_calloc) (size_t, size_t) ;      /* pointer to calloc */
-EXTERN int (*camd_printf) (const char *, ...) ;     /* pointer to printf */
+EXTERN Int (*camd_printf) (const char *, ...) ;     /* pointer to printf */
 
 /* ------------------------------------------------------------------------- */
 /* CAMD Control and Info arrays */
@@ -337,15 +296,12 @@ EXTERN int (*camd_printf) (const char *, ...) ;     /* pointer to printf */
 
 /* camd_defaults:  sets the default control settings */
 void camd_defaults   (double Control [ ]) ;
-void camd_l_defaults (double Control [ ]) ;
 
 /* camd_control: prints the control settings */
 void camd_control    (double Control [ ]) ;
-void camd_l_control  (double Control [ ]) ;
 
 /* camd_info: prints the statistics */
 void camd_info       (double Info [ ]) ;
-void camd_l_info     (double Info [ ]) ;
 
 #define CAMD_CONTROL 5      /* size of Control array */
 #define CAMD_INFO 20        /* size of Info array */

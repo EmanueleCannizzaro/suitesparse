@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Dattorro/EternityII_E_b]
+status 0
+key [2381b] nrow 11077 ncol 1
+mkind 1 skind -1 asize 1026 znz 0
+mtype from file:               [pra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [pra]
+mtype after reading from file: [pra]
+raw nrow 11077 ncol 1 nnz 513 nelnz 0 xsize 0
+mtype from raw read from file: [pra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [pra]
+(L) RBok status 0 0 0
+RBdemo OK

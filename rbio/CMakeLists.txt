@@ -21,5 +21,5 @@ set(RBIO_SUBSUB_VERSION 1)
 set(RBIO_VERSION ${RBIO_MAIN_VERSION} * 1000 + ${RBIO_SUB_VERSION})
 
 add_subdirectory(src)
-#add_subdirectory(test)
-add_subdirectory(doc)
+add_subdirectory(test)
+##add_subdirectory(doc)

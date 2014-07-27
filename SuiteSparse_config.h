@@ -42,83 +42,81 @@
 extern "C" {
 #endif
 
-#include <limits.h>
-#include <stdlib.h>
+/* -------------------------------------------------------------------------- */
+/* large file I/O support */
+/* -------------------------------------------------------------------------- */
 
-/* ========================================================================== */
-/* === SuiteSparse_long ===================================================== */
-/* ========================================================================== */
+/* Definitions required for large file I/O, which must come before any other
+ * #includes.  These are not used if -DNLARGEFILE is defined at compile time.
+ * Large file support may not be portable across all platforms and compilers;
+ * if you encounter an error here, compile your code with -DNLARGEFILE.  In
+ * particular, you must use -DNLARGEFILE for MATLAB 6.5 or earlier (which does
+ * not have the io64.h include file).   See also CHOLMOD/Include/cholmod_io64.h.
+ */
 
-#ifndef SuiteSparse_long
+/* skip all of this if NLARGEFILE is defined at the compiler command line */
+#ifndef NLARGEFILE
 
-#ifdef _WIN64
+#if defined(MATLAB_MEX_FILE) || defined(MATHWORKS)
 
-#define SuiteSparse_long __int64
-#define SuiteSparse_long_max _I64_MAX
-#define SuiteSparse_long_idd "I64d"
+/* RBio is being compiled as a MATLAB mexFunction, or for use in MATLAB */
+#include "io64.h"
 
 #else
 
-#define SuiteSparse_long long
-#define SuiteSparse_long_max LONG_MAX
-#define SuiteSparse_long_idd "ld"
+/* RBio is being compiled in a stand-alone library */
+#undef  _LARGEFILE64_SOURCE
+#define _LARGEFILE64_SOURCE
+#undef  _FILE_OFFSET_BITS
+#define _FILE_OFFSET_BITS 64
 
 #endif
-#define SuiteSparse_long_id "%" SuiteSparse_long_idd
+
 #endif
 
-/* For backward compatibility with prior versions of SuiteSparse.  The UF_*
- * macros are deprecated and will be removed in a future version. */
-#ifndef UF_long
-#define UF_long     SuiteSparse_long
-#define UF_long_max SuiteSparse_long_max
-#define UF_long_idd SuiteSparse_long_idd
-#define UF_long_id  SuiteSparse_long_id
+
+#include <limits.h>
+#include <stdlib.h>
+#include <glib.h>
+#include <gsl/gsl_math.h>
+
+#if defined (DLONG)
+#define Int gint64
+#define Int_MAX G_MAXINT64
+#define UInt guint64
+#define UInt_MAX G_MAXUINT64
+#define IDD  G_GINT64_FORMAT
+#define IUDD  G_GUINT64_FORMAT
+#else
+#define Int gint32
+#define Int_MAX G_MAXINT32
+#define UInt guint32
+#define UInt_MAX G_MAXUINT32
+#define IDD G_GINT32_FORMAT
+#define IUDD G_GUINT32_FORMAT
 #endif
 
-/* ========================================================================== */
-/* === SuiteSparse_config parameters and functions ========================== */
-/* ========================================================================== */
+#define ID  "%" IDD
+#define IUD  "%" IUDD
 
-/* SuiteSparse-wide parameters will be placed in this struct. */
+#if defined (DCOMPLEX)
+#include <complex.h>
+#define Real double _Complex
+#define REAL(x) creal(x)
+#define IMAG(x) cimag(x)
+#define CONJ(x) conj(x)
+//#define ABS(x) cabs(x)
+#else
+#define Real double
+#define REAL(x) (x)
+#define IMAG(x) (0.)
+#define CONJ(x) (x)
+//#define ABS(x) fabs(x)
+#endif
 
-typedef struct SuiteSparse_config_struct
-{
-    void *(*malloc_memory) (size_t) ;           /* pointer to malloc */
-    void *(*realloc_memory) (void *, size_t) ;  /* pointer to realloc */
-    void (*free_memory) (void *) ;              /* pointer to free */
-    void *(*calloc_memory) (size_t, size_t) ;   /* pointer to calloc */
-
-} SuiteSparse_config ;
-
-void *SuiteSparse_malloc    /* pointer to allocated block of memory */
-(
-    size_t nitems,          /* number of items to malloc (>=1 is enforced) */
-    size_t size_of_item,    /* sizeof each item */
-    int *ok,                /* TRUE if successful, FALSE otherwise */
-    SuiteSparse_config *config        /* SuiteSparse-wide configuration */
-) ;
-
-void *SuiteSparse_free      /* always returns NULL */
-(
-    void *p,                /* block to free */
-    SuiteSparse_config *config        /* SuiteSparse-wide configuration */
-) ;
-
-void SuiteSparse_tic    /* start the timer */
-(
-    double tic [2]      /* output, contents undefined on input */
-) ;
-
-double SuiteSparse_toc  /* return time in seconds since last tic */
-(
-    double tic [2]      /* input: from last call to SuiteSparse_tic */
-) ;
-
-double SuiteSparse_time  /* returns current wall clock time in seconds */
-(
-    void
-) ;
+#ifdef MATLAB_MEX_FILE
+#include "mex.h"
+#endif
 
 /* determine which timer to use, if any */
 #ifndef NTIMER
@@ -166,17 +164,6 @@ double SuiteSparse_time  /* returns current wall clock time in seconds */
  */
 
 
-int SuiteSparse_version     /* returns SUITESPARSE_VERSION */
-(
-    /* output, not defined on input.  Not used if NULL.  Returns
-       the three version codes in version [0..2]:
-       version [0] is SUITESPARSE_MAIN_VERSION
-       version [1] is SUITESPARSE_SUB_VERSION
-       version [2] is SUITESPARSE_SUBSUB_VERSION
-       */
-    int version [3]
-) ;
-
 /* Versions prior to 4.2.0 do not have the above function.  The following
    code fragment will work with any version of SuiteSparse:
 
@@ -188,13 +175,61 @@ int SuiteSparse_version     /* returns SUITESPARSE_VERSION */
 */
 #define SUITESPARSE_HAS_VERSION_FUNCTION
 
-#define SUITESPARSE_DATE "April 25, 2013"
-#define SUITESPARSE_VER_CODE(main,sub) ((main) * 1000 + (sub))
-#define SUITESPARSE_MAIN_VERSION 4
-#define SUITESPARSE_SUB_VERSION 2
-#define SUITESPARSE_SUBSUB_VERSION 1
-#define SUITESPARSE_VERSION \
-    SUITESPARSE_VER_CODE(SUITESPARSE_MAIN_VERSION,SUITESPARSE_SUB_VERSION)
+/* -------------------------------------------------------------------------- */
+/* SUITESPARSE_VERSION: return the current version of SuiteSparse */
+/* -------------------------------------------------------------------------- */
+#define SUITESPARSE_VERSION(MAIN, SUB, SUBSUB, DATE) MAIN ## "." ## SUB ## "." ## SUBSUB ## " " ## DATE
+
+#define VERSION_DATE "April 25, 2013"
+#define MAIN_VERSION 4
+#define SUB_VERSION 2
+#define SUBSUB_VERSION 1
+
+
+/* ========================================================================== */
+/* === SuiteSparse_config parameters and functions ========================== */
+/* ========================================================================== */
+
+/* SuiteSparse-wide parameters will be placed in this struct. */
+
+typedef struct SuiteSparse_config_struct
+{
+    void *(*malloc_memory) (size_t) ;           /* pointer to malloc */
+    void *(*realloc_memory) (void *, size_t) ;  /* pointer to realloc */
+    void (*free_memory) (void *) ;              /* pointer to free */
+    void *(*calloc_memory) (size_t, size_t) ;   /* pointer to calloc */
+
+} SuiteSparse_config ;
+
+gpointer SuiteSparse_malloc    /* pointer to allocated block of memory */
+(
+    size_t nitems,          /* number of items to malloc (>=1 is enforced) */
+    size_t size_of_item,    /* sizeof each item */
+    int *ok,                /* TRUE if successful, FALSE otherwise */
+    SuiteSparse_config *config        /* SuiteSparse-wide configuration */
+) ;
+
+void SuiteSparse_free      /* always returns NULL */
+(
+    void *p,                /* block to free */
+    SuiteSparse_config *config        /* SuiteSparse-wide configuration */
+) ;
+
+
+void SuiteSparse_tic    /* start the timer */
+(
+    double tic [2]      /* output, contents undefined on input */
+) ;
+
+double SuiteSparse_toc  /* return time in seconds since last tic */
+(
+    double tic [2]      /* input: from last call to SuiteSparse_tic */
+) ;
+
+double SuiteSparse_time  /* returns current wall clock time in seconds */
+(
+    void
+) ;
 
 #ifdef __cplusplus
 }

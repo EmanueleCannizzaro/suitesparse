@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bindel/ted_AB; 2006; D. Bindel; ed: T. Davis]
+status 0
+key [1407] nrow 10605 ncol 10605
+mkind 2 skind 0 asize 1044774 znz 0
+mtype from file:               [cua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [cua]
+mtype after reading from file: [cua]
+raw nrow 10605 ncol 10605 nnz 522387 nelnz 0 xsize 1044774
+mtype from raw read from file: [cua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [cua]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [CEMW/vfem; 2008; D. Isaak; ed: T. Davis]
+status 0
+key [1900] nrow 93476 ncol 93476
+mkind 2 skind 0 asize 2869272 znz 0
+mtype from file:               [cua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [cua]
+mtype after reading from file: [cua]
+raw nrow 93476 ncol 93476 nnz 1434636 nelnz 0 xsize 2869272
+mtype from raw read from file: [cua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [cua]
+(L) RBok status 0 0 0
+RBdemo OK

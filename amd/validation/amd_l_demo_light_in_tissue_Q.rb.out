@@ -1,0 +1,49 @@
+
+===========================================================
+title: [Dehghani/light_in_tissue_Q]
+status 0
+key [1873Q] nrow 14641 ncol 1
+mkind 0 skind -1 asize 50 znz 0
+mtype from file:               [rra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rra]
+mtype after reading from file: [rra]
+raw nrow 14641 ncol 1 nnz 25 nelnz 0 xsize 25
+mtype from raw read from file: [rra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [rra]
+(L) RBok status 0 0 0
+
+
+AMD demo:
+
+Approximate minimum degree ordering
+    dense row parameter: 10
+    (rows with more than max (10 * sqrt (n), 16) entries are
+    considered "dense", and placed last in output permutation)
+    aggressive absorption:  yes
+
+Input matrix:  1-by-1, with 25 entries.
+   Note that for a symmetric matrix such as this one, only the
+   strictly lower or upper triangular parts would need to be
+   passed to AMD, since AMD computes the ordering of A+A'.  The
+   diagonal entries are also not needed, since AMD ignores them.
+
+Column: 0, number of entries: 25, with row indices in Ai [0 ... 24]:
+    row indices: 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72
+
+return value from amd_order: -2 (should be 0)
+
+Results:
+    status: invalid matrix
+    n, dimension of A:                                  1
+    nz, number of nonzeros in A:                        25
+
+    The following approximate statistics are for a subsequent
+    factorization of A(P,P) + A(P,P)'.  They are slight upper
+    bounds if there are no dense rows/columns in A+A', and become
+    looser if dense rows/columns exist.
+
+AMD failed

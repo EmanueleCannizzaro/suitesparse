@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bova/rma10; 1997; S. Bova; ed: T. Davis]
+status 0
+key [374] nrow 46835 ncol 46835
+mkind 0 skind 0 asize 4748002 znz 44909
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 46835 ncol 46835 nnz 2374001 nelnz 0 xsize 2374001
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 44909
+RBdemo OK

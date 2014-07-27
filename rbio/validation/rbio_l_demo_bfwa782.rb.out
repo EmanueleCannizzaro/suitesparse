@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/bfwa782; 1994; B. Schultz, S. Gedney; ed: Z. Bai et al.]
+status 0
+key [294] nrow 782 ncol 782
+mkind 0 skind 0 asize 15028 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 782 ncol 782 nnz 7514 nelnz 0 xsize 7514
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

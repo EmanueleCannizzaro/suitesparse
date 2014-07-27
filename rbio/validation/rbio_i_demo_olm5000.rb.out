@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/olm5000; 1994; K. Meerbergen; ed: Z. Bai et al.]
+status 0
+key [322] nrow 5000 ncol 5000
+mkind 0 skind 0 asize 39992 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 5000 ncol 5000 nnz 19996 nelnz 0 xsize 19996
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

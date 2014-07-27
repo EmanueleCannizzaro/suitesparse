@@ -1,0 +1,18 @@
+
+===========================================================
+title: [LAW/hollywood-2009; 2009; P. Boldi et al.; ed: P. Boldi et al.]
+status 0
+key [2447] nrow 1139905 ncol 1139905
+mkind 1 skind 1 asize 115031232 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 1139905 ncol 1139905 nnz 57515616 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -100,7 +100,7 @@ cholmod_dense *CHOLMOD(allocate_dense)
     nzmax = CHOLMOD(mult_size_t) (d, ncol, &ok) ;
     nzmax = MAX (1, nzmax) ;
 
-    if (!ok || nrow > Int_max || ncol > Int_max || nzmax > Int_max)
+    if (!ok || nrow > Int_MAX || ncol > Int_MAX || nzmax > Int_MAX)
     {
 	ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
 	return (NULL) ;
@@ -124,7 +124,7 @@ cholmod_dense *CHOLMOD(allocate_dense)
     X->ncol = ncol ;
     X->nzmax = nzmax ;
     X->xtype = xtype ;
-    X->dtype = DTYPE ;
+    X->dtype = CHOLMOD_DOUBLE ;
     X->x = NULL ;
     X->z = NULL ;
     X->d = d ;

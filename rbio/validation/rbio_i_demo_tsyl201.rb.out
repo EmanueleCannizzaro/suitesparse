@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DNVS/tsyl201; 2004; C. Damhaug; ed: N. Gould et al.]
+status 0
+key [1286] nrow 20685 ncol 20685
+mkind 1 skind 1 asize 2475642 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 20685 ncol 20685 nnz 1237821 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

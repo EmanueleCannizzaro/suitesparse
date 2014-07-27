@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/qh1484; 1994; D. Ndereyimana; ed: Z. Bai et al.]
+status 0
+key [1626] nrow 1484 ncol 1484
+mkind 0 skind 0 asize 12220 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 1484 ncol 1484 nnz 6110 nelnz 0 xsize 6110
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

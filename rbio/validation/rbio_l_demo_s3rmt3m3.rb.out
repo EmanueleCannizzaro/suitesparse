@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Cylshell/s3rmt3m3; 1997; R. Kouhia; ed: R. Boisvert et al.]
+status 0
+key [1611] nrow 5357 ncol 5357
+mkind 0 skind 1 asize 213052 znz 572
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 5357 ncol 5357 nnz 106526 nelnz 0 xsize 106526
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 286
+RBdemo OK

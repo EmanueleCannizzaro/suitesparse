@@ -1,0 +1,143 @@
+
+===========================================================
+title: [AG-Monien/cca_G_01]
+status 0
+key [2437G1] nrow 24 ncol 24
+mkind 1 skind 1 asize 56 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 24 ncol 24 nnz 28 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+
+
+AMD demo:
+
+Approximate minimum degree ordering
+    dense row parameter: 10
+    (rows with more than max (10 * sqrt (n), 16) entries are
+    considered "dense", and placed last in output permutation)
+    aggressive absorption:  yes
+
+Input matrix:  24-by-24, with 28 entries.
+   Note that for a symmetric matrix such as this one, only the
+   strictly lower or upper triangular parts would need to be
+   passed to AMD, since AMD computes the ordering of A+A'.  The
+   diagonal entries are also not needed, since AMD ignores them.
+
+Column: 0, number of entries: 2, with row indices in Ai [0 ... 1]:
+    row indices: 1 3
+
+Column: 1, number of entries: 2, with row indices in Ai [2 ... 3]:
+    row indices: 2 7
+
+Column: 2, number of entries: 1, with row indices in Ai [4 ... 4]:
+    row indices: 14
+
+Column: 3, number of entries: 1, with row indices in Ai [5 ... 5]:
+    row indices: 4
+
+Column: 4, number of entries: 2, with row indices in Ai [6 ... 7]:
+    row indices: 5 10
+
+Column: 5, number of entries: 1, with row indices in Ai [8 ... 8]:
+    row indices: 17
+
+Column: 6, number of entries: 2, with row indices in Ai [9 ... 10]:
+    row indices: 7 9
+
+Column: 7, number of entries: 1, with row indices in Ai [11 ... 11]:
+    row indices: 8
+
+Column: 8, number of entries: 1, with row indices in Ai [12 ... 12]:
+    row indices: 20
+
+Column: 9, number of entries: 1, with row indices in Ai [13 ... 13]:
+    row indices: 10
+
+Column: 10, number of entries: 1, with row indices in Ai [14 ... 14]:
+    row indices: 11
+
+Column: 11, number of entries: 1, with row indices in Ai [15 ... 15]:
+    row indices: 23
+
+Column: 12, number of entries: 2, with row indices in Ai [16 ... 17]:
+    row indices: 13 15
+
+Column: 13, number of entries: 2, with row indices in Ai [18 ... 19]:
+    row indices: 14 19
+
+Column: 14, number of entries: 0, with row indices in Ai [20 ... 19]:
+    row indices:
+
+Column: 15, number of entries: 1, with row indices in Ai [20 ... 20]:
+    row indices: 16
+
+Column: 16, number of entries: 2, with row indices in Ai [21 ... 22]:
+    row indices: 17 22
+
+Column: 17, number of entries: 0, with row indices in Ai [23 ... 22]:
+    row indices:
+
+Column: 18, number of entries: 2, with row indices in Ai [23 ... 24]:
+    row indices: 19 21
+
+Column: 19, number of entries: 1, with row indices in Ai [25 ... 25]:
+    row indices: 20
+
+Column: 20, number of entries: 0, with row indices in Ai [26 ... 25]:
+    row indices:
+
+Column: 21, number of entries: 1, with row indices in Ai [26 ... 26]:
+    row indices: 22
+
+Column: 22, number of entries: 1, with row indices in Ai [27 ... 27]:
+    row indices: 23
+
+Column: 23, number of entries: 0, with row indices in Ai [28 ... 27]:
+    row indices:
+
+return value from amd_order: 0 (should be 0)
+
+Results:
+    status: OK
+    n, dimension of A:                                  24
+    nz, number of nonzeros in A:                        28
+    symmetry of A:                                      0.0000
+    number of nonzeros on diagonal:                     0
+    nonzeros in pattern of A+A' (excl. diagonal):       56
+    # dense rows/columns of A+A':                       0
+    memory used, in bytes:                              2264
+    # of memory compactions:                            0
+
+    The following approximate statistics are for a subsequent
+    factorization of A(P,P) + A(P,P)'.  They are slight upper
+    bounds if there are no dense rows/columns in A+A', and become
+    looser if dense rows/columns exist.
+
+    nonzeros in L (excluding diagonal):                 50
+    nonzeros in L (including diagonal):                 74
+    # divide operations for LDL' or LU:                 50
+    # multiply-subtract operations for LDL':            82
+    # multiply-subtract operations for LU:              114
+    max nz. in any column of L (incl. diagonal):        4
+
+    chol flop count for real A, sqrt counted as 1 flop: 238
+    LDL' flop count for real A:                         214
+    LDL' flop count for complex A:                      1106
+    LU flop count for real A (with no pivoting):        278
+    LU flop count for complex A (with no pivoting):     1362
+
+Permutation vector:
+  3  0 14  2  1  9  6 23 11 10 17  5 15 12 16 20  8 21 18 19  4  7 22 13
+
+Inverse permutation vector:
+  1  4  3  0 20 11  6 21 16  5  9  8 13 23  2 12 14 10 18 19 15 17 22  7
+
+Execution of AMD demo: OK

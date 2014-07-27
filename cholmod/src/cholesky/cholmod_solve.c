@@ -1296,7 +1296,7 @@ int CHOLMOD(solve2)         /* returns TRUE on success, FALSE on failure */
         C->nzmax = n ;
         C->packed = TRUE ;
         C->stype = 0 ;
-        C->itype = ITYPE ;
+        C->itype = CHOLMOD_LONG ;
         C->xtype = CHOLMOD_PATTERN ;
         C->dtype = CHOLMOD_DOUBLE ;
         C->nz = NULL ;
@@ -1321,7 +1321,7 @@ int CHOLMOD(solve2)         /* returns TRUE on success, FALSE on failure */
         Yset->nzmax = n ;
         Yset->packed = TRUE ;
         Yset->stype = 0 ;
-        Yset->itype = ITYPE ;
+        Yset->itype = CHOLMOD_LONG ;
         Yset->xtype = CHOLMOD_PATTERN ;
         Yset->dtype = CHOLMOD_DOUBLE ;
         Yset->nz = NULL ;

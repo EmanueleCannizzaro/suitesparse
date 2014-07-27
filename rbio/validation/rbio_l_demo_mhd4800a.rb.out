@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/mhd4800a; 1994; A. Booten et al.; ed: Z. Bai et al.]
+status 0
+key [1624] nrow 4800 ncol 4800
+mkind 0 skind 0 asize 204504 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 4800 ncol 4800 nnz 102252 nelnz 0 xsize 102252
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

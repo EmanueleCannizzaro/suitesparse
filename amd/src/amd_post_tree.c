@@ -12,7 +12,7 @@
 
 #include "amd_internal.h"
 
-GLOBAL Int AMD_post_tree
+GLOBAL Int AMD(post_tree)
 (
     Int root,			/* root of the tree */
     Int k,			/* start numbering at k */
@@ -45,7 +45,7 @@ GLOBAL Int AMD_post_tree
     i = root ;
     for (f = Child [i] ; f != EMPTY ; f = Sibling [f])
     {
-	k = AMD_post_tree (f, k, Child, Sibling, Order, Stack, nn) ;
+    k = AMD(post_tree) (f, k, Child, Sibling, Order, Stack, nn) ;
     }
     Order [i] = k++ ;
     return (k) ;

@@ -168,52 +168,6 @@
 
 #include "camd.h"
 
-#if defined (DLONG) || defined (ZLONG)
-
-#define Int SuiteSparse_long
-#define ID  SuiteSparse_long_id
-#define Int_MAX SuiteSparse_long_max
-
-#define CAMD_order camd_l_order
-#define CAMD_defaults camd_l_defaults
-#define CAMD_control camd_l_control
-#define CAMD_info camd_l_info
-#define CAMD_1 camd_l1
-#define CAMD_2 camd_l2
-#define CAMD_valid camd_l_valid
-#define CAMD_cvalid camd_l_cvalid
-#define CAMD_aat camd_l_aat
-#define CAMD_postorder camd_l_postorder
-#define CAMD_post_tree camd_l_post_tree
-#define CAMD_dump camd_l_dump
-#define CAMD_debug camd_l_debug
-#define CAMD_debug_init camd_l_debug_init
-#define CAMD_preprocess camd_l_preprocess
-
-#else
-
-#define Int int
-#define ID "%d"
-#define Int_MAX INT_MAX
-
-#define CAMD_order camd_order
-#define CAMD_defaults camd_defaults
-#define CAMD_control camd_control
-#define CAMD_info camd_info
-#define CAMD_1 camd_1
-#define CAMD_2 camd_2
-#define CAMD_valid camd_valid
-#define CAMD_cvalid camd_cvalid
-#define CAMD_aat camd_aat
-#define CAMD_postorder camd_postorder
-#define CAMD_post_tree camd_post_tree
-#define CAMD_dump camd_dump
-#define CAMD_debug camd_debug
-#define CAMD_debug_init camd_debug_init
-#define CAMD_preprocess camd_preprocess
-
-#endif
-
 /* ========================================================================= */
 /* === PRINTF macro ======================================================== */
 /* ========================================================================= */
@@ -225,7 +179,7 @@
 /* CAMD routine definitions (not user-callable) */
 /* ------------------------------------------------------------------------- */
 
-GLOBAL size_t CAMD_aat
+GLOBAL size_t CAMD(aat)
 (
     Int n,
     const Int Ap [ ],
@@ -235,7 +189,7 @@ GLOBAL size_t CAMD_aat
     double Info [ ]
 ) ;
 
-GLOBAL void CAMD_1
+GLOBAL void CAMD(1)
 (
     Int n,
     const Int Ap [ ],
@@ -250,12 +204,12 @@ GLOBAL void CAMD_1
     const Int C [ ]
 ) ;
 
-GLOBAL Int CAMD_postorder
+GLOBAL Int CAMD(postorder)
 (
     Int j, Int k, Int n, Int head [], Int next [], Int post [], Int stack []
 ) ;
 
-GLOBAL void CAMD_preprocess
+GLOBAL void CAMD(preprocess)
 (
     Int n,
     const Int Ap [ ],
@@ -279,11 +233,11 @@ GLOBAL void CAMD_preprocess
 #define EXTERN extern
 #endif
 
-EXTERN Int CAMD_debug ;
+EXTERN Int camd_debug ;
 
-GLOBAL void CAMD_debug_init ( char *s ) ;
+GLOBAL void camd_debug_init ( char *s ) ;
 
-GLOBAL void CAMD_dump
+GLOBAL void CAMD(dump)
 (
     Int n,
     Int Pe [ ],

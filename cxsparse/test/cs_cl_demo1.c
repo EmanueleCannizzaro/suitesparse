@@ -1,4 +1,4 @@
-#include "cs.h"
+#include "cxsparse.h"
 int main (void)
 {
     cs_cl *T, *A, *Eye, *AT, *C, *D ;

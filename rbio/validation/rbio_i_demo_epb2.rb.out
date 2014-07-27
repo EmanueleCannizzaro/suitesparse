@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Averous/epb2; 1998; D. Averous; ed: T. Davis]
+status 0
+key [289] nrow 25228 ncol 25228
+mkind 0 skind 0 asize 350054 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 25228 ncol 25228 nnz 175027 nelnz 0 xsize 175027
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

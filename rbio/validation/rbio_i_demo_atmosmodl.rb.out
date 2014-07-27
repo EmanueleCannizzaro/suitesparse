@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bourchtein/atmosmodl; 2009; A. Bourchtein; ed: T. Davis]
+status 0
+key [2267] nrow 1489752 ncol 1489752
+mkind 0 skind 0 asize 20639520 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 1489752 ncol 1489752 nnz 10319760 nelnz 0 xsize 10319760
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

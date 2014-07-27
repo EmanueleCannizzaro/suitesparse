@@ -1,0 +1,120 @@
+
+===========================================================
+title: [AG-Monien/se_G_02]
+status 0
+key [2440G2] nrow 16 ncol 16
+mkind 1 skind 1 asize 42 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 16 ncol 16 nnz 21 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+
+
+CAMD demo:
+
+camd version 2.3, Jun 20, 2012:  approximate minimum degree ordering:
+    dense row parameter: 10
+    (rows with more than max (10 * sqrt (n), 16) entries are
+    considered "dense", and placed last in output permutation)
+    aggressive absorption:  yes
+
+
+Input matrix:  16-by-16, with 21 entries.
+   Note that for a symmetric matrix such as this one, only the
+   strictly lower or upper triangular parts would need to be
+   passed to CAMD, since CAMD computes the ordering of A+A'.  The
+   diagonal entries are also not needed, since CAMD ignores them.
+
+Column: 0, number of entries: 1, with row indices in Ai [0 ... 0]:
+    row indices: 1
+
+Column: 1, number of entries: 2, with row indices in Ai [1 ... 2]:
+    row indices: 2 8
+
+Column: 2, number of entries: 2, with row indices in Ai [3 ... 4]:
+    row indices: 3 4
+
+Column: 3, number of entries: 2, with row indices in Ai [5 ... 6]:
+    row indices: 6 9
+
+Column: 4, number of entries: 2, with row indices in Ai [7 ... 8]:
+    row indices: 5 8
+
+Column: 5, number of entries: 1, with row indices in Ai [9 ... 9]:
+    row indices: 10
+
+Column: 6, number of entries: 2, with row indices in Ai [10 ... 11]:
+    row indices: 7 12
+
+Column: 7, number of entries: 2, with row indices in Ai [12 ... 13]:
+    row indices: 11 14
+
+Column: 8, number of entries: 1, with row indices in Ai [14 ... 14]:
+    row indices: 9
+
+Column: 9, number of entries: 1, with row indices in Ai [15 ... 15]:
+    row indices: 12
+
+Column: 10, number of entries: 1, with row indices in Ai [16 ... 16]:
+    row indices: 11
+
+Column: 11, number of entries: 1, with row indices in Ai [17 ... 17]:
+    row indices: 13
+
+Column: 12, number of entries: 1, with row indices in Ai [18 ... 18]:
+    row indices: 13
+
+Column: 13, number of entries: 1, with row indices in Ai [19 ... 19]:
+    row indices: 14
+
+Column: 14, number of entries: 1, with row indices in Ai [20 ... 20]:
+    row indices: 15
+
+Column: 15, number of entries: 0, with row indices in Ai [21 ... 20]:
+    row indices:
+
+return value from camd_order: 0 (should be 0)
+
+camd:  approximate minimum degree ordering, results:
+    status: OK
+    n, dimension of A:                                  16
+    nz, number of nonzeros in A:                        21
+    symmetry of A:                                      0.0000
+    number of nonzeros on diagonal:                     0
+    nonzeros in pattern of A+A' (excl. diagonal):       42
+    # dense rows/columns of A+A':                       0
+    memory used, in bytes:                              1744
+    # of memory compactions:                            0
+
+    The following approximate statistics are for a subsequent
+    factorization of A(P,P) + A(P,P)'.  They are slight upper
+    bounds if there are no dense rows/columns in A+A', and become
+    looser if dense rows/columns exist.
+
+    nonzeros in L (excluding diagonal):                 34
+    nonzeros in L (including diagonal):                 50
+    # divide operations for LDL' or LU:                 34
+    # multiply-subtract operations for LDL':            60
+    # multiply-subtract operations for LU:              86
+    max nz. in any column of L (incl. diagonal):        4
+
+    chol flop count for real A, sqrt counted as 1 flop: 170
+    LDL' flop count for real A:                         154
+    LDL' flop count for complex A:                      786
+    LU flop count for real A (with no pivoting):        206
+    LU flop count for complex A (with no pivoting):     994
+
+Permutation vector:
+  0  1 10  5  4  2  8  9  3  6 15 14  7 11 13 12
+
+Inverse permutation vector:
+  0  1  5  8  4  3  9 12  6  7  2 13 15 14 11 10
+
+Execution of CAMD demo: OK

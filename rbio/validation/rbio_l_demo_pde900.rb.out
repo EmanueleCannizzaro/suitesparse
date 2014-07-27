@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/pde900; 1982; H. Elman; ed: Z. Bai et al.]
+status 0
+key [325] nrow 900 ncol 900
+mkind 0 skind 0 asize 8760 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 900 ncol 900 nnz 4380 nelnz 0 xsize 4380
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

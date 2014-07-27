@@ -1,0 +1,18 @@
+
+===========================================================
+title: [ATandT/pre2; 2001; R. Melville, D. Long; ed: T. Davis]
+status 0
+key [285] nrow 659033 ncol 659033
+mkind 0 skind 0 asize 11918564 znz 125238
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 659033 ncol 659033 nnz 5959282 nelnz 0 xsize 5959282
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 125238
+RBdemo OK

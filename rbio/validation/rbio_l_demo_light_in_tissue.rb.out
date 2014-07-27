@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Dehghani/light_in_tissue; 2007; H. Dehghani; ed: T. Davis]
+status 0
+key [1873] nrow 29282 ncol 29282
+mkind 2 skind 0 asize 812168 znz 0
+mtype from file:               [cua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [cua]
+mtype after reading from file: [cua]
+raw nrow 29282 ncol 29282 nnz 406084 nelnz 0 xsize 812168
+mtype from raw read from file: [cua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [cua]
+(L) RBok status 0 0 0
+RBdemo OK

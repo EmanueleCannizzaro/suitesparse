@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Janna/Long_Coup_dt6; 2012; C. Janna, M. Ferronato; ed: T. Davis]
+status 0
+key [2551] nrow 1470152 ncol 1470152
+mkind 0 skind 1 asize 88559144 znz 2666022
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 1470152 ncol 1470152 nnz 44279572 nelnz 0 xsize 44279572
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 1333011
+RBdemo OK

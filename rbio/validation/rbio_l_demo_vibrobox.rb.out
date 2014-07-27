@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Cote/vibrobox; 1997; A. Cote; ed: T. Davis]
+status 0
+key [379] nrow 12328 ncol 12328
+mkind 0 skind 1 asize 355156 znz 41128
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 12328 ncol 12328 nnz 177578 nelnz 0 xsize 177578
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 20564
+RBdemo OK

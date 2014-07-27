@@ -17,7 +17,7 @@
 
 #include "camd_internal.h"
 
-GLOBAL size_t CAMD_aat	/* returns nz in A+A' */
+GLOBAL size_t CAMD(aat)	/* returns nz in A+A' */
 (
     Int n,
     const Int Ap [ ],
@@ -34,7 +34,7 @@ GLOBAL size_t CAMD_aat	/* returns nz in A+A' */
 #ifndef NDEBUG
     CAMD_debug_init ("CAMD AAT") ;
     for (k = 0 ; k < n ; k++) Tp [k] = EMPTY ;
-    ASSERT (CAMD_valid (n, n, Ap, Ai) == CAMD_OK) ;
+    ASSERT (CAMD(valid) (n, n, Ap, Ai) == CAMD_OK) ;
 #endif
 
     if (Info != (double *) NULL)

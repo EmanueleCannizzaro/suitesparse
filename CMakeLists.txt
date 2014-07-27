@@ -185,24 +185,52 @@ set(ENV{G_MESSAGES_DEBUG} all)
 # stop the application program.  This is optional.
 # XERBLA = ../../SuiteSparse_config/xerbla/libcerbla.a 
 
-include(CTest)
-enable_testing()
 
-add_subdirectory(amd)
-add_subdirectory(colamd)
-add_subdirectory(camd)
-add_subdirectory(ccolamd)
-add_subdirectory(csparse)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GLIB_PKG glib-2.0>=2.10)
+pkg_check_modules(GSL_PKG gsl>=1.15)
+
+if(GLIB_PKG_FOUND)
+  message("Found library glib-2.0")
+  message("pkg-config --cflags glib-2.0    " ${GLIB_PKG_INCLUDE_DIRS})
+  message("pkg-config --libs glib-2.0      " ${GLIB_PKG_LIBRARIES})
+  include_directories(${GLIB_PKG_INCLUDE_DIRS} ${GLIB_PKG_LIBRARIES})
+  ##add_library(${GLIB_PKG_LIBRARIES})
+endif(GLIB_PKG_FOUND)
+
+if(GSL_PKG_FOUND)
+  message("Found library gsl")
+  message("pkg-config --cflags gsl         " ${GSL_PKG_INCLUDE_DIRS})
+  message("pkg-config --libs gsl           " ${GSL_PKG_LIBRARIES})
+  include_directories(${GSL_PKG_INCLUDE_DIRS} ${GSL_PKG_LIBRARIES})
+  ##add_library(${GSL_PKG_LIBRARIES})
+endif(GSL_PKG_FOUND)
+
+
+#include(CTest)
+#enable_testing()
+
+#add_subdirectory(rbio)
+
+#add_subdirectory(amd)
+#add_subdirectory(colamd)
+
+#add_subdirectory(camd)
+#add_subdirectory(ccolamd)
+
+#add_subdirectory(cholmod)
+
+#add_subdirectory(umfpack)
+
+#add_subdirectory(csparse)
 add_subdirectory(cxsparse)
-add_subdirectory(btf)
-add_subdirectory(cholmod)
-add_subdirectory(klu)
-add_subdirectory(ldl)
-add_subdirectory(rbio)
-add_subdirectory(spqr)
-add_subdirectory(xerbla)
-add_subdirectory(umfpack)
+
+#add_subdirectory(btf)
+#add_subdirectory(klu)
+#add_subdirectory(ldl)
+#add_subdirectory(spqr)
+#add_subdirectory(xerbla)
 
 
-#INSTALL_LIB = /usr/local/lib
-#INSTALL_INCLUDE = /usr/local/include
+#/usr/local/lib
+#/usr/local/include

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DIMACS10/fe_4elt2; 2000; F. Pellegrini; ed: C. Walshaw]
+status 0
+key [2523] nrow 11143 ncol 11143
+mkind 1 skind 1 asize 65636 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 11143 ncol 11143 nnz 32818 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

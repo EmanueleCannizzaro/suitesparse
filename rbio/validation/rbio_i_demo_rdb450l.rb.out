@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/rdb450l; 1994; K. Meerbergen; ed: Z. Bai et al.]
+status 0
+key [1635] nrow 450 ncol 450
+mkind 0 skind 0 asize 5160 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 450 ncol 450 nnz 2580 nelnz 0 xsize 2580
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

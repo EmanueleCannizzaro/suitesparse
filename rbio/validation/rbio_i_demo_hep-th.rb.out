@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Newman/hep-th; 2001; M. Newman; ed: M. Newman]
+status 0
+key [2398] nrow 8361 ncol 8361
+mkind 0 skind 1 asize 31502 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 8361 ncol 8361 nnz 15751 nelnz 0 xsize 15751
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bomhof/circuit_3; 2000; W. Bomhof; ed: T. Davis]
+status 0
+key [372] nrow 12127 ncol 12127
+mkind 0 skind 0 asize 96274 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 12127 ncol 12127 nnz 48137 nelnz 0 xsize 48137
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

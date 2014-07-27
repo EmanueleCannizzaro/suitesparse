@@ -1,0 +1,18 @@
+
+===========================================================
+title: [FEMLAB/problem1; 2003; COMSOL; ed: T. Davis]
+status 0
+key [929] nrow 415 ncol 415
+mkind 0 skind 0 asize 5558 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 415 ncol 415 nnz 2779 nelnz 0 xsize 2779
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

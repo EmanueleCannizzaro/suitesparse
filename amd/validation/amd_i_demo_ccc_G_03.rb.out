@@ -1,0 +1,551 @@
+
+===========================================================
+title: [AG-Monien/ccc_G_03]
+status 0
+key [2438G3] nrow 160 ncol 160
+mkind 1 skind 1 asize 480 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 160 ncol 160 nnz 240 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+
+
+AMD demo:
+
+Approximate minimum degree ordering
+    dense row parameter: 10
+    (rows with more than max (10 * sqrt (n), 16) entries are
+    considered "dense", and placed last in output permutation)
+    aggressive absorption:  yes
+
+Input matrix:  160-by-160, with 240 entries.
+   Note that for a symmetric matrix such as this one, only the
+   strictly lower or upper triangular parts would need to be
+   passed to AMD, since AMD computes the ordering of A+A'.  The
+   diagonal entries are also not needed, since AMD ignores them.
+
+Column: 0, number of entries: 3, with row indices in Ai [0 ... 2]:
+    row indices: 1 32 128
+
+Column: 1, number of entries: 2, with row indices in Ai [3 ... 4]:
+    row indices: 33 129
+
+Column: 2, number of entries: 3, with row indices in Ai [5 ... 7]:
+    row indices: 3 34 130
+
+Column: 3, number of entries: 2, with row indices in Ai [8 ... 9]:
+    row indices: 35 131
+
+Column: 4, number of entries: 3, with row indices in Ai [10 ... 12]:
+    row indices: 5 36 132
+
+Column: 5, number of entries: 2, with row indices in Ai [13 ... 14]:
+    row indices: 37 133
+
+Column: 6, number of entries: 3, with row indices in Ai [15 ... 17]:
+    row indices: 7 38 134
+
+Column: 7, number of entries: 2, with row indices in Ai [18 ... 19]:
+    row indices: 39 135
+
+Column: 8, number of entries: 3, with row indices in Ai [20 ... 22]:
+    row indices: 9 40 136
+
+Column: 9, number of entries: 2, with row indices in Ai [23 ... 24]:
+    row indices: 41 137
+
+Column: 10, number of entries: 3, with row indices in Ai [25 ... 27]:
+    row indices: 11 42 138
+
+Column: 11, number of entries: 2, with row indices in Ai [28 ... 29]:
+    row indices: 43 139
+
+Column: 12, number of entries: 3, with row indices in Ai [30 ... 32]:
+    row indices: 13 44 140
+
+Column: 13, number of entries: 2, with row indices in Ai [33 ... 34]:
+    row indices: 45 141
+
+Column: 14, number of entries: 3, with row indices in Ai [35 ... 37]:
+    row indices: 15 46 142
+
+Column: 15, number of entries: 2, with row indices in Ai [38 ... 39]:
+    row indices: 47 143
+
+Column: 16, number of entries: 3, with row indices in Ai [40 ... 42]:
+    row indices: 17 48 144
+
+Column: 17, number of entries: 2, with row indices in Ai [43 ... 44]:
+    row indices: 49 145
+
+Column: 18, number of entries: 3, with row indices in Ai [45 ... 47]:
+    row indices: 19 50 146
+
+Column: 19, number of entries: 2, with row indices in Ai [48 ... 49]:
+    row indices: 51 147
+
+Column: 20, number of entries: 3, with row indices in Ai [50 ... 52]:
+    row indices: 21 52 148
+
+Column: 21, number of entries: 2, with row indices in Ai [53 ... 54]:
+    row indices: 53 149
+
+Column: 22, number of entries: 3, with row indices in Ai [55 ... 57]:
+    row indices: 23 54 150
+
+Column: 23, number of entries: 2, with row indices in Ai [58 ... 59]:
+    row indices: 55 151
+
+Column: 24, number of entries: 3, with row indices in Ai [60 ... 62]:
+    row indices: 25 56 152
+
+Column: 25, number of entries: 2, with row indices in Ai [63 ... 64]:
+    row indices: 57 153
+
+Column: 26, number of entries: 3, with row indices in Ai [65 ... 67]:
+    row indices: 27 58 154
+
+Column: 27, number of entries: 2, with row indices in Ai [68 ... 69]:
+    row indices: 59 155
+
+Column: 28, number of entries: 3, with row indices in Ai [70 ... 72]:
+    row indices: 29 60 156
+
+Column: 29, number of entries: 2, with row indices in Ai [73 ... 74]:
+    row indices: 61 157
+
+Column: 30, number of entries: 3, with row indices in Ai [75 ... 77]:
+    row indices: 31 62 158
+
+Column: 31, number of entries: 2, with row indices in Ai [78 ... 79]:
+    row indices: 63 159
+
+Column: 32, number of entries: 2, with row indices in Ai [80 ... 81]:
+    row indices: 34 64
+
+Column: 33, number of entries: 2, with row indices in Ai [82 ... 83]:
+    row indices: 35 65
+
+Column: 34, number of entries: 1, with row indices in Ai [84 ... 84]:
+    row indices: 66
+
+Column: 35, number of entries: 1, with row indices in Ai [85 ... 85]:
+    row indices: 67
+
+Column: 36, number of entries: 2, with row indices in Ai [86 ... 87]:
+    row indices: 38 68
+
+Column: 37, number of entries: 2, with row indices in Ai [88 ... 89]:
+    row indices: 39 69
+
+Column: 38, number of entries: 1, with row indices in Ai [90 ... 90]:
+    row indices: 70
+
+Column: 39, number of entries: 1, with row indices in Ai [91 ... 91]:
+    row indices: 71
+
+Column: 40, number of entries: 2, with row indices in Ai [92 ... 93]:
+    row indices: 42 72
+
+Column: 41, number of entries: 2, with row indices in Ai [94 ... 95]:
+    row indices: 43 73
+
+Column: 42, number of entries: 1, with row indices in Ai [96 ... 96]:
+    row indices: 74
+
+Column: 43, number of entries: 1, with row indices in Ai [97 ... 97]:
+    row indices: 75
+
+Column: 44, number of entries: 2, with row indices in Ai [98 ... 99]:
+    row indices: 46 76
+
+Column: 45, number of entries: 2, with row indices in Ai [100 ... 101]:
+    row indices: 47 77
+
+Column: 46, number of entries: 1, with row indices in Ai [102 ... 102]:
+    row indices: 78
+
+Column: 47, number of entries: 1, with row indices in Ai [103 ... 103]:
+    row indices: 79
+
+Column: 48, number of entries: 2, with row indices in Ai [104 ... 105]:
+    row indices: 50 80
+
+Column: 49, number of entries: 2, with row indices in Ai [106 ... 107]:
+    row indices: 51 81
+
+Column: 50, number of entries: 1, with row indices in Ai [108 ... 108]:
+    row indices: 82
+
+Column: 51, number of entries: 1, with row indices in Ai [109 ... 109]:
+    row indices: 83
+
+Column: 52, number of entries: 2, with row indices in Ai [110 ... 111]:
+    row indices: 54 84
+
+Column: 53, number of entries: 2, with row indices in Ai [112 ... 113]:
+    row indices: 55 85
+
+Column: 54, number of entries: 1, with row indices in Ai [114 ... 114]:
+    row indices: 86
+
+Column: 55, number of entries: 1, with row indices in Ai [115 ... 115]:
+    row indices: 87
+
+Column: 56, number of entries: 2, with row indices in Ai [116 ... 117]:
+    row indices: 58 88
+
+Column: 57, number of entries: 2, with row indices in Ai [118 ... 119]:
+    row indices: 59 89
+
+Column: 58, number of entries: 1, with row indices in Ai [120 ... 120]:
+    row indices: 90
+
+Column: 59, number of entries: 1, with row indices in Ai [121 ... 121]:
+    row indices: 91
+
+Column: 60, number of entries: 2, with row indices in Ai [122 ... 123]:
+    row indices: 62 92
+
+Column: 61, number of entries: 2, with row indices in Ai [124 ... 125]:
+    row indices: 63 93
+
+Column: 62, number of entries: 1, with row indices in Ai [126 ... 126]:
+    row indices: 94
+
+Column: 63, number of entries: 1, with row indices in Ai [127 ... 127]:
+    row indices: 95
+
+Column: 64, number of entries: 2, with row indices in Ai [128 ... 129]:
+    row indices: 68 96
+
+Column: 65, number of entries: 2, with row indices in Ai [130 ... 131]:
+    row indices: 69 97
+
+Column: 66, number of entries: 2, with row indices in Ai [132 ... 133]:
+    row indices: 70 98
+
+Column: 67, number of entries: 2, with row indices in Ai [134 ... 135]:
+    row indices: 71 99
+
+Column: 68, number of entries: 1, with row indices in Ai [136 ... 136]:
+    row indices: 100
+
+Column: 69, number of entries: 1, with row indices in Ai [137 ... 137]:
+    row indices: 101
+
+Column: 70, number of entries: 1, with row indices in Ai [138 ... 138]:
+    row indices: 102
+
+Column: 71, number of entries: 1, with row indices in Ai [139 ... 139]:
+    row indices: 103
+
+Column: 72, number of entries: 2, with row indices in Ai [140 ... 141]:
+    row indices: 76 104
+
+Column: 73, number of entries: 2, with row indices in Ai [142 ... 143]:
+    row indices: 77 105
+
+Column: 74, number of entries: 2, with row indices in Ai [144 ... 145]:
+    row indices: 78 106
+
+Column: 75, number of entries: 2, with row indices in Ai [146 ... 147]:
+    row indices: 79 107
+
+Column: 76, number of entries: 1, with row indices in Ai [148 ... 148]:
+    row indices: 108
+
+Column: 77, number of entries: 1, with row indices in Ai [149 ... 149]:
+    row indices: 109
+
+Column: 78, number of entries: 1, with row indices in Ai [150 ... 150]:
+    row indices: 110
+
+Column: 79, number of entries: 1, with row indices in Ai [151 ... 151]:
+    row indices: 111
+
+Column: 80, number of entries: 2, with row indices in Ai [152 ... 153]:
+    row indices: 84 112
+
+Column: 81, number of entries: 2, with row indices in Ai [154 ... 155]:
+    row indices: 85 113
+
+Column: 82, number of entries: 2, with row indices in Ai [156 ... 157]:
+    row indices: 86 114
+
+Column: 83, number of entries: 2, with row indices in Ai [158 ... 159]:
+    row indices: 87 115
+
+Column: 84, number of entries: 1, with row indices in Ai [160 ... 160]:
+    row indices: 116
+
+Column: 85, number of entries: 1, with row indices in Ai [161 ... 161]:
+    row indices: 117
+
+Column: 86, number of entries: 1, with row indices in Ai [162 ... 162]:
+    row indices: 118
+
+Column: 87, number of entries: 1, with row indices in Ai [163 ... 163]:
+    row indices: 119
+
+Column: 88, number of entries: 2, with row indices in Ai [164 ... 165]:
+    row indices: 92 120
+
+Column: 89, number of entries: 2, with row indices in Ai [166 ... 167]:
+    row indices: 93 121
+
+Column: 90, number of entries: 2, with row indices in Ai [168 ... 169]:
+    row indices: 94 122
+
+Column: 91, number of entries: 2, with row indices in Ai [170 ... 171]:
+    row indices: 95 123
+
+Column: 92, number of entries: 1, with row indices in Ai [172 ... 172]:
+    row indices: 124
+
+Column: 93, number of entries: 1, with row indices in Ai [173 ... 173]:
+    row indices: 125
+
+Column: 94, number of entries: 1, with row indices in Ai [174 ... 174]:
+    row indices: 126
+
+Column: 95, number of entries: 1, with row indices in Ai [175 ... 175]:
+    row indices: 127
+
+Column: 96, number of entries: 2, with row indices in Ai [176 ... 177]:
+    row indices: 104 128
+
+Column: 97, number of entries: 2, with row indices in Ai [178 ... 179]:
+    row indices: 105 129
+
+Column: 98, number of entries: 2, with row indices in Ai [180 ... 181]:
+    row indices: 106 130
+
+Column: 99, number of entries: 2, with row indices in Ai [182 ... 183]:
+    row indices: 107 131
+
+Column: 100, number of entries: 2, with row indices in Ai [184 ... 185]:
+    row indices: 108 132
+
+Column: 101, number of entries: 2, with row indices in Ai [186 ... 187]:
+    row indices: 109 133
+
+Column: 102, number of entries: 2, with row indices in Ai [188 ... 189]:
+    row indices: 110 134
+
+Column: 103, number of entries: 2, with row indices in Ai [190 ... 191]:
+    row indices: 111 135
+
+Column: 104, number of entries: 1, with row indices in Ai [192 ... 192]:
+    row indices: 136
+
+Column: 105, number of entries: 1, with row indices in Ai [193 ... 193]:
+    row indices: 137
+
+Column: 106, number of entries: 1, with row indices in Ai [194 ... 194]:
+    row indices: 138
+
+Column: 107, number of entries: 1, with row indices in Ai [195 ... 195]:
+    row indices: 139
+
+Column: 108, number of entries: 1, with row indices in Ai [196 ... 196]:
+    row indices: 140
+
+Column: 109, number of entries: 1, with row indices in Ai [197 ... 197]:
+    row indices: 141
+
+Column: 110, number of entries: 1, with row indices in Ai [198 ... 198]:
+    row indices: 142
+
+Column: 111, number of entries: 1, with row indices in Ai [199 ... 199]:
+    row indices: 143
+
+Column: 112, number of entries: 2, with row indices in Ai [200 ... 201]:
+    row indices: 120 144
+
+Column: 113, number of entries: 2, with row indices in Ai [202 ... 203]:
+    row indices: 121 145
+
+Column: 114, number of entries: 2, with row indices in Ai [204 ... 205]:
+    row indices: 122 146
+
+Column: 115, number of entries: 2, with row indices in Ai [206 ... 207]:
+    row indices: 123 147
+
+Column: 116, number of entries: 2, with row indices in Ai [208 ... 209]:
+    row indices: 124 148
+
+Column: 117, number of entries: 2, with row indices in Ai [210 ... 211]:
+    row indices: 125 149
+
+Column: 118, number of entries: 2, with row indices in Ai [212 ... 213]:
+    row indices: 126 150
+
+Column: 119, number of entries: 2, with row indices in Ai [214 ... 215]:
+    row indices: 127 151
+
+Column: 120, number of entries: 1, with row indices in Ai [216 ... 216]:
+    row indices: 152
+
+Column: 121, number of entries: 1, with row indices in Ai [217 ... 217]:
+    row indices: 153
+
+Column: 122, number of entries: 1, with row indices in Ai [218 ... 218]:
+    row indices: 154
+
+Column: 123, number of entries: 1, with row indices in Ai [219 ... 219]:
+    row indices: 155
+
+Column: 124, number of entries: 1, with row indices in Ai [220 ... 220]:
+    row indices: 156
+
+Column: 125, number of entries: 1, with row indices in Ai [221 ... 221]:
+    row indices: 157
+
+Column: 126, number of entries: 1, with row indices in Ai [222 ... 222]:
+    row indices: 158
+
+Column: 127, number of entries: 1, with row indices in Ai [223 ... 223]:
+    row indices: 159
+
+Column: 128, number of entries: 1, with row indices in Ai [224 ... 224]:
+    row indices: 144
+
+Column: 129, number of entries: 1, with row indices in Ai [225 ... 225]:
+    row indices: 145
+
+Column: 130, number of entries: 1, with row indices in Ai [226 ... 226]:
+    row indices: 146
+
+Column: 131, number of entries: 1, with row indices in Ai [227 ... 227]:
+    row indices: 147
+
+Column: 132, number of entries: 1, with row indices in Ai [228 ... 228]:
+    row indices: 148
+
+Column: 133, number of entries: 1, with row indices in Ai [229 ... 229]:
+    row indices: 149
+
+Column: 134, number of entries: 1, with row indices in Ai [230 ... 230]:
+    row indices: 150
+
+Column: 135, number of entries: 1, with row indices in Ai [231 ... 231]:
+    row indices: 151
+
+Column: 136, number of entries: 1, with row indices in Ai [232 ... 232]:
+    row indices: 152
+
+Column: 137, number of entries: 1, with row indices in Ai [233 ... 233]:
+    row indices: 153
+
+Column: 138, number of entries: 1, with row indices in Ai [234 ... 234]:
+    row indices: 154
+
+Column: 139, number of entries: 1, with row indices in Ai [235 ... 235]:
+    row indices: 155
+
+Column: 140, number of entries: 1, with row indices in Ai [236 ... 236]:
+    row indices: 156
+
+Column: 141, number of entries: 1, with row indices in Ai [237 ... 237]:
+    row indices: 157
+
+Column: 142, number of entries: 1, with row indices in Ai [238 ... 238]:
+    row indices: 158
+
+Column: 143, number of entries: 1, with row indices in Ai [239 ... 239]:
+    row indices: 159
+
+Column: 144, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 145, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 146, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 147, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 148, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 149, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 150, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 151, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 152, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 153, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 154, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 155, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 156, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 157, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 158, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+Column: 159, number of entries: 0, with row indices in Ai [240 ... 239]:
+    row indices:
+
+return value from amd_order: 0 (should be 0)
+
+Results:
+    status: OK
+    n, dimension of A:                                  160
+    nz, number of nonzeros in A:                        240
+    symmetry of A:                                      0.0000
+    number of nonzeros on diagonal:                     0
+    nonzeros in pattern of A+A' (excl. diagonal):       480
+    # dense rows/columns of A+A':                       0
+    memory used, in bytes:                              8064
+    # of memory compactions:                            1
+
+    The following approximate statistics are for a subsequent
+    factorization of A(P,P) + A(P,P)'.  They are slight upper
+    bounds if there are no dense rows/columns in A+A', and become
+    looser if dense rows/columns exist.
+
+    nonzeros in L (excluding diagonal):                 1245
+    nonzeros in L (including diagonal):                 1405
+    # divide operations for LDL' or LU:                 1245
+    # multiply-subtract operations for LDL':            9281
+    # multiply-subtract operations for LU:              17317
+    max nz. in any column of L (incl. diagonal):        30
+
+    chol flop count for real A, sqrt counted as 1 flop: 19967
+    LDL' flop count for real A:                         19807
+    LDL' flop count for complex A:                      85453
+    LU flop count for real A (with no pivoting):        35879
+    LU flop count for complex A (with no pivoting):     149741
+
+Permutation vector:
+  9  8 13 12 148  5  4 132 68 64 108 104 72 76 96 100  1  0 35 34  2  3 69 65 109 105 73 77 101 97 33 32 106 98 43 42 10 11 107 99 159 47 111 79 143 75 150 22 87 151 119 23 71 70  7  6 38 39 135 134 103 59 57 155 147 115 123 27 51 49 153 145 113 121 17 149 85 53 21 95 157 93 61 29 125 63 117 81 89 91 156 92 60 124 110 46 14 78 94 158 30 126 142 62 58 56 152 144 112 120 24 84 52 86 50 48 154 146 114 122 18 82 80 90 88 16 19 25 26 28 15 20 31 36 37 40 41 44 45 54 55 66 67 74 83 102 116 118 127 128 130 131 133 136 137 138 139 140 141 129
+
+Inverse permutation vector:
+ 17 16 20 21  6  5 55 54  1  0 36 37  3  2 96 130 125 74 120 126 131 78 47 51 110 127 128 67 129 83 100 132 31 30 19 18 133 134 56 57 135 136 35 34 137 138 95 41 115 69 114 68 112 77 139 140 105 62 104 61 92 82 103 85  9 23 141 142  8 22 53 52 12 26 143 45 13 27 97 43 122 87 121 144 111 76 113 48 124 88 123 89 91 81 98 79 14 29 33 39 15 28 145 60 11 25 32 38 10 24 94 42 108 72 118 65 146 86 147 50 109 73 119 66 93 84 101 148 149 159 150 151  7 152 59 58 153 154 155 156 157 158 102 44 107 71 117 64  4 75 46 49 106 70 116 63 90 80 99 40
+
+Execution of AMD demo: OK

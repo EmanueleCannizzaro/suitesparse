@@ -1,0 +1,18 @@
+
+===========================================================
+title: [AMD/G2_circuit; 2006; U. Okuyucu; ed: T. Davis]
+status 0
+key [1412] nrow 150102 ncol 150102
+mkind 0 skind 1 asize 876776 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 150102 ncol 150102 nnz 438388 nelnz 0 xsize 438388
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -87,7 +87,7 @@ cholmod_sparse *CHOLMOD(allocate_sparse)
     }
     /* ensure the dimensions do not cause integer overflow */
     (void) CHOLMOD(add_size_t) (ncol, 2, &ok) ;
-    if (!ok || nrow > Int_max || ncol > Int_max || nzmax > Int_max)
+    if (!ok || nrow > Int_MAX || ncol > Int_MAX || nzmax > Int_MAX)
     {
 	ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
 	return (NULL) ;
@@ -113,9 +113,9 @@ cholmod_sparse *CHOLMOD(allocate_sparse)
     A->nzmax = nzmax ;
     A->packed = packed ;    /* default is packed (A->nz not present) */
     A->stype = stype ;
-    A->itype = ITYPE ;
+    A->itype = CHOLMOD_LONG ;
     A->xtype = xtype ;
-    A->dtype = DTYPE ;
+    A->dtype = CHOLMOD_DOUBLE ;
 
     A->nz = NULL ;
     A->p = NULL ;
@@ -413,7 +413,7 @@ cholmod_sparse *CHOLMOD(spzeros)
  * integer overflow cannot occur, since the matrix is already allocated.
  */
 
-SuiteSparse_long CHOLMOD(nnz)
+Int CHOLMOD(nnz)
 (
     /* ---- input ---- */
     cholmod_sparse *A,

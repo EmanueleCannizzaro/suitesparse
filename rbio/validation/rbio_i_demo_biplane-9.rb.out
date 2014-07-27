@@ -1,0 +1,18 @@
+
+===========================================================
+title: [AG-Monien/biplane-9; 1998; R. Diekmann, R. Preis; ed: R. Diekmann, R. P]
+status 0
+key [2433] nrow 21701 ncol 21701
+mkind 1 skind 1 asize 84076 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 21701 ncol 21701 nnz 42038 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

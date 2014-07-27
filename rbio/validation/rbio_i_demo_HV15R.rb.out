@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Fluorem/HV15R; 2011; F. Pacull; ed: T. Davis]
+status 0
+key [2384] nrow 2017169 ncol 2017169
+mkind 0 skind 0 asize 566146916 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 2017169 ncol 2017169 nnz 283073458 nelnz 0 xsize 283073458
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

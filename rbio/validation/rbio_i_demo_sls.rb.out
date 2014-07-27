@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bates/sls; 2008; D. Bates; ed: T. Davis]
+status 0
+key [2218] nrow 1748122 ncol 62729
+mkind 0 skind -1 asize 13608608 znz 0
+mtype from file:               [rra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rra]
+mtype after reading from file: [rra]
+raw nrow 1748122 ncol 62729 nnz 6804304 nelnz 0 xsize 6804304
+mtype from raw read from file: [rra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [rra]
+(L) RBok status 0 0 0
+RBdemo OK

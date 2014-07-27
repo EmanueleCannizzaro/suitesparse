@@ -750,7 +750,7 @@ PRIVATE Int symbolic_analysis
     strategy = GET_CONTROL (UMFPACK_STRATEGY, UMFPACK_DEFAULT_STRATEGY) ;
     force_fixQ = GET_CONTROL (UMFPACK_FIXQ, UMFPACK_DEFAULT_FIXQ) ;
     do_singletons = GET_CONTROL (UMFPACK_SINGLETONS,UMFPACK_DEFAULT_SINGLETONS);
-    AMD_defaults (amd_Control) ;
+    amd_defaults (amd_Control) ;
     amd_Control [AMD_DENSE] =
 	GET_CONTROL (UMFPACK_AMD_DENSE, UMFPACK_DEFAULT_AMD_DENSE) ;
     aggressive =

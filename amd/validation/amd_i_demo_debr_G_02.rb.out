@@ -1,0 +1,119 @@
+
+===========================================================
+title: [AG-Monien/debr_G_02]
+status 0
+key [2439G2] nrow 16 ncol 16
+mkind 1 skind 1 asize 58 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 16 ncol 16 nnz 29 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+
+
+AMD demo:
+
+Approximate minimum degree ordering
+    dense row parameter: 10
+    (rows with more than max (10 * sqrt (n), 16) entries are
+    considered "dense", and placed last in output permutation)
+    aggressive absorption:  yes
+
+Input matrix:  16-by-16, with 29 entries.
+   Note that for a symmetric matrix such as this one, only the
+   strictly lower or upper triangular parts would need to be
+   passed to AMD, since AMD computes the ordering of A+A'.  The
+   diagonal entries are also not needed, since AMD ignores them.
+
+Column: 0, number of entries: 2, with row indices in Ai [0 ... 1]:
+    row indices: 1 8
+
+Column: 1, number of entries: 3, with row indices in Ai [2 ... 4]:
+    row indices: 2 3 8
+
+Column: 2, number of entries: 3, with row indices in Ai [5 ... 7]:
+    row indices: 4 5 9
+
+Column: 3, number of entries: 3, with row indices in Ai [8 ... 10]:
+    row indices: 6 7 9
+
+Column: 4, number of entries: 3, with row indices in Ai [11 ... 13]:
+    row indices: 8 9 10
+
+Column: 5, number of entries: 2, with row indices in Ai [14 ... 15]:
+    row indices: 10 11
+
+Column: 6, number of entries: 3, with row indices in Ai [16 ... 18]:
+    row indices: 11 12 13
+
+Column: 7, number of entries: 3, with row indices in Ai [19 ... 21]:
+    row indices: 11 14 15
+
+Column: 8, number of entries: 1, with row indices in Ai [22 ... 22]:
+    row indices: 12
+
+Column: 9, number of entries: 1, with row indices in Ai [23 ... 23]:
+    row indices: 12
+
+Column: 10, number of entries: 1, with row indices in Ai [24 ... 24]:
+    row indices: 13
+
+Column: 11, number of entries: 1, with row indices in Ai [25 ... 25]:
+    row indices: 13
+
+Column: 12, number of entries: 1, with row indices in Ai [26 ... 26]:
+    row indices: 14
+
+Column: 13, number of entries: 1, with row indices in Ai [27 ... 27]:
+    row indices: 14
+
+Column: 14, number of entries: 1, with row indices in Ai [28 ... 28]:
+    row indices: 15
+
+Column: 15, number of entries: 0, with row indices in Ai [29 ... 28]:
+    row indices:
+
+return value from amd_order: 0 (should be 0)
+
+Results:
+    status: OK
+    n, dimension of A:                                  16
+    nz, number of nonzeros in A:                        29
+    symmetry of A:                                      0.0000
+    number of nonzeros on diagonal:                     0
+    nonzeros in pattern of A+A' (excl. diagonal):       58
+    # dense rows/columns of A+A':                       0
+    memory used, in bytes:                              852
+    # of memory compactions:                            0
+
+    The following approximate statistics are for a subsequent
+    factorization of A(P,P) + A(P,P)'.  They are slight upper
+    bounds if there are no dense rows/columns in A+A', and become
+    looser if dense rows/columns exist.
+
+    nonzeros in L (excluding diagonal):                 48
+    nonzeros in L (including diagonal):                 64
+    # divide operations for LDL' or LU:                 48
+    # multiply-subtract operations for LDL':            109
+    # multiply-subtract operations for LU:              170
+    max nz. in any column of L (incl. diagonal):        6
+
+    chol flop count for real A, sqrt counted as 1 flop: 282
+    LDL' flop count for real A:                         266
+    LDL' flop count for complex A:                      1304
+    LU flop count for real A (with no pivoting):        388
+    LU flop count for complex A (with no pivoting):     1792
+
+Permutation vector:
+ 10  5 15 14  7  0  8  1  9  4  2  3  6 12 13 11
+
+Inverse permutation vector:
+  5  7 10 11  9  1 12  4  6  8  0 15 13 14  3  2
+
+Execution of AMD demo: OK

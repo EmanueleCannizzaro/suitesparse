@@ -1,16 +1,20 @@
 
-file(GLOB HEADER_FILES "*.h")
-file(GLOB SRC_LIST "*.c")
-list(REMOVE_ITEM SRC_LIST "${PROJECT_SOURCE_DIR}/src/amd_global.c")
+file(GLOB HEADER_FILES RELATIVE "${PROJECT_SOURCE_DIR}/src" "*.h")
+set(SRC_LIST "amd_global.c" "amd_control.c" "amd_defaults.c" "amd_info.c")
 
-add_library(amd_di SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
-add_library(amd_dl SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
-#add_library(amd_zi SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
-#add_library(amd_zl SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+file(GLOB SRC_LIST_REPEATED RELATIVE "${PROJECT_SOURCE_DIR}/src" "*.c")
+list(REMOVE_ITEM SRC_LIST_REPEATED ${SRC_LIST})
+
+add_library(amd_core SHARED OBJECT ${SRC_LIST} ${HEADER_FILES})
+add_library(amd_i SHARED OBJECT ${SRC_LIST_REPEATED} ${HEADER_FILES})
+add_library(amd_l SHARED OBJECT ${SRC_LIST_REPEATED} ${HEADER_FILES})
 
 IF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
-  set_target_properties(amd_di PROPERTIES COMPILE_FLAGS "-fPIC")
-  set_target_properties(amd_dl PROPERTIES COMPILE_FLAGS "-fPIC -DDLONG=ON")
-  #set_target_properties(amd_zi PROPERTIES COMPILE_FLAGS "-fPIC -DZLONG=ON")
-  #set_target_properties(amd_zl PROPERTIES COMPILE_FLAGS "-fPIC -DZLONG=ON -DDLONG=ON")
+  set_target_properties(amd_core PROPERTIES COMPILE_FLAGS "-fPIC")
+  set_target_properties(amd_i PROPERTIES COMPILE_FLAGS "-fPIC")
+  set_target_properties(amd_l PROPERTIES COMPILE_FLAGS "-fPIC -DDLONG=ON")
 ENDIF( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
+
+add_library(amd SHARED $<TARGET_OBJECTS:amd_core> $<TARGET_OBJECTS:amd_i> $<TARGET_OBJECTS:amd_l>)
+target_link_libraries(amd m)
+

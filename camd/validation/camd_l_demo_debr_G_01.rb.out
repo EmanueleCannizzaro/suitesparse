@@ -1,0 +1,96 @@
+
+===========================================================
+title: [AG-Monien/debr_G_01]
+status 0
+key [2439G1] nrow 8 ncol 8
+mkind 1 skind 1 asize 26 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 8 ncol 8 nnz 13 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+
+
+CAMD demo:
+
+camd version 2.3, Jun 20, 2012:  approximate minimum degree ordering:
+    dense row parameter: 10
+    (rows with more than max (10 * sqrt (n), 16) entries are
+    considered "dense", and placed last in output permutation)
+    aggressive absorption:  yes
+
+
+Input matrix:  8-by-8, with 13 entries.
+   Note that for a symmetric matrix such as this one, only the
+   strictly lower or upper triangular parts would need to be
+   passed to CAMD, since CAMD computes the ordering of A+A'.  The
+   diagonal entries are also not needed, since CAMD ignores them.
+
+Column: 0, number of entries: 2, with row indices in Ai [0 ... 1]:
+    row indices: 1 4
+
+Column: 1, number of entries: 3, with row indices in Ai [2 ... 4]:
+    row indices: 2 3 4
+
+Column: 2, number of entries: 2, with row indices in Ai [5 ... 6]:
+    row indices: 4 5
+
+Column: 3, number of entries: 3, with row indices in Ai [7 ... 9]:
+    row indices: 5 6 7
+
+Column: 4, number of entries: 1, with row indices in Ai [10 ... 10]:
+    row indices: 6
+
+Column: 5, number of entries: 1, with row indices in Ai [11 ... 11]:
+    row indices: 6
+
+Column: 6, number of entries: 1, with row indices in Ai [12 ... 12]:
+    row indices: 7
+
+Column: 7, number of entries: 0, with row indices in Ai [13 ... 12]:
+    row indices:
+
+return value from camd_order: 0 (should be 0)
+
+camd:  approximate minimum degree ordering, results:
+    status: OK
+    n, dimension of A:                                  8
+    nz, number of nonzeros in A:                        13
+    symmetry of A:                                      0.0000
+    number of nonzeros on diagonal:                     0
+    nonzeros in pattern of A+A' (excl. diagonal):       26
+    # dense rows/columns of A+A':                       0
+    memory used, in bytes:                              952
+    # of memory compactions:                            0
+
+    The following approximate statistics are for a subsequent
+    factorization of A(P,P) + A(P,P)'.  They are slight upper
+    bounds if there are no dense rows/columns in A+A', and become
+    looser if dense rows/columns exist.
+
+    nonzeros in L (excluding diagonal):                 16
+    nonzeros in L (including diagonal):                 24
+    # divide operations for LDL' or LU:                 16
+    # multiply-subtract operations for LDL':            28
+    # multiply-subtract operations for LU:              40
+    max nz. in any column of L (incl. diagonal):        4
+
+    chol flop count for real A, sqrt counted as 1 flop: 80
+    LDL' flop count for real A:                         72
+    LDL' flop count for complex A:                      368
+    LU flop count for real A (with no pivoting):        96
+    LU flop count for complex A (with no pivoting):     464
+
+Permutation vector:
+  0  4  2  7  1  3  6  5
+
+Inverse permutation vector:
+  0  4  2  5  1  7  6  3
+
+Execution of CAMD demo: OK

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Chen/pkustk12; 2002; P. Chen; ed: T. Davis]
+status 0
+key [858] nrow 94653 ncol 94653
+mkind 1 skind 1 asize 7606970 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 94653 ncol 94653 nnz 3803485 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

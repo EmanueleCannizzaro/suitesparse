@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DIMACS10/delaunay_n22; 2011; M. Holtgrewe et al.; ed: C. Schulz]
+status 0
+key [2477] nrow 4194304 ncol 4194304
+mkind 1 skind 1 asize 25165738 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 4194304 ncol 4194304 nnz 12582869 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

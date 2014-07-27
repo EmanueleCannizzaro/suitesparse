@@ -1,0 +1,18 @@
+
+===========================================================
+title: [CEMW/tmt_sym; 2008; D. Isaak; ed: T. Davis]
+status 0
+key [1899] nrow 726713 ncol 726713
+mkind 0 skind 1 asize 5807674 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 726713 ncol 726713 nnz 2903837 nelnz 0 xsize 2903837
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

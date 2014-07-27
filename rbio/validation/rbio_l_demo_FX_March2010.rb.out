@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Davis/FX_March2010; 2010; T. Davis; ed: T. Davis]
+status 0
+key [2568] nrow 1319 ncol 9498
+mkind 3 skind -1 asize 603798 znz 0
+mtype from file:               [ira]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [ira]
+mtype after reading from file: [ira]
+raw nrow 1319 ncol 9498 nnz 301899 nelnz 0 xsize 301899
+mtype from raw read from file: [ira]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [ira]
+(L) RBok status 0 0 0
+RBdemo OK

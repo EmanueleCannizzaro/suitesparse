@@ -1,0 +1,18 @@
+
+===========================================================
+title: [AG-Monien/grid2_dual; 1998; R. Diekmann, R. Preis; ed: R. Diekmann, R.]
+status 0
+key [2419] nrow 3136 ncol 3136
+mkind 1 skind 1 asize 12224 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 3136 ncol 3136 nnz 6112 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

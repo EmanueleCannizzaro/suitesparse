@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Brunetiere/thermal; 2000; N. Brunetiere; ed: T. Davis]
+status 0
+key [377] nrow 3456 ncol 3456
+mkind 0 skind 0 asize 133056 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 3456 ncol 3456 nnz 66528 nelnz 0 xsize 66528
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

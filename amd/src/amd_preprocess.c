@@ -26,7 +26,7 @@
  * On input, the condition (AMD_valid (n,n,Ap,Ai) != AMD_INVALID) must hold.
  */
 
-void AMD_preprocess
+void AMD(preprocess)
 (
     Int n,		/* input matrix: A is n-by-n */
     const Int Ap [ ],	/* size n+1 */
@@ -47,7 +47,7 @@ void AMD_preprocess
 
     Int i, j, p, p2 ;
 
-    ASSERT (AMD_valid (n, n, Ap, Ai) != AMD_INVALID) ;
+    ASSERT (AMD(valid) (n, n, Ap, Ai) != AMD_INVALID) ;
 
     /* --------------------------------------------------------------------- */
     /* count the entries in each row of A (excluding duplicates) */
@@ -109,7 +109,7 @@ void AMD_preprocess
     }
 
 #ifndef NDEBUG
-    ASSERT (AMD_valid (n, n, Rp, Ri) == AMD_OK) ;
+    ASSERT (AMD(valid) (n, n, Rp, Ri) == AMD_OK) ;
     for (j = 0 ; j < n ; j++)
     {
 	ASSERT (W [j] == Rp [j+1]) ;

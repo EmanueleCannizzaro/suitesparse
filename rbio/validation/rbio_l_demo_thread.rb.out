@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DNVS/thread; 1999; C. Damhaug; ed: J. Koster]
+status 0
+key [1283] nrow 29736 ncol 29736
+mkind 0 skind 1 asize 4499784 znz 25168
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 29736 ncol 29736 nnz 2249892 nelnz 0 xsize 2249892
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 12584
+RBdemo OK

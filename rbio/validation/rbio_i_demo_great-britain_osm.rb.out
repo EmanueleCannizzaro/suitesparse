@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DIMACS10/great-britain_osm; 2010; Geofabrik GmbH; ed: M. Kobitzsh]
+status 0
+key [2513] nrow 7733822 ncol 7733822
+mkind 1 skind 1 asize 16313034 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 7733822 ncol 7733822 nnz 8156517 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

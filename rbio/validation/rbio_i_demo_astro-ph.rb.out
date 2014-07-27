@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Newman/astro-ph; 2001; M. Newman; ed: M. Newman]
+status 0
+key [2391] nrow 16706 ncol 16706
+mkind 0 skind 1 asize 242502 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 16706 ncol 16706 nnz 121251 nelnz 0 xsize 121251
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -16,7 +16,7 @@
 
 #define PRI(format,x) { if (x >= 0) { PRINTF ((format, x)) ; }}
 
-GLOBAL void CAMD_info
+GLOBAL void camd_info
 (
     double Info [ ]
 )

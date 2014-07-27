@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Botonakis/thermomech_dK; 2009; I. Botonakis; ed: T. Davis]
+status 0
+key [2260] nrow 204316 ncol 204316
+mkind 0 skind 0 asize 5692456 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 204316 ncol 204316 nnz 2846228 nelnz 0 xsize 2846228
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

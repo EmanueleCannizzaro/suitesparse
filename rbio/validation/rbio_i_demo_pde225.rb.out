@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/pde225; 1982; H. Elman; ed: Z. Bai et al.]
+status 0
+key [323] nrow 225 ncol 225
+mkind 0 skind 0 asize 2130 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 225 ncol 225 nnz 1065 nelnz 0 xsize 1065
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

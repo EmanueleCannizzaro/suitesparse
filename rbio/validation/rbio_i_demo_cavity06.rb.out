@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DRIVCAV/cavity06; 1996; A. Chapman; ed: A. Baggag, Y. Saad]
+status 0
+key [385] nrow 1182 ncol 1182
+mkind 0 skind 0 asize 65494 znz 3072
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 1182 ncol 1182 nnz 32747 nelnz 0 xsize 32747
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 3072
+RBdemo OK

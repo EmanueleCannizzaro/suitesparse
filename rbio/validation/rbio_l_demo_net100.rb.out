@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Andrianov/net100; 2006; A. Andrianov; ed: T. Davis]
+status 0
+key [1386] nrow 29920 ncol 29920
+mkind 1 skind 1 asize 2063120 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 29920 ncol 29920 nnz 1031560 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

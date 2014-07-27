@@ -26,7 +26,7 @@
 
 #include "camd_internal.h"
 
-GLOBAL void CAMD_1
+GLOBAL void CAMD(1)
 (
     Int n,		/* n > 0 */
     const Int Ap [ ],	/* input of size n+1, not modified */
@@ -62,8 +62,8 @@ GLOBAL void CAMD_1
     BucketSet = s ; s += n ;
     Iw = s ;	    s += iwlen ;
 
-    ASSERT (CAMD_valid (n, n, Ap, Ai) == CAMD_OK) ;
-    ASSERT (CAMD_cvalid (n, C)) ;
+    ASSERT (CAMD(valid) (n, n, Ap, Ai) == CAMD_OK) ;
+    ASSERT (CAMD(cvalid) (n, C)) ;
 
     /* construct the pointers for A+A' */
     Sp = Nv ;			/* use Nv and W as workspace for Sp and Tp [ */
@@ -178,6 +178,6 @@ GLOBAL void CAMD_1
     /* order the matrix */
     /* --------------------------------------------------------------------- */
 
-    CAMD_2 (n, Pe, Iw, Len, iwlen, pfree,
+    CAMD(2) (n, Pe, Iw, Len, iwlen, pfree,
 	Nv, Pinv, P, Head, Elen, Degree, W, Control, Info, C, BucketSet) ;
 }

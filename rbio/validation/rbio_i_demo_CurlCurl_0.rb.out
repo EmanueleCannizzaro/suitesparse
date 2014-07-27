@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bodendiek/CurlCurl_0; 2012; A. Bodendiek; ed: T. Davis]
+status 0
+key [2569] nrow 11083 ncol 11083
+mkind 0 skind 1 asize 124426 znz 0
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 11083 ncol 11083 nnz 62213 nelnz 0 xsize 62213
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

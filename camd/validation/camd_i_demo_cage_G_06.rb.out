@@ -1,0 +1,246 @@
+
+===========================================================
+title: [AG-Monien/cage_G_06]
+status 0
+key [2436G6] nrow 58 ncol 58
+mkind 1 skind 1 asize 174 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 58 ncol 58 nnz 87 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+
+
+CAMD demo:
+
+camd version 2.3, Jun 20, 2012:  approximate minimum degree ordering:
+    dense row parameter: 10
+    (rows with more than max (10 * sqrt (n), 16) entries are
+    considered "dense", and placed last in output permutation)
+    aggressive absorption:  yes
+
+
+Input matrix:  58-by-58, with 87 entries.
+   Note that for a symmetric matrix such as this one, only the
+   strictly lower or upper triangular parts would need to be
+   passed to CAMD, since CAMD computes the ordering of A+A'.  The
+   diagonal entries are also not needed, since CAMD ignores them.
+
+Column: 0, number of entries: 3, with row indices in Ai [0 ... 2]:
+    row indices: 6 50 57
+
+Column: 1, number of entries: 3, with row indices in Ai [3 ... 5]:
+    row indices: 2 22 56
+
+Column: 2, number of entries: 2, with row indices in Ai [6 ... 7]:
+    row indices: 3 47
+
+Column: 3, number of entries: 2, with row indices in Ai [8 ... 9]:
+    row indices: 4 23
+
+Column: 4, number of entries: 2, with row indices in Ai [10 ... 11]:
+    row indices: 5 41
+
+Column: 5, number of entries: 2, with row indices in Ai [12 ... 13]:
+    row indices: 6 35
+
+Column: 6, number of entries: 1, with row indices in Ai [14 ... 14]:
+    row indices: 7
+
+Column: 7, number of entries: 2, with row indices in Ai [15 ... 16]:
+    row indices: 8 45
+
+Column: 8, number of entries: 2, with row indices in Ai [17 ... 18]:
+    row indices: 9 27
+
+Column: 9, number of entries: 2, with row indices in Ai [19 ... 20]:
+    row indices: 10 39
+
+Column: 10, number of entries: 2, with row indices in Ai [21 ... 22]:
+    row indices: 11 32
+
+Column: 11, number of entries: 2, with row indices in Ai [23 ... 24]:
+    row indices: 12 53
+
+Column: 12, number of entries: 2, with row indices in Ai [25 ... 26]:
+    row indices: 13 28
+
+Column: 13, number of entries: 2, with row indices in Ai [27 ... 28]:
+    row indices: 14 48
+
+Column: 14, number of entries: 2, with row indices in Ai [29 ... 30]:
+    row indices: 15 42
+
+Column: 15, number of entries: 2, with row indices in Ai [31 ... 32]:
+    row indices: 16 27
+
+Column: 16, number of entries: 2, with row indices in Ai [33 ... 34]:
+    row indices: 17 30
+
+Column: 17, number of entries: 2, with row indices in Ai [35 ... 36]:
+    row indices: 18 52
+
+Column: 18, number of entries: 2, with row indices in Ai [37 ... 38]:
+    row indices: 19 46
+
+Column: 19, number of entries: 2, with row indices in Ai [39 ... 40]:
+    row indices: 20 40
+
+Column: 20, number of entries: 2, with row indices in Ai [41 ... 42]:
+    row indices: 21 28
+
+Column: 21, number of entries: 2, with row indices in Ai [43 ... 44]:
+    row indices: 22 34
+
+Column: 22, number of entries: 1, with row indices in Ai [45 ... 45]:
+    row indices: 27
+
+Column: 23, number of entries: 2, with row indices in Ai [46 ... 47]:
+    row indices: 24 26
+
+Column: 24, number of entries: 2, with row indices in Ai [48 ... 49]:
+    row indices: 25 51
+
+Column: 25, number of entries: 2, with row indices in Ai [50 ... 51]:
+    row indices: 33 44
+
+Column: 26, number of entries: 2, with row indices in Ai [52 ... 53]:
+    row indices: 28 29
+
+Column: 27, number of entries: 0, with row indices in Ai [54 ... 53]:
+    row indices:
+
+Column: 28, number of entries: 0, with row indices in Ai [54 ... 53]:
+    row indices:
+
+Column: 29, number of entries: 2, with row indices in Ai [54 ... 55]:
+    row indices: 30 37
+
+Column: 30, number of entries: 1, with row indices in Ai [56 ... 56]:
+    row indices: 31
+
+Column: 31, number of entries: 2, with row indices in Ai [57 ... 58]:
+    row indices: 32 57
+
+Column: 32, number of entries: 1, with row indices in Ai [59 ... 59]:
+    row indices: 33
+
+Column: 33, number of entries: 1, with row indices in Ai [60 ... 60]:
+    row indices: 34
+
+Column: 34, number of entries: 1, with row indices in Ai [61 ... 61]:
+    row indices: 35
+
+Column: 35, number of entries: 1, with row indices in Ai [62 ... 62]:
+    row indices: 36
+
+Column: 36, number of entries: 2, with row indices in Ai [63 ... 64]:
+    row indices: 37 54
+
+Column: 37, number of entries: 1, with row indices in Ai [65 ... 65]:
+    row indices: 38
+
+Column: 38, number of entries: 2, with row indices in Ai [66 ... 67]:
+    row indices: 39 49
+
+Column: 39, number of entries: 1, with row indices in Ai [68 ... 68]:
+    row indices: 40
+
+Column: 40, number of entries: 1, with row indices in Ai [69 ... 69]:
+    row indices: 41
+
+Column: 41, number of entries: 1, with row indices in Ai [70 ... 70]:
+    row indices: 42
+
+Column: 42, number of entries: 1, with row indices in Ai [71 ... 71]:
+    row indices: 43
+
+Column: 43, number of entries: 2, with row indices in Ai [72 ... 73]:
+    row indices: 44 55
+
+Column: 44, number of entries: 1, with row indices in Ai [74 ... 74]:
+    row indices: 45
+
+Column: 45, number of entries: 1, with row indices in Ai [75 ... 75]:
+    row indices: 46
+
+Column: 46, number of entries: 1, with row indices in Ai [76 ... 76]:
+    row indices: 47
+
+Column: 47, number of entries: 1, with row indices in Ai [77 ... 77]:
+    row indices: 48
+
+Column: 48, number of entries: 1, with row indices in Ai [78 ... 78]:
+    row indices: 49
+
+Column: 49, number of entries: 1, with row indices in Ai [79 ... 79]:
+    row indices: 50
+
+Column: 50, number of entries: 1, with row indices in Ai [80 ... 80]:
+    row indices: 51
+
+Column: 51, number of entries: 1, with row indices in Ai [81 ... 81]:
+    row indices: 52
+
+Column: 52, number of entries: 1, with row indices in Ai [82 ... 82]:
+    row indices: 53
+
+Column: 53, number of entries: 1, with row indices in Ai [83 ... 83]:
+    row indices: 54
+
+Column: 54, number of entries: 1, with row indices in Ai [84 ... 84]:
+    row indices: 55
+
+Column: 55, number of entries: 1, with row indices in Ai [85 ... 85]:
+    row indices: 56
+
+Column: 56, number of entries: 1, with row indices in Ai [86 ... 86]:
+    row indices: 57
+
+Column: 57, number of entries: 0, with row indices in Ai [87 ... 86]:
+    row indices:
+
+return value from camd_order: 0 (should be 0)
+
+camd:  approximate minimum degree ordering, results:
+    status: OK
+    n, dimension of A:                                  58
+    nz, number of nonzeros in A:                        87
+    symmetry of A:                                      0.0000
+    number of nonzeros on diagonal:                     0
+    nonzeros in pattern of A+A' (excl. diagonal):       174
+    # dense rows/columns of A+A':                       0
+    memory used, in bytes:                              3184
+    # of memory compactions:                            1
+
+    The following approximate statistics are for a subsequent
+    factorization of A(P,P) + A(P,P)'.  They are slight upper
+    bounds if there are no dense rows/columns in A+A', and become
+    looser if dense rows/columns exist.
+
+    nonzeros in L (excluding diagonal):                 324
+    nonzeros in L (including diagonal):                 382
+    # divide operations for LDL' or LU:                 324
+    # multiply-subtract operations for LDL':            1487
+    # multiply-subtract operations for LU:              2650
+    max nz. in any column of L (incl. diagonal):        17
+
+    chol flop count for real A, sqrt counted as 1 flop: 3356
+    LDL' flop count for real A:                         3298
+    LDL' flop count for complex A:                      14812
+    LU flop count for real A (with no pivoting):        5624
+    LU flop count for complex A (with no pivoting):     24116
+
+Permutation vector:
+  6 45  7  1 47  2  4 13 28 12 23 26  3 27 15 42 55 43 14 30 57 31 21 33 25 35 37 36 34 10  9 18 17 40 19 39 49 51 50 53 52  0 46  8 16 22 20 24 29 32 38 11 48 41  5 44 56 54
+
+Inverse permutation vector:
+ 41  3  5 12  6 54  0  2 43 30 29 51  9  7 18 14 44 32 31 34 46 22 45 10 47 24 11 13  8 48 19 21 49 23 28 25 27 26 50 35 33 53 15 17 55  1 42  4 52 36 38 37 40 39 57 16 56 20
+
+Execution of CAMD demo: OK

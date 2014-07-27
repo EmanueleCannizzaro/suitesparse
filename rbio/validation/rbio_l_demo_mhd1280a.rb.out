@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/mhd1280a; 1994; A. Booten et al.; ed: Z. Bai et al.]
+status 0
+key [1620] nrow 1280 ncol 1280
+mkind 2 skind 0 asize 95812 znz 0
+mtype from file:               [cua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [cua]
+mtype after reading from file: [cua]
+raw nrow 1280 ncol 1280 nnz 47906 nelnz 0 xsize 95812
+mtype from raw read from file: [cua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [cua]
+(L) RBok status 0 0 0
+RBdemo OK

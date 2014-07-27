@@ -49,7 +49,7 @@ static Int clear_flag (Int wflg, Int wbig, Int W [ ], Int n)
 /* === CAMD_2 ============================================================== */
 /* ========================================================================= */
 
-GLOBAL void CAMD_2
+GLOBAL void CAMD(2)
 (
     Int n,		/* A is n-by-n, where n > 0 */
     Int Pe [ ],		/* Pe [0..n-1]: index in Iw of row i on input */
@@ -504,7 +504,7 @@ GLOBAL void CAMD_2
 	nvi, nvj, nvpiv, slenme, wbig, we, wflg, wnvi, ok, ndense, ncmpa, nnull,
 	dense, aggressive ;
 
-    unsigned Int hash ;	    /* unsigned, so that hash % n is well defined.*/
+    UInt hash ;	    /* unsigned, so that hash % n is well defined.*/
 
 /*
  * deg:		the degree of a variable or element
@@ -1883,7 +1883,7 @@ GLOBAL void CAMD_2
 	ASSERT (j >= 0 && j < n) ;
 	if (Pe [j] == EMPTY)
 	{
-	    k = CAMD_postorder (j, k, n, Head, Next, Perm, W) ;
+        k = CAMD(postorder) (j, k, n, Head, Next, Perm, W) ;
 	}
     }
 
@@ -1899,7 +1899,7 @@ GLOBAL void CAMD_2
 	if (C == NULL)
 	{
 	    /* postorder the dense/empty nodes (the parent of all these is n) */
-	    CAMD_postorder (n, k, n, Head, Next, Perm, W) ;
+        CAMD(postorder) (n, k, n, Head, Next, Perm, W) ;
 	}
 	else
 	{

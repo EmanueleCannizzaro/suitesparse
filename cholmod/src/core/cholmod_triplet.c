@@ -151,7 +151,7 @@ cholmod_triplet *CHOLMOD(allocate_triplet)
     }
     /* ensure the dimensions do not cause integer overflow */
     (void) CHOLMOD(add_size_t) (ncol, 2, &ok) ;
-    if (!ok || nrow > Int_max || ncol > Int_max || nzmax > Int_max)
+    if (!ok || nrow > Int_MAX || ncol > Int_MAX || nzmax > Int_MAX)
     {
 	ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
 	return (NULL) ;
@@ -179,9 +179,9 @@ cholmod_triplet *CHOLMOD(allocate_triplet)
     T->nzmax = nzmax ;
     T->nnz = 0 ;
     T->stype = stype ;
-    T->itype = ITYPE ;
+    T->itype = CHOLMOD_LONG ;
     T->xtype = xtype ;
-    T->dtype = DTYPE ;
+    T->dtype = CHOLMOD_DOUBLE ;
 
     T->j = NULL ;
     T->i = NULL ;

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Janna/CoupCons3D; 2012; C. Janna et al.; ed: T. Davis]
+status 0
+key [2647] nrow 416800 ncol 416800
+mkind 0 skind 0 asize 44644672 znz 5044916
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 416800 ncol 416800 nnz 22322336 nelnz 0 xsize 22322336
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 5044916
+RBdemo OK

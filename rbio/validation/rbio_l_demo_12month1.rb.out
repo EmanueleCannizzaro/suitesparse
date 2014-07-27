@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Buss/12month1; 2009; S. Buss; ed: T. Davis]
+status 0
+key [2263] nrow 12471 ncol 872622
+mkind 1 skind -1 asize 45249454 znz 0
+mtype from file:               [pra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [pra]
+mtype after reading from file: [pra]
+raw nrow 12471 ncol 872622 nnz 22624727 nelnz 0 xsize 0
+mtype from raw read from file: [pra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [pra]
+(L) RBok status 0 0 0
+RBdemo OK

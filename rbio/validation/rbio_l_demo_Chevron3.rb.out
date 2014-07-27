@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Chevron/Chevron3; 2012; J. Washbourne; ed: T. Davis]
+status 0
+key [2557] nrow 381381 ncol 381381
+mkind 2 skind 0 asize 6826226 znz 0
+mtype from file:               [cua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [cua]
+mtype after reading from file: [cua]
+raw nrow 381381 ncol 381381 nnz 3413113 nelnz 0 xsize 6826226
+mtype from raw read from file: [cua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [cua]
+(L) RBok status 0 0 0
+RBdemo OK

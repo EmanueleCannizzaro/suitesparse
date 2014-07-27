@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Janna/ML_Laplace; 2012; C. Janna et al.; ed: T. Davis]
+status 0
+key [2648] nrow 377002 ncol 377002
+mkind 0 skind 0 asize 55379944 znz 107274
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 377002 ncol 377002 nnz 27689972 nelnz 0 xsize 27689972
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 107274
+RBdemo OK

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/af23560; 1991; A. Mahajan; ed: Z. Bai et al.]
+status 0
+key [291] nrow 23560 ncol 23560
+mkind 0 skind 0 asize 968512 znz 23658
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 23560 ncol 23560 nnz 484256 nelnz 0 xsize 484256
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 23658
+RBdemo OK

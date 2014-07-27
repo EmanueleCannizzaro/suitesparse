@@ -18,7 +18,7 @@
 /* === AMD_order =========================================================== */
 /* ========================================================================= */
 
-GLOBAL Int AMD_order
+GLOBAL Int AMD(order)
 (
     Int n,
     const Int Ap [ ],
@@ -80,7 +80,7 @@ GLOBAL Int AMD_order
     }
 
     /* check the input matrix:	AMD_OK, AMD_INVALID, or AMD_OK_BUT_JUMBLED */
-    status = AMD_valid (n, n, Ap, Ai) ;
+    status = AMD(valid) (n, n, Ap, Ai) ;
 
     if (status == AMD_INVALID)
     {
@@ -121,7 +121,7 @@ GLOBAL Int AMD_order
 	    return (AMD_OUT_OF_MEMORY) ;
 	}
 	/* use Len and Pinv as workspace to create R = A' */
-	AMD_preprocess (n, Ap, Ai, Rp, Ri, Len, Pinv) ;
+    AMD(preprocess) (n, Ap, Ai, Rp, Ri, Len, Pinv) ;
 	Cp = Rp ;
 	Ci = Ri ;
     }
@@ -138,7 +138,7 @@ GLOBAL Int AMD_order
     /* determine the symmetry and count off-diagonal nonzeros in A+A' */
     /* --------------------------------------------------------------------- */
 
-    nzaat = AMD_aat (n, Cp, Ci, Len, P, Info) ;
+    nzaat = AMD(aat) (n, Cp, Ci, Len, P, Info) ;
     AMD_DEBUG1 (("nzaat: %g\n", (double) nzaat)) ;
     ASSERT ((MAX (nz-n, 0) <= nzaat) && (nzaat <= 2 * (size_t) nz)) ;
 
@@ -183,7 +183,7 @@ GLOBAL Int AMD_order
     /* order the matrix */
     /* --------------------------------------------------------------------- */
 
-    AMD_1 (n, Cp, Ci, P, Pinv, Len, slen, S, Control, Info) ;
+    AMD(1) (n, Cp, Ci, P, Pinv, Len, slen, S, Control, Info) ;
 
     /* --------------------------------------------------------------------- */
     /* free the workspace */

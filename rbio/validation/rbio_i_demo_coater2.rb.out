@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Brethour/coater2; 1997; J. Brethour; ed: T. Davis]
+status 0
+key [376] nrow 9540 ncol 9540
+mkind 0 skind 0 asize 414616 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 9540 ncol 9540 nnz 207308 nelnz 0 xsize 207308
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

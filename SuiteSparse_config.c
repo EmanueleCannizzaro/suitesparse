@@ -13,34 +13,30 @@
 /* SuiteSparse_malloc: malloc wrapper */
 /* -------------------------------------------------------------------------- */
 
-void *SuiteSparse_malloc    /* pointer to allocated block of memory */
+gpointer SuiteSparse_malloc    /* pointer to allocated block of memory */
 (
-    size_t nitems,          /* number of items to malloc (>=1 is enforced) */
-    size_t size_of_item,    /* sizeof each item */
-    int *ok,                /* TRUE if successful, FALSE otherwise */
-    SuiteSparse_config *config      /* SuiteSparse-wide configuration */
-)
+        size_t nitems,          /* number of items to malloc (>=1 is enforced) */
+        size_t size_of_item,    /* sizeof each item */
+        int *ok,                /* TRUE if successful, FALSE otherwise */
+        SuiteSparse_config *config      /* SuiteSparse-wide configuration */
+        )
 {
-    void *p ;
-    if (nitems < 1) nitems = 1 ;
-    if (nitems * size_of_item != ((double) nitems) * size_of_item)
-    {
+    gpointer p;
+    if (nitems < 1) nitems = 1;
+    if (nitems * size_of_item != ((double) nitems) * size_of_item) {
         /* Int overflow */
-        *ok = 0 ;
-        return (NULL) ;
+        *ok = 0;
+        return (NULL);
     }
-    if (!config || config->malloc_memory == NULL)
-    {
+    if (!config || config->malloc_memory == NULL) {
         /* use malloc by default */
-        p = (void *) malloc (nitems * size_of_item) ;
-    }
-    else
-    {
+        p = g_malloc (nitems * size_of_item);
+    } else {
         /* use the pointer to malloc in the config */
-        p = (void *) (config->malloc_memory) (nitems * size_of_item) ;
+        p = (void *) (config->malloc_memory) (nitems * size_of_item);
     }
-    *ok = (p != NULL) ;
-    return (p) ;
+    *ok = (p != NULL);
+    return (p);
 }
 
 
@@ -48,26 +44,21 @@ void *SuiteSparse_malloc    /* pointer to allocated block of memory */
 /* SuiteSparse_free: free wrapper */
 /* -------------------------------------------------------------------------- */
 
-void *SuiteSparse_free      /* always returns NULL */
+void SuiteSparse_free      /* always returns NULL */
 (
-    void *p,                /* block to free */
-    SuiteSparse_config *config        /* SuiteSparse-wide configuration */
-)
+        gpointer p,                /* block to free */
+        SuiteSparse_config *config        /* SuiteSparse-wide configuration */
+        )
 {
-    if (p)
-    {
-        if (!config || config->free_memory == NULL)
-        {
+    if (p) {
+        if (!config || config->free_memory == NULL) {
             /* use free by default */
-            free (p) ;
-        }
-        else
-        {
+            g_free (p);
+        } else {
             /* use the pointer to free in the config */
-            (config->free_memory) (p) ;
+            (config->free_memory) (p);
         }
     }
-    return (NULL) ;
 }
 
 
@@ -87,15 +78,15 @@ void *SuiteSparse_free      /* always returns NULL */
  *
  * example:
  *
- *      double tic [2], r, s, t ;
- *      SuiteSparse_tic (tic) ;     // start the timer
+ *      double tic [2], r, s, t;
+ *      SuiteSparse_tic (tic);     // start the timer
  *      // do some work A
- *      t = SuiteSparse_toc (tic) ; // t is time for work A, in seconds
+ *      t = SuiteSparse_toc (tic); // t is time for work A, in seconds
  *      // do some work B
- *      s = SuiteSparse_toc (tic) ; // s is time for work A and B, in seconds
- *      SuiteSparse_tic (tic) ;     // restart the timer
+ *      s = SuiteSparse_toc (tic); // s is time for work A and B, in seconds
+ *      SuiteSparse_tic (tic);     // restart the timer
  *      // do some work C
- *      r = SuiteSparse_toc (tic) ; // s is time for work C, in seconds
+ *      r = SuiteSparse_toc (tic); // s is time for work C, in seconds
  *
  * A double array of size 2 is used so that this routine can be more easily
  * ported to non-POSIX systems.  The caller does not rely on the POSIX
@@ -108,26 +99,26 @@ void *SuiteSparse_free      /* always returns NULL */
 
 void SuiteSparse_tic
 (
-    double tic [2]      /* output, contents undefined on input */
+        double tic [2]      /* output, contents undefined on input */
 )
 {
     /* POSIX C 1993 timer, requires -librt */
-    struct timespec t ;
-    clock_gettime (CLOCK_MONOTONIC, &t) ;
-    tic [0] = (double) (t.tv_sec) ;
-    tic [1] = (double) (t.tv_nsec) ;
+    struct timespec t;
+    clock_gettime (CLOCK_MONOTONIC, &t);
+    tic [0] = (double) (t.tv_sec);
+    tic [1] = (double) (t.tv_nsec);
 }
 
 #else
 
 void SuiteSparse_tic
 (
-    double tic [2]      /* output, contents undefined on input */
+        double tic [2]      /* output, contents undefined on input */
 )
 {
     /* no timer installed */
-    tic [0] = 0 ;
-    tic [1] = 0 ;
+    tic [0] = 0;
+    tic [1] = 0;
 }
 
 #endif
@@ -146,12 +137,12 @@ void SuiteSparse_tic
 
 double SuiteSparse_toc  /* returns time in seconds since last tic */
 (
-    double tic [2]  /* input, not modified from last call to SuiteSparse_tic */
+        double tic [2]  /* input, not modified from last call to SuiteSparse_tic */
 )
 {
-    double toc [2] ;
-    SuiteSparse_tic (toc) ;
-    return ((toc [0] - tic [0]) + 1e-9 * (toc [1] - tic [1])) ;
+    double toc [2];
+    SuiteSparse_tic (toc);
+    return ((toc [0] - tic [0]) + 1e-9 * (toc [1] - tic [1]));
 }
 
 
@@ -162,30 +153,9 @@ double SuiteSparse_toc  /* returns time in seconds since last tic */
 /* This function might not be accurate down to the nanosecond. */
 
 double SuiteSparse_time  /* returns current wall clock time in seconds */
-(
-    void
-)
+(void)
 {
-    double toc [2] ;
-    SuiteSparse_tic (toc) ;
-    return (toc [0] + 1e-9 * toc [1]) ;
-}
-
-
-/* -------------------------------------------------------------------------- */
-/* SuiteSparse_version: return the current version of SuiteSparse */
-/* -------------------------------------------------------------------------- */
-
-int SuiteSparse_version
-(
-    int version [3]
-)
-{
-    if (version != NULL)
-    {
-        version [0] = SUITESPARSE_MAIN_VERSION ;
-        version [1] = SUITESPARSE_SUB_VERSION ;
-        version [2] = SUITESPARSE_SUBSUB_VERSION ;
-    }
-    return (SUITESPARSE_VERSION) ;
+    double toc [2];
+    SuiteSparse_tic (toc);
+    return (toc [0] + 1e-9 * toc [1]);
 }

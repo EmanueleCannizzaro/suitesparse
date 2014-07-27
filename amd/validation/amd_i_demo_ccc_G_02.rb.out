@@ -1,0 +1,263 @@
+
+===========================================================
+title: [AG-Monien/ccc_G_02]
+status 0
+key [2438G2] nrow 64 ncol 64
+mkind 1 skind 1 asize 192 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 64 ncol 64 nnz 96 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+
+
+AMD demo:
+
+Approximate minimum degree ordering
+    dense row parameter: 10
+    (rows with more than max (10 * sqrt (n), 16) entries are
+    considered "dense", and placed last in output permutation)
+    aggressive absorption:  yes
+
+Input matrix:  64-by-64, with 96 entries.
+   Note that for a symmetric matrix such as this one, only the
+   strictly lower or upper triangular parts would need to be
+   passed to AMD, since AMD computes the ordering of A+A'.  The
+   diagonal entries are also not needed, since AMD ignores them.
+
+Column: 0, number of entries: 3, with row indices in Ai [0 ... 2]:
+    row indices: 1 16 48
+
+Column: 1, number of entries: 2, with row indices in Ai [3 ... 4]:
+    row indices: 17 49
+
+Column: 2, number of entries: 3, with row indices in Ai [5 ... 7]:
+    row indices: 3 18 50
+
+Column: 3, number of entries: 2, with row indices in Ai [8 ... 9]:
+    row indices: 19 51
+
+Column: 4, number of entries: 3, with row indices in Ai [10 ... 12]:
+    row indices: 5 20 52
+
+Column: 5, number of entries: 2, with row indices in Ai [13 ... 14]:
+    row indices: 21 53
+
+Column: 6, number of entries: 3, with row indices in Ai [15 ... 17]:
+    row indices: 7 22 54
+
+Column: 7, number of entries: 2, with row indices in Ai [18 ... 19]:
+    row indices: 23 55
+
+Column: 8, number of entries: 3, with row indices in Ai [20 ... 22]:
+    row indices: 9 24 56
+
+Column: 9, number of entries: 2, with row indices in Ai [23 ... 24]:
+    row indices: 25 57
+
+Column: 10, number of entries: 3, with row indices in Ai [25 ... 27]:
+    row indices: 11 26 58
+
+Column: 11, number of entries: 2, with row indices in Ai [28 ... 29]:
+    row indices: 27 59
+
+Column: 12, number of entries: 3, with row indices in Ai [30 ... 32]:
+    row indices: 13 28 60
+
+Column: 13, number of entries: 2, with row indices in Ai [33 ... 34]:
+    row indices: 29 61
+
+Column: 14, number of entries: 3, with row indices in Ai [35 ... 37]:
+    row indices: 15 30 62
+
+Column: 15, number of entries: 2, with row indices in Ai [38 ... 39]:
+    row indices: 31 63
+
+Column: 16, number of entries: 2, with row indices in Ai [40 ... 41]:
+    row indices: 18 32
+
+Column: 17, number of entries: 2, with row indices in Ai [42 ... 43]:
+    row indices: 19 33
+
+Column: 18, number of entries: 1, with row indices in Ai [44 ... 44]:
+    row indices: 34
+
+Column: 19, number of entries: 1, with row indices in Ai [45 ... 45]:
+    row indices: 35
+
+Column: 20, number of entries: 2, with row indices in Ai [46 ... 47]:
+    row indices: 22 36
+
+Column: 21, number of entries: 2, with row indices in Ai [48 ... 49]:
+    row indices: 23 37
+
+Column: 22, number of entries: 1, with row indices in Ai [50 ... 50]:
+    row indices: 38
+
+Column: 23, number of entries: 1, with row indices in Ai [51 ... 51]:
+    row indices: 39
+
+Column: 24, number of entries: 2, with row indices in Ai [52 ... 53]:
+    row indices: 26 40
+
+Column: 25, number of entries: 2, with row indices in Ai [54 ... 55]:
+    row indices: 27 41
+
+Column: 26, number of entries: 1, with row indices in Ai [56 ... 56]:
+    row indices: 42
+
+Column: 27, number of entries: 1, with row indices in Ai [57 ... 57]:
+    row indices: 43
+
+Column: 28, number of entries: 2, with row indices in Ai [58 ... 59]:
+    row indices: 30 44
+
+Column: 29, number of entries: 2, with row indices in Ai [60 ... 61]:
+    row indices: 31 45
+
+Column: 30, number of entries: 1, with row indices in Ai [62 ... 62]:
+    row indices: 46
+
+Column: 31, number of entries: 1, with row indices in Ai [63 ... 63]:
+    row indices: 47
+
+Column: 32, number of entries: 2, with row indices in Ai [64 ... 65]:
+    row indices: 36 48
+
+Column: 33, number of entries: 2, with row indices in Ai [66 ... 67]:
+    row indices: 37 49
+
+Column: 34, number of entries: 2, with row indices in Ai [68 ... 69]:
+    row indices: 38 50
+
+Column: 35, number of entries: 2, with row indices in Ai [70 ... 71]:
+    row indices: 39 51
+
+Column: 36, number of entries: 1, with row indices in Ai [72 ... 72]:
+    row indices: 52
+
+Column: 37, number of entries: 1, with row indices in Ai [73 ... 73]:
+    row indices: 53
+
+Column: 38, number of entries: 1, with row indices in Ai [74 ... 74]:
+    row indices: 54
+
+Column: 39, number of entries: 1, with row indices in Ai [75 ... 75]:
+    row indices: 55
+
+Column: 40, number of entries: 2, with row indices in Ai [76 ... 77]:
+    row indices: 44 56
+
+Column: 41, number of entries: 2, with row indices in Ai [78 ... 79]:
+    row indices: 45 57
+
+Column: 42, number of entries: 2, with row indices in Ai [80 ... 81]:
+    row indices: 46 58
+
+Column: 43, number of entries: 2, with row indices in Ai [82 ... 83]:
+    row indices: 47 59
+
+Column: 44, number of entries: 1, with row indices in Ai [84 ... 84]:
+    row indices: 60
+
+Column: 45, number of entries: 1, with row indices in Ai [85 ... 85]:
+    row indices: 61
+
+Column: 46, number of entries: 1, with row indices in Ai [86 ... 86]:
+    row indices: 62
+
+Column: 47, number of entries: 1, with row indices in Ai [87 ... 87]:
+    row indices: 63
+
+Column: 48, number of entries: 1, with row indices in Ai [88 ... 88]:
+    row indices: 56
+
+Column: 49, number of entries: 1, with row indices in Ai [89 ... 89]:
+    row indices: 57
+
+Column: 50, number of entries: 1, with row indices in Ai [90 ... 90]:
+    row indices: 58
+
+Column: 51, number of entries: 1, with row indices in Ai [91 ... 91]:
+    row indices: 59
+
+Column: 52, number of entries: 1, with row indices in Ai [92 ... 92]:
+    row indices: 60
+
+Column: 53, number of entries: 1, with row indices in Ai [93 ... 93]:
+    row indices: 61
+
+Column: 54, number of entries: 1, with row indices in Ai [94 ... 94]:
+    row indices: 62
+
+Column: 55, number of entries: 1, with row indices in Ai [95 ... 95]:
+    row indices: 63
+
+Column: 56, number of entries: 0, with row indices in Ai [96 ... 95]:
+    row indices:
+
+Column: 57, number of entries: 0, with row indices in Ai [96 ... 95]:
+    row indices:
+
+Column: 58, number of entries: 0, with row indices in Ai [96 ... 95]:
+    row indices:
+
+Column: 59, number of entries: 0, with row indices in Ai [96 ... 95]:
+    row indices:
+
+Column: 60, number of entries: 0, with row indices in Ai [96 ... 95]:
+    row indices:
+
+Column: 61, number of entries: 0, with row indices in Ai [96 ... 95]:
+    row indices:
+
+Column: 62, number of entries: 0, with row indices in Ai [96 ... 95]:
+    row indices:
+
+Column: 63, number of entries: 0, with row indices in Ai [96 ... 95]:
+    row indices:
+
+return value from amd_order: 0 (should be 0)
+
+Results:
+    status: OK
+    n, dimension of A:                                  64
+    nz, number of nonzeros in A:                        96
+    symmetry of A:                                      0.0000
+    number of nonzeros on diagonal:                     0
+    nonzeros in pattern of A+A' (excl. diagonal):       192
+    # dense rows/columns of A+A':                       0
+    memory used, in bytes:                              3224
+    # of memory compactions:                            1
+
+    The following approximate statistics are for a subsequent
+    factorization of A(P,P) + A(P,P)'.  They are slight upper
+    bounds if there are no dense rows/columns in A+A', and become
+    looser if dense rows/columns exist.
+
+    nonzeros in L (excluding diagonal):                 320
+    nonzeros in L (including diagonal):                 384
+    # divide operations for LDL' or LU:                 320
+    # multiply-subtract operations for LDL':            1217
+    # multiply-subtract operations for LU:              2114
+    max nz. in any column of L (incl. diagonal):        14
+
+    chol flop count for real A, sqrt counted as 1 flop: 2818
+    LDL' flop count for real A:                         2754
+    LDL' flop count for complex A:                      12616
+    LU flop count for real A (with no pivoting):        4548
+    LU flop count for complex A (with no pivoting):     19792
+
+Permutation vector:
+ 27 59 43 51 26 58 42 10 38 18  2 34 50 11 62 30 28 14 39 63  7  6 55 61 31 29 13 56 40  8 57 41  9 45 60 36 32 20 52  1  0 19  5 37 21 33 17  4 49 53 48  3 12 15 16 22 23 24 35 44 46 47 54 25
+
+Inverse permutation vector:
+ 40 39 10 51 47 42 21 20 29 32  7 13 52 26 17 53 54 46  9 41 37 44 55 56 57 63  4  0 16 25 15 24 36 45 11 58 35 43  8 18 28 31  6  2 59 33 60 61 50 48 12  3 38 49 62 22 27 30  5  1 34 23 14 19
+
+Execution of AMD demo: OK

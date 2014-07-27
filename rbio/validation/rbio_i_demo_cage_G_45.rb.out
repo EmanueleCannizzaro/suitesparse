@@ -1,0 +1,18 @@
+
+===========================================================
+title: [AG-Monien/cage_G_45]
+status 0
+key [2436G45] nrow 366 ncol 366
+mkind 1 skind 1 asize 5124 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 366 ncol 366 nnz 2562 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

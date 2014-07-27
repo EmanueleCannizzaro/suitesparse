@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/tols1090; 1991; S. Godet-Thobie; ed: Z. Bai et al.]
+status 0
+key [1637] nrow 1090 ncol 1090
+mkind 0 skind 0 asize 7092 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 1090 ncol 1090 nnz 3546 nelnz 0 xsize 3546
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

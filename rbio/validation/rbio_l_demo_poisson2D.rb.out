@@ -1,0 +1,18 @@
+
+===========================================================
+title: [FEMLAB/poisson2D; 2003; COMSOL; ed: T. Davis]
+status 0
+key [926] nrow 367 ncol 367
+mkind 0 skind 0 asize 4834 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 367 ncol 367 nnz 2417 nelnz 0 xsize 2417
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

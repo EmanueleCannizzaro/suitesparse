@@ -87,7 +87,7 @@ cholmod_factor *CHOLMOD(allocate_factor)
 
     /* ensure the dimension does not cause integer overflow */
     (void) CHOLMOD(add_size_t) (n, 2, &ok) ;
-    if (!ok || n > Int_max)
+    if (!ok || n > Int_MAX)
     {
 	ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
 	return (NULL) ;
@@ -102,9 +102,9 @@ cholmod_factor *CHOLMOD(allocate_factor)
     L->is_ll = FALSE ;
     L->is_super = FALSE ;
     L->is_monotonic = TRUE ;
-    L->itype = ITYPE ;
+    L->itype = CHOLMOD_LONG ;
     L->xtype = CHOLMOD_PATTERN ;
-    L->dtype = DTYPE ;
+    L->dtype = CHOLMOD_DOUBLE ;
 
     /* allocate the purely symbolic part of L */
     L->ordering = CHOLMOD_NATURAL ;

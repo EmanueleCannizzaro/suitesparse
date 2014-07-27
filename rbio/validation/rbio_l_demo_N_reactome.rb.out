@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Schulthess/N_reactome; 2012; P. Schulthess; ed: T. Davis]
+status 0
+key [2554] nrow 10204 ncol 16559
+mkind 3 skind -1 asize 87632 znz 0
+mtype from file:               [ira]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [ira]
+mtype after reading from file: [ira]
+raw nrow 10204 ncol 16559 nnz 43816 nelnz 0 xsize 43816
+mtype from raw read from file: [ira]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [ira]
+(L) RBok status 0 0 0
+RBdemo OK

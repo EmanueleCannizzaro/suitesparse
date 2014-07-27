@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Bai/ck656; 1986; J. Cullum; ed: Z. Bai et al.]
+status 0
+key [308] nrow 656 ncol 656
+mkind 0 skind 0 asize 7768 znz 0
+mtype from file:               [rua]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rua]
+mtype after reading from file: [rua]
+raw nrow 656 ncol 656 nnz 3884 nelnz 0 xsize 3884
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [pua]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 0
+RBdemo OK

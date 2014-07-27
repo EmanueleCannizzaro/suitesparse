@@ -1,4 +1,4 @@
-#include "cs.h"
+#include "cxsparse.h"
 /* test real/complex conversion routines (int version) */
 int main (void)
 {

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Boeing/msc01440; 1995; R. Grimes; ed: T. Davis]
+status 0
+key [359] nrow 1440 ncol 1440
+mkind 0 skind 1 asize 47710 znz 1272
+mtype from file:               [rsa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [rsa]
+mtype after reading from file: [rsa]
+raw nrow 1440 ncol 1440 nnz 23855 nelnz 0 xsize 23855
+mtype from raw read from file: [rua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [rua]
+(L) RBok status 0 0 636
+RBdemo OK

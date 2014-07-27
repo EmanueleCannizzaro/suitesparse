@@ -26,7 +26,7 @@
 
 #include "amd_internal.h"
 
-GLOBAL void AMD_1
+GLOBAL void AMD(1)
 (
     Int n,		/* n > 0 */
     const Int Ap [ ],	/* input of size n+1, not modified */
@@ -60,7 +60,7 @@ GLOBAL void AMD_1
     W = s ;	    s += n ;
     Iw = s ;	    s += iwlen ;
 
-    ASSERT (AMD_valid (n, n, Ap, Ai) == AMD_OK) ;
+    ASSERT (AMD(valid) (n, n, Ap, Ai) == AMD_OK) ;
 
     /* construct the pointers for A+A' */
     Sp = Nv ;			/* use Nv and W as workspace for Sp and Tp [ */
@@ -175,6 +175,6 @@ GLOBAL void AMD_1
     /* order the matrix */
     /* --------------------------------------------------------------------- */
 
-    AMD_2 (n, Pe, Iw, Len, iwlen, pfree,
+    AMD(2) (n, Pe, Iw, Len, iwlen, pfree,
 	Nv, Pinv, P, Head, Elen, Degree, W, Control, Info) ;
 }

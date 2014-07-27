@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Arenas/celegans_metabolic; 2005; J. Duch, A. Arenas; ed: A. Arenas]
+status 0
+key [2407] nrow 453 ncol 453
+mkind 3 skind 1 asize 4080 znz 0
+mtype from file:               [isa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [isa]
+mtype after reading from file: [isa]
+raw nrow 453 ncol 453 nnz 2040 nelnz 0 xsize 2040
+mtype from raw read from file: [iua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [iua]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -45,52 +45,13 @@ extern "C" {
 
 #include "SuiteSparse_config.h"
 
-
-#if defined (DLONG) || defined (ZLONG)
-
-#define Int SuiteSparse_long
-#define ID  SuiteSparse_long_id
-#define Int_MAX SuiteSparse_long_max
-
-#define AMD_order amd_l_order
-#define AMD_defaults amd_l_defaults
-#define AMD_control amd_l_control
-#define AMD_info amd_l_info
-#define AMD_1 amd_l1
-#define AMD_2 amd_l2
-#define AMD_valid amd_l_valid
-#define AMD_aat amd_l_aat
-#define AMD_postorder amd_l_postorder
-#define AMD_post_tree amd_l_post_tree
-#define AMD_dump amd_l_dump
-#define AMD_debug amd_l_debug
-#define AMD_debug_init amd_l_debug_init
-#define AMD_preprocess amd_l_preprocess
-
+#if defined (DLONG)
+#define AMD(name) amd ## _l_ ## name
 #else
-
-#define Int int
-#define ID "%d"
-#define Int_MAX INT_MAX
-
-#define AMD_order amd_order
-#define AMD_defaults amd_defaults
-#define AMD_control amd_control
-#define AMD_info amd_info
-#define AMD_1 amd_1
-#define AMD_2 amd_2
-#define AMD_valid amd_valid
-#define AMD_aat amd_aat
-#define AMD_postorder amd_postorder
-#define AMD_post_tree amd_post_tree
-#define AMD_dump amd_dump
-#define AMD_debug amd_debug
-#define AMD_debug_init amd_debug_init
-#define AMD_preprocess amd_preprocess
-
+#define AMD(name) amd ## _i_ ## name
 #endif
 
-Int AMD_order                  /* returns AMD_OK, AMD_OK_BUT_JUMBLED,
+Int AMD(order)                  /* returns AMD_OK, AMD_OK_BUT_JUMBLED,
                                 * AMD_INVALID, or AMD_OUT_OF_MEMORY */
 (
     Int n,                     /* A is n-by-n.  n must be >= 0. */
@@ -101,16 +62,6 @@ Int AMD_order                  /* returns AMD_OK, AMD_OK_BUT_JUMBLED,
     double Info [ ]            /* output Info statistics, of size AMD_INFO */
 ) ;
 
-//SuiteSparse_long amd_l_order    /* see above for description of arguments */
-/*(
-    SuiteSparse_long n,
-    const SuiteSparse_long Ap [ ],
-    const SuiteSparse_long Ai [ ],
-    SuiteSparse_long P [ ],
-    double Control [ ],
-    double Info [ ]
-) ;
-*/
 /* Input arguments (not modified):
  *
  *       n: the matrix A is n-by-n.
@@ -280,7 +231,7 @@ Int AMD_order                  /* returns AMD_OK, AMD_OK_BUT_JUMBLED,
  * of the matrix for AMD to destroy).  Refer to AMD/Source/amd_2.c for a
  * description of each parameter. */
 
-void amd_2
+void AMD(2)
 (
     Int n,
     Int Pe [ ],
@@ -298,26 +249,7 @@ void amd_2
     double Control [ ],
     double Info [ ]
 ) ;
-/*
-void amd_l2
-(
-    SuiteSparse_long n,
-    SuiteSparse_long Pe [ ],
-    SuiteSparse_long Iw [ ],
-    SuiteSparse_long Len [ ],
-    SuiteSparse_long iwlen,
-    SuiteSparse_long pfree,
-    SuiteSparse_long Nv [ ],
-    SuiteSparse_long Next [ ], 
-    SuiteSparse_long Last [ ],
-    SuiteSparse_long Head [ ],
-    SuiteSparse_long Elen [ ],
-    SuiteSparse_long Degree [ ],
-    SuiteSparse_long W [ ],
-    double Control [ ],
-    double Info [ ]
-) ;
-*/
+
 /* ------------------------------------------------------------------------- */
 /* amd_valid */
 /* ------------------------------------------------------------------------- */
@@ -332,22 +264,14 @@ void amd_l2
  * NOTE: this routine returned TRUE/FALSE in v1.2 and earlier.
  */
 
-Int amd_valid
+Int AMD(valid)
 (
     Int n_row,                 /* # of rows */
     Int n_col,                 /* # of columns */
     const Int Ap [ ],          /* column pointers, of size n_col+1 */
     const Int Ai [ ]           /* row indices, of size Ap [n_col] */
 ) ;
-/*
-SuiteSparse_long amd_l_valid
-(
-    SuiteSparse_long n_row,
-    SuiteSparse_long n_col,
-    const SuiteSparse_long Ap [ ],
-    const SuiteSparse_long Ai [ ]
-) ;
-*/
+
 /* ------------------------------------------------------------------------- */
 /* AMD memory manager and printf routines */
 /* ------------------------------------------------------------------------- */
@@ -370,16 +294,13 @@ EXTERN int (*amd_printf) (const char *, ...) ;            /* pointer to printf *
 /* ------------------------------------------------------------------------- */
 
 /* amd_defaults:  sets the default control settings */
-void AMD_defaults   (double Control [ ]) ;
-//void amd_l_defaults (double Control [ ]) ;
+void amd_defaults   (double Control [ ]) ;
 
 /* amd_control: prints the control settings */
-void AMD_control    (double Control [ ]) ;
-//void amd_l_control  (double Control [ ]) ;
+void amd_control    (double Control [ ]) ;
 
 /* amd_info: prints the statistics */
-void AMD_info       (double Info [ ]) ;
-//void amd_l_info     (double Info [ ]) ;
+void amd_info       (double Info [ ]) ;
 
 #define AMD_CONTROL 5          /* size of Control array */
 #define AMD_INFO 20            /* size of Info array */

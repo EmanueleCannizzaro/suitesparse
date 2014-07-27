@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Arenas/PGPgiantcompo; 2004; M. Boguna et al.; ed: A. Arenas]
+status 0
+key [2405] nrow 10680 ncol 10680
+mkind 3 skind 1 asize 48632 znz 0
+mtype from file:               [isa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [isa]
+mtype after reading from file: [isa]
+raw nrow 10680 ncol 10680 nnz 24316 nelnz 0 xsize 24316
+mtype from raw read from file: [iua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [iua]
+(L) RBok status 0 0 0
+RBdemo OK

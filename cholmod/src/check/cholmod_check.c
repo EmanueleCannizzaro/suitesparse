@@ -763,7 +763,7 @@ static SuiteSparse_long check_sparse
 	default:	      ERR ("unknown dtype") ;
     }
 
-    if (A->itype != ITYPE || A->dtype != DTYPE)
+    if (A->itype != CHOLMOD_LONG || A->dtype != CHOLMOD_DOUBLE)
     {
 	ERR ("integer and real type must match routine") ;
     }
@@ -1569,7 +1569,7 @@ static int check_factor
 	default:	      ERR ("unknown dtype") ;
     }
 
-    if (L->itype != ITYPE || L->dtype != DTYPE)
+    if (L->itype != CHOLMOD_LONG || L->dtype != CHOLMOD_DOUBLE)
     {
 	ERR ("integer and real type must match routine") ;
     }
@@ -2142,7 +2142,7 @@ static int check_triplet
 	default:	      ERR ("unknown dtype") ;
     }
 
-    if (T->itype != ITYPE || T->dtype != DTYPE)
+    if (T->itype != CHOLMOD_LONG || T->dtype != CHOLMOD_DOUBLE)
     {
 	ERR ("integer and real type must match routine") ;
     }

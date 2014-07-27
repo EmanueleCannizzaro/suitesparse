@@ -15,7 +15,7 @@
 
 #include "camd_internal.h"
 
-GLOBAL void CAMD_control
+GLOBAL void camd_control
 (
     double Control [ ]
 )

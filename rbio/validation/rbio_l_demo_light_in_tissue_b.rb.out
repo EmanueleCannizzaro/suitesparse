@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Dehghani/light_in_tissue_b]
+status 0
+key [1873b] nrow 29282 ncol 1
+mkind 2 skind -1 asize 29282 znz 0
+mtype from file:               [cra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [cra]
+mtype after reading from file: [cra]
+raw nrow 29282 ncol 1 nnz 14641 nelnz 0 xsize 29282
+mtype from raw read from file: [cra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [cra]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Barabasi/NotreDame_yeast; 2001; H. Jeong et al.; ed: H. Jeong]
+status 0
+key [1511] nrow 2114 ncol 2114
+mkind 1 skind 1 asize 4554 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 2114 ncol 2114 nnz 2277 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

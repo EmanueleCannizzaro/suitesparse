@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Cote/mplate; 1997; A. Cote; ed: T. Davis]
+status 0
+key [378] nrow 5962 ncol 5962
+mkind 2 skind 1 asize 148152 znz 0
+mtype from file:               [csa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [csa]
+mtype after reading from file: [csa]
+raw nrow 5962 ncol 5962 nnz 74076 nelnz 0 xsize 148152
+mtype from raw read from file: [cua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [cua]
+(L) RBok status 0 0 0
+RBdemo OK

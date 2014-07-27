@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DIMACS10/G_n_pin_pout; 2011; H. Meyerhenke; ed: H. Meyerhenke]
+status 0
+key [2574] nrow 100000 ncol 100000
+mkind 1 skind 1 asize 1002396 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 100000 ncol 100000 nnz 501198 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK

@@ -1,0 +1,18 @@
+
+===========================================================
+title: [Buss/connectus; 2009; S. Buss; ed: T. Davis]
+status 0
+key [2247] nrow 512 ncol 394792
+mkind 1 skind -1 asize 2255050 znz 0
+mtype from file:               [pra]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [pra]
+mtype after reading from file: [pra]
+raw nrow 512 ncol 394792 nnz 1127525 nelnz 0 xsize 0
+mtype from raw read from file: [pra]
+(P) RBok status 0 0 0
+mtype of pattern:              [pra]
+mtype of tril(A):              [pra]
+(L) RBok status 0 0 0
+RBdemo OK

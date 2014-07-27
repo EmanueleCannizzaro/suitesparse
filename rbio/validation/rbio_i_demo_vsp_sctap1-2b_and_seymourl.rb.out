@@ -1,0 +1,18 @@
+
+===========================================================
+title: [DIMACS10/vsp_sctap1-2b_and_seymourl; 2011; C. Schultz; ed: H. Meyerhenk]
+status 0
+key [2644] nrow 40174 ncol 40174
+mkind 1 skind 1 asize 281662 znz 0
+mtype from file:               [psa]
+(A) RBok status 0 0 0
+(Z) RBok status 0 0 0
+mtype from examining matrix:   [psa]
+mtype after reading from file: [psa]
+raw nrow 40174 ncol 40174 nnz 140831 nelnz 0 xsize 0
+mtype from raw read from file: [pua]
+(P) RBok status 0 0 0
+mtype of pattern:              [psa]
+mtype of tril(A):              [pua]
+(L) RBok status 0 0 0
+RBdemo OK
